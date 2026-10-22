@@ -4,7 +4,7 @@
 
 When is it worth paying for another model, a verifier, a routing signal, or a stored decision? This repository evaluates those choices using reference-relative quality and resource accounting. It contains the paper's analytical examples, benchmark replays, collection scripts, and recorded aggregate results.
 
-[中文说明](README.zh-CN.md) · [Experiment guide](docs/experiments.md) · [Data and attribution](docs/data.md) · [Reproduction notes](docs/reproducibility.md)
+[中文说明](README.zh-CN.md) · [Experiment guide](docs/experiments.md) · [Data and attribution](docs/data.md) · [Reproduction notes](docs/reproducibility.md) · [Hugging Face replay data](https://huggingface.co/datasets/Lance1573/route-anything-data)
 
 ## Quick start
 

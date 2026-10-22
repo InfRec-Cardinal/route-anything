@@ -2,7 +2,7 @@
 
 ## Distribution status
 
-The code release includes aggregate results and analytical coordinates. A separate replay bundle has been prepared for Hugging Face, but its upload is pending because the Hub connection was unavailable during publication. There is no live Route Anything dataset URL in this release yet.
+The code release includes aggregate results and analytical coordinates. The per-task replay bundle is published at [Lance1573/route-anything-data](https://huggingface.co/datasets/Lance1573/route-anything-data).
 
 The analytical quick start works without the bundle. The core outcome-matrix experiments can use the public upstream releases below. Experiments that depend on the authors' archived calls need the replay bundle, or new collection using your own service.
 
@@ -40,13 +40,13 @@ For example, if the Agent-as-a-Router release is already available locally, set 
 
 The prepared bundle preserves the code's paths under `data/` and `experiments_x/`. It includes X7b attempts and recorded responses; X8 samples, sandbox results and judge verdicts; X12b forecasts; X12c direct-choice calls; X13 verdicts; and the upstream outcome tables and decision records needed to join them by task ID. The dataset card records each file and source. Optional R6 contains score records, not the historical raw token continuations.
 
-After publication, download a dataset repository into the checkout with:
+Download the dataset repository into the checkout with:
 
 ```bash
 python scripts/download_data.py --repo-id OWNER/DATASET_NAME
 ```
 
-Replace `OWNER/DATASET_NAME` with the published identifier. The downloader selects only `data/` and `experiments_x/`, so the dataset card does not replace this repository's README. Per-task files and caches are excluded from Git.
+The published identifier is `Lance1573/route-anything-data`. The downloader selects only `data/` and `experiments_x/`, so the dataset card does not replace this repository's README. Per-task files and caches are excluded from Git.
 
 ## Task reconstruction and new collection
 
