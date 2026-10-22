@@ -1,0 +1,2513 @@
+{
+  "design": "Exploratory offline recheck on the released RouterBench population. Table 1 pools the ten rerun splits; the original split is a control. Same 70/30 eval_name x reference-success strata, base portfolios and fitting-only filters. Rerun splits are not new independent test data.",
+  "selection": "np.argmax in released model-column order. Exact-first-argmax hits and tie-aware hits at rtol=atol=1e-12 are both retained.",
+  "additional_seed_policy": "Ten consecutive integers beginning 20260924; they are identifiers, not calendar dates.",
+  "aggregation": "Table 1 weights each retained split/context/base-portfolio comparison equally across all ten rerun splits, excluding the original-split control. Pooled hit rate, mean relative regret and mean relative gain use these same weights; mean_split fields retain equal weight per split as a diagnostic. Contexts, base portfolios and splits share tasks. Relative regret=(oracle eta-selected eta)/oracle eta; relative gain=(selected eta-base eta)/base eta.",
+  "original": {
+    "seed": 20260917,
+    "fit_tasks": 25542,
+    "test_tasks": 10955,
+    "screened_contexts": 65,
+    "base_portfolios": 21,
+    "summary": {
+      "0.5": {
+        "comparisons": 566,
+        "contexts": 59,
+        "mmlu_subset_comparisons": 419,
+        "heldout_ties": 0,
+        "max_identity_absolute_error": 1.2364864687697263e-10,
+        "max_identity_relative_error": 7.535748399090628e-14,
+        "paired_fitted_efficiency_maximizer": 566,
+        "rules": {
+          "paired": {
+            "exact_first_argmax_hits": 378,
+            "tie_aware_hits": 378,
+            "hit_rate": 0.6678445229681979,
+            "mean_relative_efficiency_regret": 0.0334743536308898,
+            "mean_relative_efficiency_gain": 0.3365806672016333,
+            "fitted_top_ties": 0
+          },
+          "residual": {
+            "exact_first_argmax_hits": 381,
+            "tie_aware_hits": 381,
+            "hit_rate": 0.6731448763250883,
+            "mean_relative_efficiency_regret": 0.034688318054213324,
+            "mean_relative_efficiency_gain": 0.3342947389863604,
+            "fitted_top_ties": 0
+          },
+          "independence": {
+            "exact_first_argmax_hits": 206,
+            "tie_aware_hits": 206,
+            "hit_rate": 0.36395759717314485,
+            "mean_relative_efficiency_regret": 0.08496212079661142,
+            "mean_relative_efficiency_gain": 0.26351727194218943,
+            "fitted_top_ties": 0
+          },
+          "saving": {
+            "exact_first_argmax_hits": 382,
+            "tie_aware_hits": 382,
+            "hit_rate": 0.6749116607773852,
+            "mean_relative_efficiency_regret": 0.03396286847249295,
+            "mean_relative_efficiency_gain": 0.33532039866526364,
+            "fitted_top_ties": 0
+          },
+          "marginal": {
+            "exact_first_argmax_hits": 76,
+            "tie_aware_hits": 76,
+            "hit_rate": 0.13427561837455831,
+            "mean_relative_efficiency_regret": 0.43507704263645564,
+            "mean_relative_efficiency_gain": -0.21402581402545529,
+            "fitted_top_ties": 57
+          },
+          "normalized_residual": {
+            "exact_first_argmax_hits": 382,
+            "tie_aware_hits": 382,
+            "hit_rate": 0.6749116607773852,
+            "mean_relative_efficiency_regret": 0.033971701044533335,
+            "mean_relative_efficiency_gain": 0.33586668028109823,
+            "fitted_top_ties": 0
+          }
+        },
+        "paired_comparisons": {
+          "residual": {
+            "changed_selections": 62,
+            "paired_higher_test_efficiency": 31,
+            "paired_lower_test_efficiency": 31,
+            "test_efficiency_equal": 504,
+            "paired_only_top1_hits": 25,
+            "other_only_top1_hits": 28
+          },
+          "independence": {
+            "changed_selections": 350,
+            "paired_higher_test_efficiency": 268,
+            "paired_lower_test_efficiency": 82,
+            "test_efficiency_equal": 216,
+            "paired_only_top1_hits": 238,
+            "other_only_top1_hits": 66
+          },
+          "saving": {
+            "changed_selections": 44,
+            "paired_higher_test_efficiency": 22,
+            "paired_lower_test_efficiency": 22,
+            "test_efficiency_equal": 522,
+            "paired_only_top1_hits": 15,
+            "other_only_top1_hits": 19
+          },
+          "marginal": {
+            "changed_selections": 489,
+            "paired_higher_test_efficiency": 446,
+            "paired_lower_test_efficiency": 43,
+            "test_efficiency_equal": 77,
+            "paired_only_top1_hits": 331,
+            "other_only_top1_hits": 29
+          },
+          "normalized_residual": {
+            "changed_selections": 56,
+            "paired_higher_test_efficiency": 28,
+            "paired_lower_test_efficiency": 28,
+            "test_efficiency_equal": 510,
+            "paired_only_top1_hits": 21,
+            "other_only_top1_hits": 25
+          }
+        }
+      },
+      "1.0": {
+        "comparisons": 21,
+        "contexts": 1,
+        "mmlu_subset_comparisons": 0,
+        "heldout_ties": 0,
+        "max_identity_absolute_error": 4.860112312599085e-12,
+        "max_identity_relative_error": 2.0327341407607222e-14,
+        "paired_fitted_efficiency_maximizer": 21,
+        "rules": {
+          "paired": {
+            "exact_first_argmax_hits": 14,
+            "tie_aware_hits": 14,
+            "hit_rate": 0.6666666666666666,
+            "mean_relative_efficiency_regret": 0.009462554972409491,
+            "mean_relative_efficiency_gain": 0.1446950137211156,
+            "fitted_top_ties": 0
+          },
+          "residual": {
+            "exact_first_argmax_hits": 13,
+            "tie_aware_hits": 13,
+            "hit_rate": 0.6190476190476191,
+            "mean_relative_efficiency_regret": 0.022445369593681545,
+            "mean_relative_efficiency_gain": 0.12918737124379964,
+            "fitted_top_ties": 0
+          },
+          "independence": {
+            "exact_first_argmax_hits": 11,
+            "tie_aware_hits": 11,
+            "hit_rate": 0.5238095238095238,
+            "mean_relative_efficiency_regret": 0.03362995006937395,
+            "mean_relative_efficiency_gain": 0.11649299668358569,
+            "fitted_top_ties": 0
+          },
+          "saving": {
+            "exact_first_argmax_hits": 8,
+            "tie_aware_hits": 8,
+            "hit_rate": 0.38095238095238093,
+            "mean_relative_efficiency_regret": 0.03631986147995432,
+            "mean_relative_efficiency_gain": 0.11349968024104193,
+            "fitted_top_ties": 0
+          },
+          "marginal": {
+            "exact_first_argmax_hits": 0,
+            "tie_aware_hits": 0,
+            "hit_rate": 0.0,
+            "mean_relative_efficiency_regret": 0.3896220750350484,
+            "mean_relative_efficiency_gain": -0.2946138770196865,
+            "fitted_top_ties": 0
+          },
+          "normalized_residual": {
+            "exact_first_argmax_hits": 14,
+            "tie_aware_hits": 14,
+            "hit_rate": 0.6666666666666666,
+            "mean_relative_efficiency_regret": 0.01378253799162018,
+            "mean_relative_efficiency_gain": 0.1395921165877495,
+            "fitted_top_ties": 0
+          }
+        },
+        "paired_comparisons": {
+          "residual": {
+            "changed_selections": 11,
+            "paired_higher_test_efficiency": 6,
+            "paired_lower_test_efficiency": 5,
+            "test_efficiency_equal": 10,
+            "paired_only_top1_hits": 6,
+            "other_only_top1_hits": 5
+          },
+          "independence": {
+            "changed_selections": 15,
+            "paired_higher_test_efficiency": 9,
+            "paired_lower_test_efficiency": 6,
+            "test_efficiency_equal": 6,
+            "paired_only_top1_hits": 9,
+            "other_only_top1_hits": 6
+          },
+          "saving": {
+            "changed_selections": 10,
+            "paired_higher_test_efficiency": 8,
+            "paired_lower_test_efficiency": 2,
+            "test_efficiency_equal": 11,
+            "paired_only_top1_hits": 8,
+            "other_only_top1_hits": 2
+          },
+          "marginal": {
+            "changed_selections": 21,
+            "paired_higher_test_efficiency": 21,
+            "paired_lower_test_efficiency": 0,
+            "test_efficiency_equal": 0,
+            "paired_only_top1_hits": 14,
+            "other_only_top1_hits": 0
+          },
+          "normalized_residual": {
+            "changed_selections": 8,
+            "paired_higher_test_efficiency": 4,
+            "paired_lower_test_efficiency": 4,
+            "test_efficiency_equal": 13,
+            "paired_only_top1_hits": 4,
+            "other_only_top1_hits": 4
+          }
+        }
+      }
+    }
+  },
+  "additional_splits": [
+    {
+      "seed": 20260924,
+      "fit_tasks": 25542,
+      "test_tasks": 10955,
+      "screened_contexts": 65,
+      "base_portfolios": 21,
+      "summary": {
+        "0.5": {
+          "comparisons": 564,
+          "contexts": 58,
+          "mmlu_subset_comparisons": 418,
+          "heldout_ties": 0,
+          "max_identity_absolute_error": 1.2291678785913973e-10,
+          "max_identity_relative_error": 7.519756289074813e-14,
+          "paired_fitted_efficiency_maximizer": 564,
+          "rules": {
+            "paired": {
+              "exact_first_argmax_hits": 352,
+              "tie_aware_hits": 352,
+              "hit_rate": 0.624113475177305,
+              "mean_relative_efficiency_regret": 0.040072604090040695,
+              "mean_relative_efficiency_gain": 0.30761204918204704,
+              "fitted_top_ties": 0
+            },
+            "residual": {
+              "exact_first_argmax_hits": 340,
+              "tie_aware_hits": 340,
+              "hit_rate": 0.6028368794326241,
+              "mean_relative_efficiency_regret": 0.04345836461075131,
+              "mean_relative_efficiency_gain": 0.3028278004132428,
+              "fitted_top_ties": 0
+            },
+            "independence": {
+              "exact_first_argmax_hits": 177,
+              "tie_aware_hits": 177,
+              "hit_rate": 0.31382978723404253,
+              "mean_relative_efficiency_regret": 0.09816697500991775,
+              "mean_relative_efficiency_gain": 0.22538717901907093,
+              "fitted_top_ties": 0
+            },
+            "saving": {
+              "exact_first_argmax_hits": 347,
+              "tie_aware_hits": 347,
+              "hit_rate": 0.6152482269503546,
+              "mean_relative_efficiency_regret": 0.03984629992952753,
+              "mean_relative_efficiency_gain": 0.30784063818590046,
+              "fitted_top_ties": 0
+            },
+            "marginal": {
+              "exact_first_argmax_hits": 88,
+              "tie_aware_hits": 88,
+              "hit_rate": 0.15602836879432624,
+              "mean_relative_efficiency_regret": 0.3822935184861698,
+              "mean_relative_efficiency_gain": -0.1558334775013936,
+              "fitted_top_ties": 76
+            },
+            "normalized_residual": {
+              "exact_first_argmax_hits": 345,
+              "tie_aware_hits": 345,
+              "hit_rate": 0.6117021276595744,
+              "mean_relative_efficiency_regret": 0.042248161173854756,
+              "mean_relative_efficiency_gain": 0.30444734595638984,
+              "fitted_top_ties": 0
+            }
+          },
+          "paired_comparisons": {
+            "residual": {
+              "changed_selections": 78,
+              "paired_higher_test_efficiency": 46,
+              "paired_lower_test_efficiency": 32,
+              "test_efficiency_equal": 486,
+              "paired_only_top1_hits": 35,
+              "other_only_top1_hits": 23
+            },
+            "independence": {
+              "changed_selections": 320,
+              "paired_higher_test_efficiency": 257,
+              "paired_lower_test_efficiency": 63,
+              "test_efficiency_equal": 244,
+              "paired_only_top1_hits": 218,
+              "other_only_top1_hits": 43
+            },
+            "saving": {
+              "changed_selections": 60,
+              "paired_higher_test_efficiency": 33,
+              "paired_lower_test_efficiency": 27,
+              "test_efficiency_equal": 504,
+              "paired_only_top1_hits": 25,
+              "other_only_top1_hits": 20
+            },
+            "marginal": {
+              "changed_selections": 451,
+              "paired_higher_test_efficiency": 409,
+              "paired_lower_test_efficiency": 42,
+              "test_efficiency_equal": 113,
+              "paired_only_top1_hits": 297,
+              "other_only_top1_hits": 33
+            },
+            "normalized_residual": {
+              "changed_selections": 65,
+              "paired_higher_test_efficiency": 36,
+              "paired_lower_test_efficiency": 29,
+              "test_efficiency_equal": 499,
+              "paired_only_top1_hits": 27,
+              "other_only_top1_hits": 20
+            }
+          }
+        },
+        "1.0": {
+          "comparisons": 21,
+          "contexts": 1,
+          "mmlu_subset_comparisons": 0,
+          "heldout_ties": 0,
+          "max_identity_absolute_error": 5.300648808770347e-12,
+          "max_identity_relative_error": 2.1919647003483607e-14,
+          "paired_fitted_efficiency_maximizer": 21,
+          "rules": {
+            "paired": {
+              "exact_first_argmax_hits": 9,
+              "tie_aware_hits": 9,
+              "hit_rate": 0.42857142857142855,
+              "mean_relative_efficiency_regret": 0.014401950182607906,
+              "mean_relative_efficiency_gain": 0.13050938776912094,
+              "fitted_top_ties": 0
+            },
+            "residual": {
+              "exact_first_argmax_hits": 16,
+              "tie_aware_hits": 16,
+              "hit_rate": 0.7619047619047619,
+              "mean_relative_efficiency_regret": 0.0032019358024018693,
+              "mean_relative_efficiency_gain": 0.14407805772299276,
+              "fitted_top_ties": 0
+            },
+            "independence": {
+              "exact_first_argmax_hits": 13,
+              "tie_aware_hits": 13,
+              "hit_rate": 0.6190476190476191,
+              "mean_relative_efficiency_regret": 0.011149599877310215,
+              "mean_relative_efficiency_gain": 0.13524965916288803,
+              "fitted_top_ties": 0
+            },
+            "saving": {
+              "exact_first_argmax_hits": 13,
+              "tie_aware_hits": 13,
+              "hit_rate": 0.6190476190476191,
+              "mean_relative_efficiency_regret": 0.006341747800043717,
+              "mean_relative_efficiency_gain": 0.1404684763809699,
+              "fitted_top_ties": 0
+            },
+            "marginal": {
+              "exact_first_argmax_hits": 0,
+              "tie_aware_hits": 0,
+              "hit_rate": 0.0,
+              "mean_relative_efficiency_regret": 0.3714975664510093,
+              "mean_relative_efficiency_gain": -0.27855961565467763,
+              "fitted_top_ties": 0
+            },
+            "normalized_residual": {
+              "exact_first_argmax_hits": 16,
+              "tie_aware_hits": 16,
+              "hit_rate": 0.7619047619047619,
+              "mean_relative_efficiency_regret": 0.002232051299144374,
+              "mean_relative_efficiency_gain": 0.14514301738413665,
+              "fitted_top_ties": 0
+            }
+          },
+          "paired_comparisons": {
+            "residual": {
+              "changed_selections": 10,
+              "paired_higher_test_efficiency": 2,
+              "paired_lower_test_efficiency": 8,
+              "test_efficiency_equal": 11,
+              "paired_only_top1_hits": 1,
+              "other_only_top1_hits": 8
+            },
+            "independence": {
+              "changed_selections": 16,
+              "paired_higher_test_efficiency": 7,
+              "paired_lower_test_efficiency": 9,
+              "test_efficiency_equal": 5,
+              "paired_only_top1_hits": 5,
+              "other_only_top1_hits": 9
+            },
+            "saving": {
+              "changed_selections": 7,
+              "paired_higher_test_efficiency": 2,
+              "paired_lower_test_efficiency": 5,
+              "test_efficiency_equal": 14,
+              "paired_only_top1_hits": 1,
+              "other_only_top1_hits": 5
+            },
+            "marginal": {
+              "changed_selections": 21,
+              "paired_higher_test_efficiency": 21,
+              "paired_lower_test_efficiency": 0,
+              "test_efficiency_equal": 0,
+              "paired_only_top1_hits": 9,
+              "other_only_top1_hits": 0
+            },
+            "normalized_residual": {
+              "changed_selections": 9,
+              "paired_higher_test_efficiency": 1,
+              "paired_lower_test_efficiency": 8,
+              "test_efficiency_equal": 12,
+              "paired_only_top1_hits": 1,
+              "other_only_top1_hits": 8
+            }
+          }
+        }
+      }
+    },
+    {
+      "seed": 20260925,
+      "fit_tasks": 25542,
+      "test_tasks": 10955,
+      "screened_contexts": 65,
+      "base_portfolios": 21,
+      "summary": {
+        "0.5": {
+          "comparisons": 557,
+          "contexts": 55,
+          "mmlu_subset_comparisons": 410,
+          "heldout_ties": 0,
+          "max_identity_absolute_error": 1.2150991324233473e-10,
+          "max_identity_relative_error": 7.390929368533223e-14,
+          "paired_fitted_efficiency_maximizer": 557,
+          "rules": {
+            "paired": {
+              "exact_first_argmax_hits": 352,
+              "tie_aware_hits": 352,
+              "hit_rate": 0.6319569120287253,
+              "mean_relative_efficiency_regret": 0.03717092671561836,
+              "mean_relative_efficiency_gain": 0.3084175087284741,
+              "fitted_top_ties": 0
+            },
+            "residual": {
+              "exact_first_argmax_hits": 338,
+              "tie_aware_hits": 338,
+              "hit_rate": 0.6068222621184919,
+              "mean_relative_efficiency_regret": 0.03949733914347432,
+              "mean_relative_efficiency_gain": 0.3052603146451002,
+              "fitted_top_ties": 0
+            },
+            "independence": {
+              "exact_first_argmax_hits": 206,
+              "tie_aware_hits": 206,
+              "hit_rate": 0.36983842010771995,
+              "mean_relative_efficiency_regret": 0.08704777899400655,
+              "mean_relative_efficiency_gain": 0.2399593673908612,
+              "fitted_top_ties": 0
+            },
+            "saving": {
+              "exact_first_argmax_hits": 346,
+              "tie_aware_hits": 346,
+              "hit_rate": 0.6211849192100538,
+              "mean_relative_efficiency_regret": 0.03837282105200886,
+              "mean_relative_efficiency_gain": 0.30624407955324673,
+              "fitted_top_ties": 0
+            },
+            "marginal": {
+              "exact_first_argmax_hits": 87,
+              "tie_aware_hits": 87,
+              "hit_rate": 0.1561938958707361,
+              "mean_relative_efficiency_regret": 0.38672910677653605,
+              "mean_relative_efficiency_gain": -0.16113001222718426,
+              "fitted_top_ties": 26
+            },
+            "normalized_residual": {
+              "exact_first_argmax_hits": 340,
+              "tie_aware_hits": 340,
+              "hit_rate": 0.6104129263913824,
+              "mean_relative_efficiency_regret": 0.03781554441301115,
+              "mean_relative_efficiency_gain": 0.30885873575179795,
+              "fitted_top_ties": 0
+            }
+          },
+          "paired_comparisons": {
+            "residual": {
+              "changed_selections": 63,
+              "paired_higher_test_efficiency": 39,
+              "paired_lower_test_efficiency": 24,
+              "test_efficiency_equal": 494,
+              "paired_only_top1_hits": 34,
+              "other_only_top1_hits": 20
+            },
+            "independence": {
+              "changed_selections": 341,
+              "paired_higher_test_efficiency": 255,
+              "paired_lower_test_efficiency": 86,
+              "test_efficiency_equal": 216,
+              "paired_only_top1_hits": 214,
+              "other_only_top1_hits": 68
+            },
+            "saving": {
+              "changed_selections": 61,
+              "paired_higher_test_efficiency": 33,
+              "paired_lower_test_efficiency": 28,
+              "test_efficiency_equal": 496,
+              "paired_only_top1_hits": 29,
+              "other_only_top1_hits": 23
+            },
+            "marginal": {
+              "changed_selections": 465,
+              "paired_higher_test_efficiency": 428,
+              "paired_lower_test_efficiency": 37,
+              "test_efficiency_equal": 92,
+              "paired_only_top1_hits": 293,
+              "other_only_top1_hits": 28
+            },
+            "normalized_residual": {
+              "changed_selections": 53,
+              "paired_higher_test_efficiency": 32,
+              "paired_lower_test_efficiency": 21,
+              "test_efficiency_equal": 504,
+              "paired_only_top1_hits": 29,
+              "other_only_top1_hits": 17
+            }
+          }
+        },
+        "1.0": {
+          "comparisons": 23,
+          "contexts": 2,
+          "mmlu_subset_comparisons": 0,
+          "heldout_ties": 0,
+          "max_identity_absolute_error": 4.945377440890297e-12,
+          "max_identity_relative_error": 2.0878813707378475e-14,
+          "paired_fitted_efficiency_maximizer": 23,
+          "rules": {
+            "paired": {
+              "exact_first_argmax_hits": 18,
+              "tie_aware_hits": 18,
+              "hit_rate": 0.782608695652174,
+              "mean_relative_efficiency_regret": 0.008444653658833757,
+              "mean_relative_efficiency_gain": 0.12667086819372642,
+              "fitted_top_ties": 0
+            },
+            "residual": {
+              "exact_first_argmax_hits": 13,
+              "tie_aware_hits": 13,
+              "hit_rate": 0.5652173913043478,
+              "mean_relative_efficiency_regret": 0.016608933060247487,
+              "mean_relative_efficiency_gain": 0.11686522000414708,
+              "fitted_top_ties": 0
+            },
+            "independence": {
+              "exact_first_argmax_hits": 9,
+              "tie_aware_hits": 9,
+              "hit_rate": 0.391304347826087,
+              "mean_relative_efficiency_regret": 0.020283049620086476,
+              "mean_relative_efficiency_gain": 0.11278091751615694,
+              "fitted_top_ties": 0
+            },
+            "saving": {
+              "exact_first_argmax_hits": 12,
+              "tie_aware_hits": 12,
+              "hit_rate": 0.5217391304347826,
+              "mean_relative_efficiency_regret": 0.018432942011251344,
+              "mean_relative_efficiency_gain": 0.1148608381855631,
+              "fitted_top_ties": 0
+            },
+            "marginal": {
+              "exact_first_argmax_hits": 0,
+              "tie_aware_hits": 0,
+              "hit_rate": 0.0,
+              "mean_relative_efficiency_regret": 0.3490234693318451,
+              "mean_relative_efficiency_gain": -0.2645740207230017,
+              "fitted_top_ties": 1
+            },
+            "normalized_residual": {
+              "exact_first_argmax_hits": 14,
+              "tie_aware_hits": 14,
+              "hit_rate": 0.6086956521739131,
+              "mean_relative_efficiency_regret": 0.013551945343890535,
+              "mean_relative_efficiency_gain": 0.12057566319319184,
+              "fitted_top_ties": 0
+            }
+          },
+          "paired_comparisons": {
+            "residual": {
+              "changed_selections": 7,
+              "paired_higher_test_efficiency": 6,
+              "paired_lower_test_efficiency": 1,
+              "test_efficiency_equal": 16,
+              "paired_only_top1_hits": 6,
+              "other_only_top1_hits": 1
+            },
+            "independence": {
+              "changed_selections": 11,
+              "paired_higher_test_efficiency": 10,
+              "paired_lower_test_efficiency": 1,
+              "test_efficiency_equal": 12,
+              "paired_only_top1_hits": 10,
+              "other_only_top1_hits": 1
+            },
+            "saving": {
+              "changed_selections": 8,
+              "paired_higher_test_efficiency": 7,
+              "paired_lower_test_efficiency": 1,
+              "test_efficiency_equal": 15,
+              "paired_only_top1_hits": 7,
+              "other_only_top1_hits": 1
+            },
+            "marginal": {
+              "changed_selections": 23,
+              "paired_higher_test_efficiency": 23,
+              "paired_lower_test_efficiency": 0,
+              "test_efficiency_equal": 0,
+              "paired_only_top1_hits": 18,
+              "other_only_top1_hits": 0
+            },
+            "normalized_residual": {
+              "changed_selections": 6,
+              "paired_higher_test_efficiency": 5,
+              "paired_lower_test_efficiency": 1,
+              "test_efficiency_equal": 17,
+              "paired_only_top1_hits": 5,
+              "other_only_top1_hits": 1
+            }
+          }
+        }
+      }
+    },
+    {
+      "seed": 20260926,
+      "fit_tasks": 25542,
+      "test_tasks": 10955,
+      "screened_contexts": 65,
+      "base_portfolios": 21,
+      "summary": {
+        "0.5": {
+          "comparisons": 552,
+          "contexts": 57,
+          "mmlu_subset_comparisons": 405,
+          "heldout_ties": 0,
+          "max_identity_absolute_error": 1.1866063687193673e-10,
+          "max_identity_relative_error": 7.247134500654965e-14,
+          "paired_fitted_efficiency_maximizer": 552,
+          "rules": {
+            "paired": {
+              "exact_first_argmax_hits": 352,
+              "tie_aware_hits": 352,
+              "hit_rate": 0.6376811594202898,
+              "mean_relative_efficiency_regret": 0.03785698553906659,
+              "mean_relative_efficiency_gain": 0.3219184778251068,
+              "fitted_top_ties": 0
+            },
+            "residual": {
+              "exact_first_argmax_hits": 340,
+              "tie_aware_hits": 340,
+              "hit_rate": 0.6159420289855072,
+              "mean_relative_efficiency_regret": 0.038654832161307294,
+              "mean_relative_efficiency_gain": 0.3216008600454644,
+              "fitted_top_ties": 0
+            },
+            "independence": {
+              "exact_first_argmax_hits": 186,
+              "tie_aware_hits": 186,
+              "hit_rate": 0.33695652173913043,
+              "mean_relative_efficiency_regret": 0.08902669373272279,
+              "mean_relative_efficiency_gain": 0.24788259938231305,
+              "fitted_top_ties": 0
+            },
+            "saving": {
+              "exact_first_argmax_hits": 351,
+              "tie_aware_hits": 351,
+              "hit_rate": 0.6358695652173914,
+              "mean_relative_efficiency_regret": 0.037504385420043064,
+              "mean_relative_efficiency_gain": 0.3234029502388099,
+              "fitted_top_ties": 0
+            },
+            "marginal": {
+              "exact_first_argmax_hits": 81,
+              "tie_aware_hits": 81,
+              "hit_rate": 0.14673913043478262,
+              "mean_relative_efficiency_regret": 0.4197237376841922,
+              "mean_relative_efficiency_gain": -0.19384824253668106,
+              "fitted_top_ties": 62
+            },
+            "normalized_residual": {
+              "exact_first_argmax_hits": 338,
+              "tie_aware_hits": 338,
+              "hit_rate": 0.6123188405797102,
+              "mean_relative_efficiency_regret": 0.039388329354465325,
+              "mean_relative_efficiency_gain": 0.32014973730505536,
+              "fitted_top_ties": 0
+            }
+          },
+          "paired_comparisons": {
+            "residual": {
+              "changed_selections": 73,
+              "paired_higher_test_efficiency": 43,
+              "paired_lower_test_efficiency": 30,
+              "test_efficiency_equal": 479,
+              "paired_only_top1_hits": 37,
+              "other_only_top1_hits": 25
+            },
+            "independence": {
+              "changed_selections": 329,
+              "paired_higher_test_efficiency": 259,
+              "paired_lower_test_efficiency": 70,
+              "test_efficiency_equal": 223,
+              "paired_only_top1_hits": 218,
+              "other_only_top1_hits": 52
+            },
+            "saving": {
+              "changed_selections": 53,
+              "paired_higher_test_efficiency": 27,
+              "paired_lower_test_efficiency": 26,
+              "test_efficiency_equal": 499,
+              "paired_only_top1_hits": 23,
+              "other_only_top1_hits": 22
+            },
+            "marginal": {
+              "changed_selections": 444,
+              "paired_higher_test_efficiency": 416,
+              "paired_lower_test_efficiency": 28,
+              "test_efficiency_equal": 108,
+              "paired_only_top1_hits": 291,
+              "other_only_top1_hits": 20
+            },
+            "normalized_residual": {
+              "changed_selections": 60,
+              "paired_higher_test_efficiency": 37,
+              "paired_lower_test_efficiency": 23,
+              "test_efficiency_equal": 492,
+              "paired_only_top1_hits": 33,
+              "other_only_top1_hits": 19
+            }
+          }
+        },
+        "1.0": {
+          "comparisons": 21,
+          "contexts": 1,
+          "mmlu_subset_comparisons": 0,
+          "heldout_ties": 0,
+          "max_identity_absolute_error": 4.845901457883883e-12,
+          "max_identity_relative_error": 1.9797355278193465e-14,
+          "paired_fitted_efficiency_maximizer": 21,
+          "rules": {
+            "paired": {
+              "exact_first_argmax_hits": 10,
+              "tie_aware_hits": 10,
+              "hit_rate": 0.47619047619047616,
+              "mean_relative_efficiency_regret": 0.019183893344402906,
+              "mean_relative_efficiency_gain": 0.1059851237252991,
+              "fitted_top_ties": 0
+            },
+            "residual": {
+              "exact_first_argmax_hits": 5,
+              "tie_aware_hits": 5,
+              "hit_rate": 0.23809523809523808,
+              "mean_relative_efficiency_regret": 0.03315455698779901,
+              "mean_relative_efficiency_gain": 0.0904286208486375,
+              "fitted_top_ties": 0
+            },
+            "independence": {
+              "exact_first_argmax_hits": 2,
+              "tie_aware_hits": 2,
+              "hit_rate": 0.09523809523809523,
+              "mean_relative_efficiency_regret": 0.035274680687634584,
+              "mean_relative_efficiency_gain": 0.08811432588624572,
+              "fitted_top_ties": 0
+            },
+            "saving": {
+              "exact_first_argmax_hits": 5,
+              "tie_aware_hits": 5,
+              "hit_rate": 0.23809523809523808,
+              "mean_relative_efficiency_regret": 0.03315455698779901,
+              "mean_relative_efficiency_gain": 0.0904286208486375,
+              "fitted_top_ties": 0
+            },
+            "marginal": {
+              "exact_first_argmax_hits": 0,
+              "tie_aware_hits": 0,
+              "hit_rate": 0.0,
+              "mean_relative_efficiency_regret": 0.38704771336938404,
+              "mean_relative_efficiency_gain": -0.30858448320755105,
+              "fitted_top_ties": 0
+            },
+            "normalized_residual": {
+              "exact_first_argmax_hits": 7,
+              "tie_aware_hits": 7,
+              "hit_rate": 0.3333333333333333,
+              "mean_relative_efficiency_regret": 0.02930890526803976,
+              "mean_relative_efficiency_gain": 0.09475611725998259,
+              "fitted_top_ties": 0
+            }
+          },
+          "paired_comparisons": {
+            "residual": {
+              "changed_selections": 7,
+              "paired_higher_test_efficiency": 7,
+              "paired_lower_test_efficiency": 0,
+              "test_efficiency_equal": 14,
+              "paired_only_top1_hits": 5,
+              "other_only_top1_hits": 0
+            },
+            "independence": {
+              "changed_selections": 10,
+              "paired_higher_test_efficiency": 10,
+              "paired_lower_test_efficiency": 0,
+              "test_efficiency_equal": 11,
+              "paired_only_top1_hits": 8,
+              "other_only_top1_hits": 0
+            },
+            "saving": {
+              "changed_selections": 7,
+              "paired_higher_test_efficiency": 7,
+              "paired_lower_test_efficiency": 0,
+              "test_efficiency_equal": 14,
+              "paired_only_top1_hits": 5,
+              "other_only_top1_hits": 0
+            },
+            "marginal": {
+              "changed_selections": 21,
+              "paired_higher_test_efficiency": 21,
+              "paired_lower_test_efficiency": 0,
+              "test_efficiency_equal": 0,
+              "paired_only_top1_hits": 10,
+              "other_only_top1_hits": 0
+            },
+            "normalized_residual": {
+              "changed_selections": 5,
+              "paired_higher_test_efficiency": 5,
+              "paired_lower_test_efficiency": 0,
+              "test_efficiency_equal": 16,
+              "paired_only_top1_hits": 3,
+              "other_only_top1_hits": 0
+            }
+          }
+        }
+      }
+    },
+    {
+      "seed": 20260927,
+      "fit_tasks": 25542,
+      "test_tasks": 10955,
+      "screened_contexts": 65,
+      "base_portfolios": 21,
+      "summary": {
+        "0.5": {
+          "comparisons": 551,
+          "contexts": 55,
+          "mmlu_subset_comparisons": 404,
+          "heldout_ties": 0,
+          "max_identity_absolute_error": 1.2362733059489983e-10,
+          "max_identity_relative_error": 7.545475944431894e-14,
+          "paired_fitted_efficiency_maximizer": 551,
+          "rules": {
+            "paired": {
+              "exact_first_argmax_hits": 346,
+              "tie_aware_hits": 346,
+              "hit_rate": 0.6279491833030852,
+              "mean_relative_efficiency_regret": 0.03837491585062944,
+              "mean_relative_efficiency_gain": 0.30269958817303577,
+              "fitted_top_ties": 0
+            },
+            "residual": {
+              "exact_first_argmax_hits": 347,
+              "tie_aware_hits": 347,
+              "hit_rate": 0.6297640653357531,
+              "mean_relative_efficiency_regret": 0.038575446093438055,
+              "mean_relative_efficiency_gain": 0.3031808456110441,
+              "fitted_top_ties": 0
+            },
+            "independence": {
+              "exact_first_argmax_hits": 187,
+              "tie_aware_hits": 187,
+              "hit_rate": 0.3393829401088929,
+              "mean_relative_efficiency_regret": 0.08736824792120867,
+              "mean_relative_efficiency_gain": 0.23502084280946925,
+              "fitted_top_ties": 0
+            },
+            "saving": {
+              "exact_first_argmax_hits": 345,
+              "tie_aware_hits": 345,
+              "hit_rate": 0.6261343012704175,
+              "mean_relative_efficiency_regret": 0.03828097908022165,
+              "mean_relative_efficiency_gain": 0.303459745029012,
+              "fitted_top_ties": 0
+            },
+            "marginal": {
+              "exact_first_argmax_hits": 69,
+              "tie_aware_hits": 69,
+              "hit_rate": 0.12522686025408347,
+              "mean_relative_efficiency_regret": 0.41143346485664783,
+              "mean_relative_efficiency_gain": -0.19034975873549742,
+              "fitted_top_ties": 42
+            },
+            "normalized_residual": {
+              "exact_first_argmax_hits": 346,
+              "tie_aware_hits": 346,
+              "hit_rate": 0.6279491833030852,
+              "mean_relative_efficiency_regret": 0.03894203081866743,
+              "mean_relative_efficiency_gain": 0.3025722513200554,
+              "fitted_top_ties": 0
+            }
+          },
+          "paired_comparisons": {
+            "residual": {
+              "changed_selections": 65,
+              "paired_higher_test_efficiency": 35,
+              "paired_lower_test_efficiency": 30,
+              "test_efficiency_equal": 486,
+              "paired_only_top1_hits": 25,
+              "other_only_top1_hits": 26
+            },
+            "independence": {
+              "changed_selections": 343,
+              "paired_higher_test_efficiency": 261,
+              "paired_lower_test_efficiency": 82,
+              "test_efficiency_equal": 208,
+              "paired_only_top1_hits": 221,
+              "other_only_top1_hits": 62
+            },
+            "saving": {
+              "changed_selections": 48,
+              "paired_higher_test_efficiency": 28,
+              "paired_lower_test_efficiency": 20,
+              "test_efficiency_equal": 503,
+              "paired_only_top1_hits": 18,
+              "other_only_top1_hits": 17
+            },
+            "marginal": {
+              "changed_selections": 449,
+              "paired_higher_test_efficiency": 421,
+              "paired_lower_test_efficiency": 28,
+              "test_efficiency_equal": 102,
+              "paired_only_top1_hits": 295,
+              "other_only_top1_hits": 18
+            },
+            "normalized_residual": {
+              "changed_selections": 49,
+              "paired_higher_test_efficiency": 28,
+              "paired_lower_test_efficiency": 21,
+              "test_efficiency_equal": 502,
+              "paired_only_top1_hits": 19,
+              "other_only_top1_hits": 19
+            }
+          }
+        },
+        "1.0": {
+          "comparisons": 21,
+          "contexts": 1,
+          "mmlu_subset_comparisons": 0,
+          "heldout_ties": 0,
+          "max_identity_absolute_error": 4.916955731459893e-12,
+          "max_identity_relative_error": 1.9801633002165866e-14,
+          "paired_fitted_efficiency_maximizer": 21,
+          "rules": {
+            "paired": {
+              "exact_first_argmax_hits": 15,
+              "tie_aware_hits": 15,
+              "hit_rate": 0.7142857142857143,
+              "mean_relative_efficiency_regret": 0.006037925341864018,
+              "mean_relative_efficiency_gain": 0.1283315260820309,
+              "fitted_top_ties": 0
+            },
+            "residual": {
+              "exact_first_argmax_hits": 14,
+              "tie_aware_hits": 14,
+              "hit_rate": 0.6666666666666666,
+              "mean_relative_efficiency_regret": 0.005650267776789308,
+              "mean_relative_efficiency_gain": 0.1288123465490672,
+              "fitted_top_ties": 0
+            },
+            "independence": {
+              "exact_first_argmax_hits": 9,
+              "tie_aware_hits": 9,
+              "hit_rate": 0.42857142857142855,
+              "mean_relative_efficiency_regret": 0.021245309724848085,
+              "mean_relative_efficiency_gain": 0.11105833754083277,
+              "fitted_top_ties": 0
+            },
+            "saving": {
+              "exact_first_argmax_hits": 7,
+              "tie_aware_hits": 7,
+              "hit_rate": 0.3333333333333333,
+              "mean_relative_efficiency_regret": 0.020339836875190125,
+              "mean_relative_efficiency_gain": 0.11234127983841662,
+              "fitted_top_ties": 0
+            },
+            "marginal": {
+              "exact_first_argmax_hits": 0,
+              "tie_aware_hits": 0,
+              "hit_rate": 0.0,
+              "mean_relative_efficiency_regret": 0.3560706554459583,
+              "mean_relative_efficiency_gain": -0.26878373544105266,
+              "fitted_top_ties": 0
+            },
+            "normalized_residual": {
+              "exact_first_argmax_hits": 14,
+              "tie_aware_hits": 14,
+              "hit_rate": 0.6666666666666666,
+              "mean_relative_efficiency_regret": 0.005650267776789308,
+              "mean_relative_efficiency_gain": 0.1288123465490672,
+              "fitted_top_ties": 0
+            }
+          },
+          "paired_comparisons": {
+            "residual": {
+              "changed_selections": 9,
+              "paired_higher_test_efficiency": 5,
+              "paired_lower_test_efficiency": 4,
+              "test_efficiency_equal": 12,
+              "paired_only_top1_hits": 5,
+              "other_only_top1_hits": 4
+            },
+            "independence": {
+              "changed_selections": 14,
+              "paired_higher_test_efficiency": 10,
+              "paired_lower_test_efficiency": 4,
+              "test_efficiency_equal": 7,
+              "paired_only_top1_hits": 10,
+              "other_only_top1_hits": 4
+            },
+            "saving": {
+              "changed_selections": 8,
+              "paired_higher_test_efficiency": 8,
+              "paired_lower_test_efficiency": 0,
+              "test_efficiency_equal": 13,
+              "paired_only_top1_hits": 8,
+              "other_only_top1_hits": 0
+            },
+            "marginal": {
+              "changed_selections": 21,
+              "paired_higher_test_efficiency": 21,
+              "paired_lower_test_efficiency": 0,
+              "test_efficiency_equal": 0,
+              "paired_only_top1_hits": 15,
+              "other_only_top1_hits": 0
+            },
+            "normalized_residual": {
+              "changed_selections": 9,
+              "paired_higher_test_efficiency": 5,
+              "paired_lower_test_efficiency": 4,
+              "test_efficiency_equal": 12,
+              "paired_only_top1_hits": 5,
+              "other_only_top1_hits": 4
+            }
+          }
+        }
+      }
+    },
+    {
+      "seed": 20260928,
+      "fit_tasks": 25542,
+      "test_tasks": 10955,
+      "screened_contexts": 65,
+      "base_portfolios": 21,
+      "summary": {
+        "0.5": {
+          "comparisons": 556,
+          "contexts": 58,
+          "mmlu_subset_comparisons": 409,
+          "heldout_ties": 0,
+          "max_identity_absolute_error": 1.1787903986260062e-10,
+          "max_identity_relative_error": 7.293905071132701e-14,
+          "paired_fitted_efficiency_maximizer": 556,
+          "rules": {
+            "paired": {
+              "exact_first_argmax_hits": 364,
+              "tie_aware_hits": 364,
+              "hit_rate": 0.6546762589928058,
+              "mean_relative_efficiency_regret": 0.03345572341040348,
+              "mean_relative_efficiency_gain": 0.31871562804509496,
+              "fitted_top_ties": 0
+            },
+            "residual": {
+              "exact_first_argmax_hits": 345,
+              "tie_aware_hits": 345,
+              "hit_rate": 0.6205035971223022,
+              "mean_relative_efficiency_regret": 0.03481099437238371,
+              "mean_relative_efficiency_gain": 0.3168044995319373,
+              "fitted_top_ties": 0
+            },
+            "independence": {
+              "exact_first_argmax_hits": 207,
+              "tie_aware_hits": 207,
+              "hit_rate": 0.3723021582733813,
+              "mean_relative_efficiency_regret": 0.0806763250987879,
+              "mean_relative_efficiency_gain": 0.24820253970896908,
+              "fitted_top_ties": 0
+            },
+            "saving": {
+              "exact_first_argmax_hits": 362,
+              "tie_aware_hits": 362,
+              "hit_rate": 0.6510791366906474,
+              "mean_relative_efficiency_regret": 0.03176025255190458,
+              "mean_relative_efficiency_gain": 0.32117654630618026,
+              "fitted_top_ties": 0
+            },
+            "marginal": {
+              "exact_first_argmax_hits": 80,
+              "tie_aware_hits": 80,
+              "hit_rate": 0.14388489208633093,
+              "mean_relative_efficiency_regret": 0.37600112690658916,
+              "mean_relative_efficiency_gain": -0.14531539260679974,
+              "fitted_top_ties": 29
+            },
+            "normalized_residual": {
+              "exact_first_argmax_hits": 347,
+              "tie_aware_hits": 347,
+              "hit_rate": 0.6241007194244604,
+              "mean_relative_efficiency_regret": 0.03473017364194499,
+              "mean_relative_efficiency_gain": 0.3168472778776137,
+              "fitted_top_ties": 0
+            }
+          },
+          "paired_comparisons": {
+            "residual": {
+              "changed_selections": 60,
+              "paired_higher_test_efficiency": 41,
+              "paired_lower_test_efficiency": 19,
+              "test_efficiency_equal": 496,
+              "paired_only_top1_hits": 35,
+              "other_only_top1_hits": 16
+            },
+            "independence": {
+              "changed_selections": 321,
+              "paired_higher_test_efficiency": 252,
+              "paired_lower_test_efficiency": 69,
+              "test_efficiency_equal": 235,
+              "paired_only_top1_hits": 212,
+              "other_only_top1_hits": 55
+            },
+            "saving": {
+              "changed_selections": 38,
+              "paired_higher_test_efficiency": 21,
+              "paired_lower_test_efficiency": 17,
+              "test_efficiency_equal": 518,
+              "paired_only_top1_hits": 17,
+              "other_only_top1_hits": 15
+            },
+            "marginal": {
+              "changed_selections": 449,
+              "paired_higher_test_efficiency": 413,
+              "paired_lower_test_efficiency": 36,
+              "test_efficiency_equal": 107,
+              "paired_only_top1_hits": 307,
+              "other_only_top1_hits": 23
+            },
+            "normalized_residual": {
+              "changed_selections": 55,
+              "paired_higher_test_efficiency": 38,
+              "paired_lower_test_efficiency": 17,
+              "test_efficiency_equal": 501,
+              "paired_only_top1_hits": 32,
+              "other_only_top1_hits": 15
+            }
+          }
+        },
+        "1.0": {
+          "comparisons": 21,
+          "contexts": 1,
+          "mmlu_subset_comparisons": 0,
+          "heldout_ties": 0,
+          "max_identity_absolute_error": 4.874323167314287e-12,
+          "max_identity_relative_error": 1.9646380052707065e-14,
+          "paired_fitted_efficiency_maximizer": 21,
+          "rules": {
+            "paired": {
+              "exact_first_argmax_hits": 11,
+              "tie_aware_hits": 11,
+              "hit_rate": 0.5238095238095238,
+              "mean_relative_efficiency_regret": 0.015291601460464528,
+              "mean_relative_efficiency_gain": 0.11119910184734863,
+              "fitted_top_ties": 0
+            },
+            "residual": {
+              "exact_first_argmax_hits": 7,
+              "tie_aware_hits": 7,
+              "hit_rate": 0.3333333333333333,
+              "mean_relative_efficiency_regret": 0.026559442111162516,
+              "mean_relative_efficiency_gain": 0.09799038557148732,
+              "fitted_top_ties": 0
+            },
+            "independence": {
+              "exact_first_argmax_hits": 3,
+              "tie_aware_hits": 3,
+              "hit_rate": 0.14285714285714285,
+              "mean_relative_efficiency_regret": 0.03167177511919531,
+              "mean_relative_efficiency_gain": 0.09236796703702609,
+              "fitted_top_ties": 0
+            },
+            "saving": {
+              "exact_first_argmax_hits": 4,
+              "tie_aware_hits": 4,
+              "hit_rate": 0.19047619047619047,
+              "mean_relative_efficiency_regret": 0.033527648963259674,
+              "mean_relative_efficiency_gain": 0.09059788295165025,
+              "fitted_top_ties": 0
+            },
+            "marginal": {
+              "exact_first_argmax_hits": 0,
+              "tie_aware_hits": 0,
+              "hit_rate": 0.0,
+              "mean_relative_efficiency_regret": 0.3488117966833967,
+              "mean_relative_efficiency_gain": -0.2649039819007252,
+              "fitted_top_ties": 0
+            },
+            "normalized_residual": {
+              "exact_first_argmax_hits": 8,
+              "tie_aware_hits": 8,
+              "hit_rate": 0.38095238095238093,
+              "mean_relative_efficiency_regret": 0.023615880566276507,
+              "mean_relative_efficiency_gain": 0.10147720861142127,
+              "fitted_top_ties": 0
+            }
+          },
+          "paired_comparisons": {
+            "residual": {
+              "changed_selections": 6,
+              "paired_higher_test_efficiency": 5,
+              "paired_lower_test_efficiency": 1,
+              "test_efficiency_equal": 15,
+              "paired_only_top1_hits": 5,
+              "other_only_top1_hits": 1
+            },
+            "independence": {
+              "changed_selections": 10,
+              "paired_higher_test_efficiency": 9,
+              "paired_lower_test_efficiency": 1,
+              "test_efficiency_equal": 11,
+              "paired_only_top1_hits": 9,
+              "other_only_top1_hits": 1
+            },
+            "saving": {
+              "changed_selections": 7,
+              "paired_higher_test_efficiency": 7,
+              "paired_lower_test_efficiency": 0,
+              "test_efficiency_equal": 14,
+              "paired_only_top1_hits": 7,
+              "other_only_top1_hits": 0
+            },
+            "marginal": {
+              "changed_selections": 21,
+              "paired_higher_test_efficiency": 21,
+              "paired_lower_test_efficiency": 0,
+              "test_efficiency_equal": 0,
+              "paired_only_top1_hits": 11,
+              "other_only_top1_hits": 0
+            },
+            "normalized_residual": {
+              "changed_selections": 5,
+              "paired_higher_test_efficiency": 4,
+              "paired_lower_test_efficiency": 1,
+              "test_efficiency_equal": 16,
+              "paired_only_top1_hits": 4,
+              "other_only_top1_hits": 1
+            }
+          }
+        }
+      }
+    },
+    {
+      "seed": 20260929,
+      "fit_tasks": 25542,
+      "test_tasks": 10955,
+      "screened_contexts": 65,
+      "base_portfolios": 21,
+      "summary": {
+        "0.5": {
+          "comparisons": 560,
+          "contexts": 58,
+          "mmlu_subset_comparisons": 413,
+          "heldout_ties": 0,
+          "max_identity_absolute_error": 1.2024869988636055e-10,
+          "max_identity_relative_error": 7.502072137250998e-14,
+          "paired_fitted_efficiency_maximizer": 560,
+          "rules": {
+            "paired": {
+              "exact_first_argmax_hits": 356,
+              "tie_aware_hits": 356,
+              "hit_rate": 0.6357142857142857,
+              "mean_relative_efficiency_regret": 0.03493875163263547,
+              "mean_relative_efficiency_gain": 0.300671556615746,
+              "fitted_top_ties": 0
+            },
+            "residual": {
+              "exact_first_argmax_hits": 351,
+              "tie_aware_hits": 351,
+              "hit_rate": 0.6267857142857143,
+              "mean_relative_efficiency_regret": 0.03296624106710827,
+              "mean_relative_efficiency_gain": 0.30463803861318506,
+              "fitted_top_ties": 0
+            },
+            "independence": {
+              "exact_first_argmax_hits": 197,
+              "tie_aware_hits": 197,
+              "hit_rate": 0.3517857142857143,
+              "mean_relative_efficiency_regret": 0.08304430798218188,
+              "mean_relative_efficiency_gain": 0.23644369230301712,
+              "fitted_top_ties": 0
+            },
+            "saving": {
+              "exact_first_argmax_hits": 366,
+              "tie_aware_hits": 366,
+              "hit_rate": 0.6535714285714286,
+              "mean_relative_efficiency_regret": 0.03125993490305647,
+              "mean_relative_efficiency_gain": 0.30729820842788097,
+              "fitted_top_ties": 0
+            },
+            "marginal": {
+              "exact_first_argmax_hits": 70,
+              "tie_aware_hits": 70,
+              "hit_rate": 0.125,
+              "mean_relative_efficiency_regret": 0.3958506886398924,
+              "mean_relative_efficiency_gain": -0.18133862188142003,
+              "fitted_top_ties": 28
+            },
+            "normalized_residual": {
+              "exact_first_argmax_hits": 353,
+              "tie_aware_hits": 353,
+              "hit_rate": 0.6303571428571428,
+              "mean_relative_efficiency_regret": 0.033046974311883415,
+              "mean_relative_efficiency_gain": 0.3043335111007165,
+              "fitted_top_ties": 0
+            }
+          },
+          "paired_comparisons": {
+            "residual": {
+              "changed_selections": 67,
+              "paired_higher_test_efficiency": 38,
+              "paired_lower_test_efficiency": 29,
+              "test_efficiency_equal": 493,
+              "paired_only_top1_hits": 27,
+              "other_only_top1_hits": 22
+            },
+            "independence": {
+              "changed_selections": 338,
+              "paired_higher_test_efficiency": 258,
+              "paired_lower_test_efficiency": 80,
+              "test_efficiency_equal": 222,
+              "paired_only_top1_hits": 216,
+              "other_only_top1_hits": 57
+            },
+            "saving": {
+              "changed_selections": 46,
+              "paired_higher_test_efficiency": 19,
+              "paired_lower_test_efficiency": 27,
+              "test_efficiency_equal": 514,
+              "paired_only_top1_hits": 14,
+              "other_only_top1_hits": 24
+            },
+            "marginal": {
+              "changed_selections": 471,
+              "paired_higher_test_efficiency": 442,
+              "paired_lower_test_efficiency": 29,
+              "test_efficiency_equal": 89,
+              "paired_only_top1_hits": 306,
+              "other_only_top1_hits": 20
+            },
+            "normalized_residual": {
+              "changed_selections": 57,
+              "paired_higher_test_efficiency": 31,
+              "paired_lower_test_efficiency": 26,
+              "test_efficiency_equal": 503,
+              "paired_only_top1_hits": 24,
+              "other_only_top1_hits": 21
+            }
+          }
+        },
+        "1.0": {
+          "comparisons": 21,
+          "contexts": 1,
+          "mmlu_subset_comparisons": 0,
+          "heldout_ties": 0,
+          "max_identity_absolute_error": 5.286437954055145e-12,
+          "max_identity_relative_error": 2.1334908744676205e-14,
+          "paired_fitted_efficiency_maximizer": 21,
+          "rules": {
+            "paired": {
+              "exact_first_argmax_hits": 18,
+              "tie_aware_hits": 18,
+              "hit_rate": 0.8571428571428571,
+              "mean_relative_efficiency_regret": 0.0007942760261951871,
+              "mean_relative_efficiency_gain": 0.12230853422122384,
+              "fitted_top_ties": 0
+            },
+            "residual": {
+              "exact_first_argmax_hits": 11,
+              "tie_aware_hits": 11,
+              "hit_rate": 0.5238095238095238,
+              "mean_relative_efficiency_regret": 0.007435665777075178,
+              "mean_relative_efficiency_gain": 0.11479341015216168,
+              "fitted_top_ties": 0
+            },
+            "independence": {
+              "exact_first_argmax_hits": 5,
+              "tie_aware_hits": 5,
+              "hit_rate": 0.23809523809523808,
+              "mean_relative_efficiency_regret": 0.019795365238077057,
+              "mean_relative_efficiency_gain": 0.10082239583229954,
+              "fitted_top_ties": 0
+            },
+            "saving": {
+              "exact_first_argmax_hits": 15,
+              "tie_aware_hits": 15,
+              "hit_rate": 0.7142857142857143,
+              "mean_relative_efficiency_regret": 0.005262704211883894,
+              "mean_relative_efficiency_gain": 0.11721752135620997,
+              "fitted_top_ties": 0
+            },
+            "marginal": {
+              "exact_first_argmax_hits": 0,
+              "tie_aware_hits": 0,
+              "hit_rate": 0.0,
+              "mean_relative_efficiency_regret": 0.3408850074945643,
+              "mean_relative_efficiency_gain": -0.2593728286979685,
+              "fitted_top_ties": 0
+            },
+            "normalized_residual": {
+              "exact_first_argmax_hits": 11,
+              "tie_aware_hits": 11,
+              "hit_rate": 0.5238095238095238,
+              "mean_relative_efficiency_regret": 0.007435665777075178,
+              "mean_relative_efficiency_gain": 0.11479341015216168,
+              "fitted_top_ties": 0
+            }
+          },
+          "paired_comparisons": {
+            "residual": {
+              "changed_selections": 7,
+              "paired_higher_test_efficiency": 7,
+              "paired_lower_test_efficiency": 0,
+              "test_efficiency_equal": 14,
+              "paired_only_top1_hits": 7,
+              "other_only_top1_hits": 0
+            },
+            "independence": {
+              "changed_selections": 13,
+              "paired_higher_test_efficiency": 13,
+              "paired_lower_test_efficiency": 0,
+              "test_efficiency_equal": 8,
+              "paired_only_top1_hits": 13,
+              "other_only_top1_hits": 0
+            },
+            "saving": {
+              "changed_selections": 5,
+              "paired_higher_test_efficiency": 4,
+              "paired_lower_test_efficiency": 1,
+              "test_efficiency_equal": 16,
+              "paired_only_top1_hits": 4,
+              "other_only_top1_hits": 1
+            },
+            "marginal": {
+              "changed_selections": 21,
+              "paired_higher_test_efficiency": 21,
+              "paired_lower_test_efficiency": 0,
+              "test_efficiency_equal": 0,
+              "paired_only_top1_hits": 18,
+              "other_only_top1_hits": 0
+            },
+            "normalized_residual": {
+              "changed_selections": 7,
+              "paired_higher_test_efficiency": 7,
+              "paired_lower_test_efficiency": 0,
+              "test_efficiency_equal": 14,
+              "paired_only_top1_hits": 7,
+              "other_only_top1_hits": 0
+            }
+          }
+        }
+      }
+    },
+    {
+      "seed": 20260930,
+      "fit_tasks": 25542,
+      "test_tasks": 10955,
+      "screened_contexts": 65,
+      "base_portfolios": 21,
+      "summary": {
+        "0.5": {
+          "comparisons": 558,
+          "contexts": 57,
+          "mmlu_subset_comparisons": 411,
+          "heldout_ties": 0,
+          "max_identity_absolute_error": 1.184261577691359e-10,
+          "max_identity_relative_error": 7.38760213449982e-14,
+          "paired_fitted_efficiency_maximizer": 558,
+          "rules": {
+            "paired": {
+              "exact_first_argmax_hits": 349,
+              "tie_aware_hits": 349,
+              "hit_rate": 0.6254480286738351,
+              "mean_relative_efficiency_regret": 0.037462739291599274,
+              "mean_relative_efficiency_gain": 0.28868060653757405,
+              "fitted_top_ties": 0
+            },
+            "residual": {
+              "exact_first_argmax_hits": 326,
+              "tie_aware_hits": 326,
+              "hit_rate": 0.5842293906810035,
+              "mean_relative_efficiency_regret": 0.04024478354351599,
+              "mean_relative_efficiency_gain": 0.28452966457683193,
+              "fitted_top_ties": 0
+            },
+            "independence": {
+              "exact_first_argmax_hits": 202,
+              "tie_aware_hits": 202,
+              "hit_rate": 0.36200716845878134,
+              "mean_relative_efficiency_regret": 0.07449043986660414,
+              "mean_relative_efficiency_gain": 0.24167916034616563,
+              "fitted_top_ties": 0
+            },
+            "saving": {
+              "exact_first_argmax_hits": 335,
+              "tie_aware_hits": 335,
+              "hit_rate": 0.600358422939068,
+              "mean_relative_efficiency_regret": 0.04019802342246535,
+              "mean_relative_efficiency_gain": 0.28424918622466416,
+              "fitted_top_ties": 0
+            },
+            "marginal": {
+              "exact_first_argmax_hits": 62,
+              "tie_aware_hits": 62,
+              "hit_rate": 0.1111111111111111,
+              "mean_relative_efficiency_regret": 0.43062180933235283,
+              "mean_relative_efficiency_gain": -0.2311330255649868,
+              "fitted_top_ties": 52
+            },
+            "normalized_residual": {
+              "exact_first_argmax_hits": 331,
+              "tie_aware_hits": 331,
+              "hit_rate": 0.5931899641577061,
+              "mean_relative_efficiency_regret": 0.04051375808299531,
+              "mean_relative_efficiency_gain": 0.28383153487711554,
+              "fitted_top_ties": 0
+            }
+          },
+          "paired_comparisons": {
+            "residual": {
+              "changed_selections": 65,
+              "paired_higher_test_efficiency": 41,
+              "paired_lower_test_efficiency": 24,
+              "test_efficiency_equal": 493,
+              "paired_only_top1_hits": 37,
+              "other_only_top1_hits": 14
+            },
+            "independence": {
+              "changed_selections": 347,
+              "paired_higher_test_efficiency": 255,
+              "paired_lower_test_efficiency": 92,
+              "test_efficiency_equal": 211,
+              "paired_only_top1_hits": 217,
+              "other_only_top1_hits": 70
+            },
+            "saving": {
+              "changed_selections": 61,
+              "paired_higher_test_efficiency": 36,
+              "paired_lower_test_efficiency": 25,
+              "test_efficiency_equal": 497,
+              "paired_only_top1_hits": 32,
+              "other_only_top1_hits": 18
+            },
+            "marginal": {
+              "changed_selections": 470,
+              "paired_higher_test_efficiency": 444,
+              "paired_lower_test_efficiency": 26,
+              "test_efficiency_equal": 88,
+              "paired_only_top1_hits": 301,
+              "other_only_top1_hits": 14
+            },
+            "normalized_residual": {
+              "changed_selections": 55,
+              "paired_higher_test_efficiency": 35,
+              "paired_lower_test_efficiency": 20,
+              "test_efficiency_equal": 503,
+              "paired_only_top1_hits": 32,
+              "other_only_top1_hits": 14
+            }
+          }
+        },
+        "1.0": {
+          "comparisons": 21,
+          "contexts": 1,
+          "mmlu_subset_comparisons": 0,
+          "heldout_ties": 0,
+          "max_identity_absolute_error": 5.3859139370615594e-12,
+          "max_identity_relative_error": 2.262114016048732e-14,
+          "paired_fitted_efficiency_maximizer": 21,
+          "rules": {
+            "paired": {
+              "exact_first_argmax_hits": 14,
+              "tie_aware_hits": 14,
+              "hit_rate": 0.6666666666666666,
+              "mean_relative_efficiency_regret": 0.007788028539739902,
+              "mean_relative_efficiency_gain": 0.1420397069159121,
+              "fitted_top_ties": 0
+            },
+            "residual": {
+              "exact_first_argmax_hits": 8,
+              "tie_aware_hits": 8,
+              "hit_rate": 0.38095238095238093,
+              "mean_relative_efficiency_regret": 0.01964801251993006,
+              "mean_relative_efficiency_gain": 0.12813080807805266,
+              "fitted_top_ties": 0
+            },
+            "independence": {
+              "exact_first_argmax_hits": 4,
+              "tie_aware_hits": 4,
+              "hit_rate": 0.19047619047619047,
+              "mean_relative_efficiency_regret": 0.028143326037431415,
+              "mean_relative_efficiency_gain": 0.11840769870634794,
+              "fitted_top_ties": 0
+            },
+            "saving": {
+              "exact_first_argmax_hits": 7,
+              "tie_aware_hits": 7,
+              "hit_rate": 0.3333333333333333,
+              "mean_relative_efficiency_regret": 0.022076591385241706,
+              "mean_relative_efficiency_gain": 0.1253886252368574,
+              "fitted_top_ties": 0
+            },
+            "marginal": {
+              "exact_first_argmax_hits": 0,
+              "tie_aware_hits": 0,
+              "hit_rate": 0.0,
+              "mean_relative_efficiency_regret": 0.3951063294572302,
+              "mean_relative_efficiency_gain": -0.3034532191041343,
+              "fitted_top_ties": 0
+            },
+            "normalized_residual": {
+              "exact_first_argmax_hits": 8,
+              "tie_aware_hits": 8,
+              "hit_rate": 0.38095238095238093,
+              "mean_relative_efficiency_regret": 0.01964801251993006,
+              "mean_relative_efficiency_gain": 0.12813080807805266,
+              "fitted_top_ties": 0
+            }
+          },
+          "paired_comparisons": {
+            "residual": {
+              "changed_selections": 8,
+              "paired_higher_test_efficiency": 7,
+              "paired_lower_test_efficiency": 1,
+              "test_efficiency_equal": 13,
+              "paired_only_top1_hits": 7,
+              "other_only_top1_hits": 1
+            },
+            "independence": {
+              "changed_selections": 12,
+              "paired_higher_test_efficiency": 11,
+              "paired_lower_test_efficiency": 1,
+              "test_efficiency_equal": 9,
+              "paired_only_top1_hits": 11,
+              "other_only_top1_hits": 1
+            },
+            "saving": {
+              "changed_selections": 9,
+              "paired_higher_test_efficiency": 8,
+              "paired_lower_test_efficiency": 1,
+              "test_efficiency_equal": 12,
+              "paired_only_top1_hits": 8,
+              "other_only_top1_hits": 1
+            },
+            "marginal": {
+              "changed_selections": 21,
+              "paired_higher_test_efficiency": 21,
+              "paired_lower_test_efficiency": 0,
+              "test_efficiency_equal": 0,
+              "paired_only_top1_hits": 14,
+              "other_only_top1_hits": 0
+            },
+            "normalized_residual": {
+              "changed_selections": 8,
+              "paired_higher_test_efficiency": 7,
+              "paired_lower_test_efficiency": 1,
+              "test_efficiency_equal": 13,
+              "paired_only_top1_hits": 7,
+              "other_only_top1_hits": 1
+            }
+          }
+        }
+      }
+    },
+    {
+      "seed": 20260931,
+      "fit_tasks": 25542,
+      "test_tasks": 10955,
+      "screened_contexts": 65,
+      "base_portfolios": 21,
+      "summary": {
+        "0.5": {
+          "comparisons": 549,
+          "contexts": 55,
+          "mmlu_subset_comparisons": 402,
+          "heldout_ties": 0,
+          "max_identity_absolute_error": 1.2233059010213765e-10,
+          "max_identity_relative_error": 7.624919654599903e-14,
+          "paired_fitted_efficiency_maximizer": 549,
+          "rules": {
+            "paired": {
+              "exact_first_argmax_hits": 342,
+              "tie_aware_hits": 342,
+              "hit_rate": 0.6229508196721312,
+              "mean_relative_efficiency_regret": 0.03335903148714845,
+              "mean_relative_efficiency_gain": 0.29173362477733056,
+              "fitted_top_ties": 0
+            },
+            "residual": {
+              "exact_first_argmax_hits": 327,
+              "tie_aware_hits": 327,
+              "hit_rate": 0.5956284153005464,
+              "mean_relative_efficiency_regret": 0.03632119852115249,
+              "mean_relative_efficiency_gain": 0.2873576556323176,
+              "fitted_top_ties": 0
+            },
+            "independence": {
+              "exact_first_argmax_hits": 199,
+              "tie_aware_hits": 199,
+              "hit_rate": 0.36247723132969034,
+              "mean_relative_efficiency_regret": 0.08124075366417087,
+              "mean_relative_efficiency_gain": 0.22327831714755367,
+              "fitted_top_ties": 0
+            },
+            "saving": {
+              "exact_first_argmax_hits": 330,
+              "tie_aware_hits": 330,
+              "hit_rate": 0.6010928961748634,
+              "mean_relative_efficiency_regret": 0.03552293294073881,
+              "mean_relative_efficiency_gain": 0.2886935009974701,
+              "fitted_top_ties": 0
+            },
+            "marginal": {
+              "exact_first_argmax_hits": 82,
+              "tie_aware_hits": 82,
+              "hit_rate": 0.1493624772313297,
+              "mean_relative_efficiency_regret": 0.38098965324808676,
+              "mean_relative_efficiency_gain": -0.16640717463588042,
+              "fitted_top_ties": 38
+            },
+            "normalized_residual": {
+              "exact_first_argmax_hits": 328,
+              "tie_aware_hits": 328,
+              "hit_rate": 0.5974499089253188,
+              "mean_relative_efficiency_regret": 0.0357995188735234,
+              "mean_relative_efficiency_gain": 0.28821988826316897,
+              "fitted_top_ties": 0
+            }
+          },
+          "paired_comparisons": {
+            "residual": {
+              "changed_selections": 57,
+              "paired_higher_test_efficiency": 36,
+              "paired_lower_test_efficiency": 21,
+              "test_efficiency_equal": 492,
+              "paired_only_top1_hits": 29,
+              "other_only_top1_hits": 14
+            },
+            "independence": {
+              "changed_selections": 333,
+              "paired_higher_test_efficiency": 252,
+              "paired_lower_test_efficiency": 81,
+              "test_efficiency_equal": 216,
+              "paired_only_top1_hits": 204,
+              "other_only_top1_hits": 61
+            },
+            "saving": {
+              "changed_selections": 42,
+              "paired_higher_test_efficiency": 28,
+              "paired_lower_test_efficiency": 14,
+              "test_efficiency_equal": 507,
+              "paired_only_top1_hits": 21,
+              "other_only_top1_hits": 9
+            },
+            "marginal": {
+              "changed_selections": 451,
+              "paired_higher_test_efficiency": 417,
+              "paired_lower_test_efficiency": 34,
+              "test_efficiency_equal": 98,
+              "paired_only_top1_hits": 282,
+              "other_only_top1_hits": 22
+            },
+            "normalized_residual": {
+              "changed_selections": 50,
+              "paired_higher_test_efficiency": 32,
+              "paired_lower_test_efficiency": 18,
+              "test_efficiency_equal": 499,
+              "paired_only_top1_hits": 26,
+              "other_only_top1_hits": 12
+            }
+          }
+        },
+        "1.0": {
+          "comparisons": 21,
+          "contexts": 1,
+          "mmlu_subset_comparisons": 0,
+          "heldout_ties": 0,
+          "max_identity_absolute_error": 5.101696842757519e-12,
+          "max_identity_relative_error": 2.1002438820182317e-14,
+          "paired_fitted_efficiency_maximizer": 21,
+          "rules": {
+            "paired": {
+              "exact_first_argmax_hits": 19,
+              "tie_aware_hits": 19,
+              "hit_rate": 0.9047619047619048,
+              "mean_relative_efficiency_regret": 0.0005351321259972347,
+              "mean_relative_efficiency_gain": 0.13187706666159005,
+              "fitted_top_ties": 0
+            },
+            "residual": {
+              "exact_first_argmax_hits": 12,
+              "tie_aware_hits": 12,
+              "hit_rate": 0.5714285714285714,
+              "mean_relative_efficiency_regret": 0.013705949142280486,
+              "mean_relative_efficiency_gain": 0.11669060457500839,
+              "fitted_top_ties": 0
+            },
+            "independence": {
+              "exact_first_argmax_hits": 9,
+              "tie_aware_hits": 9,
+              "hit_rate": 0.42857142857142855,
+              "mean_relative_efficiency_regret": 0.021302514952336433,
+              "mean_relative_efficiency_gain": 0.10831051918137453,
+              "fitted_top_ties": 0
+            },
+            "saving": {
+              "exact_first_argmax_hits": 10,
+              "tie_aware_hits": 10,
+              "hit_rate": 0.47619047619047616,
+              "mean_relative_efficiency_regret": 0.018318184263210763,
+              "mean_relative_efficiency_gain": 0.11169075807044056,
+              "fitted_top_ties": 0
+            },
+            "marginal": {
+              "exact_first_argmax_hits": 0,
+              "tie_aware_hits": 0,
+              "hit_rate": 0.0,
+              "mean_relative_efficiency_regret": 0.3610694397170402,
+              "mean_relative_efficiency_gain": -0.27621921572026237,
+              "fitted_top_ties": 0
+            },
+            "normalized_residual": {
+              "exact_first_argmax_hits": 13,
+              "tie_aware_hits": 13,
+              "hit_rate": 0.6190476190476191,
+              "mean_relative_efficiency_regret": 0.010750455458871313,
+              "mean_relative_efficiency_gain": 0.12024448011521402,
+              "fitted_top_ties": 0
+            }
+          },
+          "paired_comparisons": {
+            "residual": {
+              "changed_selections": 11,
+              "paired_higher_test_efficiency": 9,
+              "paired_lower_test_efficiency": 2,
+              "test_efficiency_equal": 10,
+              "paired_only_top1_hits": 9,
+              "other_only_top1_hits": 2
+            },
+            "independence": {
+              "changed_selections": 14,
+              "paired_higher_test_efficiency": 12,
+              "paired_lower_test_efficiency": 2,
+              "test_efficiency_equal": 7,
+              "paired_only_top1_hits": 12,
+              "other_only_top1_hits": 2
+            },
+            "saving": {
+              "changed_selections": 9,
+              "paired_higher_test_efficiency": 9,
+              "paired_lower_test_efficiency": 0,
+              "test_efficiency_equal": 12,
+              "paired_only_top1_hits": 9,
+              "other_only_top1_hits": 0
+            },
+            "marginal": {
+              "changed_selections": 21,
+              "paired_higher_test_efficiency": 21,
+              "paired_lower_test_efficiency": 0,
+              "test_efficiency_equal": 0,
+              "paired_only_top1_hits": 19,
+              "other_only_top1_hits": 0
+            },
+            "normalized_residual": {
+              "changed_selections": 10,
+              "paired_higher_test_efficiency": 8,
+              "paired_lower_test_efficiency": 2,
+              "test_efficiency_equal": 11,
+              "paired_only_top1_hits": 8,
+              "other_only_top1_hits": 2
+            }
+          }
+        }
+      }
+    },
+    {
+      "seed": 20260932,
+      "fit_tasks": 25542,
+      "test_tasks": 10955,
+      "screened_contexts": 65,
+      "base_portfolios": 21,
+      "summary": {
+        "0.5": {
+          "comparisons": 537,
+          "contexts": 55,
+          "mmlu_subset_comparisons": 389,
+          "heldout_ties": 0,
+          "max_identity_absolute_error": 1.2530065873761487e-10,
+          "max_identity_relative_error": 7.735623074948552e-14,
+          "paired_fitted_efficiency_maximizer": 537,
+          "rules": {
+            "paired": {
+              "exact_first_argmax_hits": 344,
+              "tie_aware_hits": 344,
+              "hit_rate": 0.6405959031657356,
+              "mean_relative_efficiency_regret": 0.034838303502876304,
+              "mean_relative_efficiency_gain": 0.3323323051194607,
+              "fitted_top_ties": 0
+            },
+            "residual": {
+              "exact_first_argmax_hits": 346,
+              "tie_aware_hits": 346,
+              "hit_rate": 0.6443202979515829,
+              "mean_relative_efficiency_regret": 0.033818407487157434,
+              "mean_relative_efficiency_gain": 0.33242174231121147,
+              "fitted_top_ties": 0
+            },
+            "independence": {
+              "exact_first_argmax_hits": 213,
+              "tie_aware_hits": 213,
+              "hit_rate": 0.39664804469273746,
+              "mean_relative_efficiency_regret": 0.08166274301478628,
+              "mean_relative_efficiency_gain": 0.2616562167777121,
+              "fitted_top_ties": 0
+            },
+            "saving": {
+              "exact_first_argmax_hits": 356,
+              "tie_aware_hits": 356,
+              "hit_rate": 0.6629422718808193,
+              "mean_relative_efficiency_regret": 0.0316194650905144,
+              "mean_relative_efficiency_gain": 0.3356238699547664,
+              "fitted_top_ties": 0
+            },
+            "marginal": {
+              "exact_first_argmax_hits": 99,
+              "tie_aware_hits": 99,
+              "hit_rate": 0.18435754189944134,
+              "mean_relative_efficiency_regret": 0.42563045905387914,
+              "mean_relative_efficiency_gain": -0.20711717912752292,
+              "fitted_top_ties": 47
+            },
+            "normalized_residual": {
+              "exact_first_argmax_hits": 345,
+              "tie_aware_hits": 345,
+              "hit_rate": 0.6424581005586593,
+              "mean_relative_efficiency_regret": 0.03381310518303367,
+              "mean_relative_efficiency_gain": 0.33243107224101887,
+              "fitted_top_ties": 0
+            }
+          },
+          "paired_comparisons": {
+            "residual": {
+              "changed_selections": 66,
+              "paired_higher_test_efficiency": 34,
+              "paired_lower_test_efficiency": 32,
+              "test_efficiency_equal": 471,
+              "paired_only_top1_hits": 25,
+              "other_only_top1_hits": 27
+            },
+            "independence": {
+              "changed_selections": 323,
+              "paired_higher_test_efficiency": 239,
+              "paired_lower_test_efficiency": 84,
+              "test_efficiency_equal": 214,
+              "paired_only_top1_hits": 198,
+              "other_only_top1_hits": 67
+            },
+            "saving": {
+              "changed_selections": 51,
+              "paired_higher_test_efficiency": 17,
+              "paired_lower_test_efficiency": 34,
+              "test_efficiency_equal": 486,
+              "paired_only_top1_hits": 12,
+              "other_only_top1_hits": 24
+            },
+            "marginal": {
+              "changed_selections": 442,
+              "paired_higher_test_efficiency": 402,
+              "paired_lower_test_efficiency": 40,
+              "test_efficiency_equal": 95,
+              "paired_only_top1_hits": 275,
+              "other_only_top1_hits": 30
+            },
+            "normalized_residual": {
+              "changed_selections": 59,
+              "paired_higher_test_efficiency": 30,
+              "paired_lower_test_efficiency": 29,
+              "test_efficiency_equal": 478,
+              "paired_only_top1_hits": 23,
+              "other_only_top1_hits": 24
+            }
+          }
+        },
+        "1.0": {
+          "comparisons": 21,
+          "contexts": 1,
+          "mmlu_subset_comparisons": 0,
+          "heldout_ties": 0,
+          "max_identity_absolute_error": 5.144329406903125e-12,
+          "max_identity_relative_error": 2.0987248528369925e-14,
+          "paired_fitted_efficiency_maximizer": 21,
+          "rules": {
+            "paired": {
+              "exact_first_argmax_hits": 8,
+              "tie_aware_hits": 8,
+              "hit_rate": 0.38095238095238093,
+              "mean_relative_efficiency_regret": 0.018934117435646203,
+              "mean_relative_efficiency_gain": 0.11088782652394706,
+              "fitted_top_ties": 0
+            },
+            "residual": {
+              "exact_first_argmax_hits": 17,
+              "tie_aware_hits": 17,
+              "hit_rate": 0.8095238095238095,
+              "mean_relative_efficiency_regret": 0.003316580998719195,
+              "mean_relative_efficiency_gain": 0.12923308524289207,
+              "fitted_top_ties": 0
+            },
+            "independence": {
+              "exact_first_argmax_hits": 13,
+              "tie_aware_hits": 13,
+              "hit_rate": 0.6190476190476191,
+              "mean_relative_efficiency_regret": 0.007232293035362531,
+              "mean_relative_efficiency_gain": 0.12492698915211019,
+              "fitted_top_ties": 0
+            },
+            "saving": {
+              "exact_first_argmax_hits": 17,
+              "tie_aware_hits": 17,
+              "hit_rate": 0.8095238095238095,
+              "mean_relative_efficiency_regret": 0.003201871966021191,
+              "mean_relative_efficiency_gain": 0.12935538453589068,
+              "fitted_top_ties": 0
+            },
+            "marginal": {
+              "exact_first_argmax_hits": 0,
+              "tie_aware_hits": 0,
+              "hit_rate": 0.0,
+              "mean_relative_efficiency_regret": 0.3426122027951072,
+              "mean_relative_efficiency_gain": -0.25497865761108635,
+              "fitted_top_ties": 0
+            },
+            "normalized_residual": {
+              "exact_first_argmax_hits": 18,
+              "tie_aware_hits": 18,
+              "hit_rate": 0.8571428571428571,
+              "mean_relative_efficiency_regret": 0.0023113692481279975,
+              "mean_relative_efficiency_gain": 0.13035692701202564,
+              "fitted_top_ties": 0
+            }
+          },
+          "paired_comparisons": {
+            "residual": {
+              "changed_selections": 11,
+              "paired_higher_test_efficiency": 1,
+              "paired_lower_test_efficiency": 10,
+              "test_efficiency_equal": 10,
+              "paired_only_top1_hits": 1,
+              "other_only_top1_hits": 10
+            },
+            "independence": {
+              "changed_selections": 17,
+              "paired_higher_test_efficiency": 6,
+              "paired_lower_test_efficiency": 11,
+              "test_efficiency_equal": 4,
+              "paired_only_top1_hits": 5,
+              "other_only_top1_hits": 10
+            },
+            "saving": {
+              "changed_selections": 12,
+              "paired_higher_test_efficiency": 1,
+              "paired_lower_test_efficiency": 11,
+              "test_efficiency_equal": 9,
+              "paired_only_top1_hits": 1,
+              "other_only_top1_hits": 10
+            },
+            "marginal": {
+              "changed_selections": 21,
+              "paired_higher_test_efficiency": 21,
+              "paired_lower_test_efficiency": 0,
+              "test_efficiency_equal": 0,
+              "paired_only_top1_hits": 8,
+              "other_only_top1_hits": 0
+            },
+            "normalized_residual": {
+              "changed_selections": 10,
+              "paired_higher_test_efficiency": 0,
+              "paired_lower_test_efficiency": 10,
+              "test_efficiency_equal": 11,
+              "paired_only_top1_hits": 0,
+              "other_only_top1_hits": 10
+            }
+          }
+        }
+      }
+    },
+    {
+      "seed": 20260933,
+      "fit_tasks": 25542,
+      "test_tasks": 10955,
+      "screened_contexts": 65,
+      "base_portfolios": 21,
+      "summary": {
+        "0.5": {
+          "comparisons": 555,
+          "contexts": 58,
+          "mmlu_subset_comparisons": 408,
+          "heldout_ties": 0,
+          "max_identity_absolute_error": 1.1893774853888317e-10,
+          "max_identity_relative_error": 7.380696202068417e-14,
+          "paired_fitted_efficiency_maximizer": 555,
+          "rules": {
+            "paired": {
+              "exact_first_argmax_hits": 380,
+              "tie_aware_hits": 380,
+              "hit_rate": 0.6846846846846847,
+              "mean_relative_efficiency_regret": 0.028224966940215375,
+              "mean_relative_efficiency_gain": 0.32488571031367985,
+              "fitted_top_ties": 0
+            },
+            "residual": {
+              "exact_first_argmax_hits": 368,
+              "tie_aware_hits": 368,
+              "hit_rate": 0.6630630630630631,
+              "mean_relative_efficiency_regret": 0.03258935706463221,
+              "mean_relative_efficiency_gain": 0.3192153606905878,
+              "fitted_top_ties": 0
+            },
+            "independence": {
+              "exact_first_argmax_hits": 212,
+              "tie_aware_hits": 212,
+              "hit_rate": 0.38198198198198197,
+              "mean_relative_efficiency_regret": 0.08262046333652509,
+              "mean_relative_efficiency_gain": 0.2482023765547505,
+              "fitted_top_ties": 0
+            },
+            "saving": {
+              "exact_first_argmax_hits": 378,
+              "tie_aware_hits": 378,
+              "hit_rate": 0.6810810810810811,
+              "mean_relative_efficiency_regret": 0.02950392754080902,
+              "mean_relative_efficiency_gain": 0.3238101216280312,
+              "fitted_top_ties": 0
+            },
+            "marginal": {
+              "exact_first_argmax_hits": 89,
+              "tie_aware_hits": 89,
+              "hit_rate": 0.16036036036036036,
+              "mean_relative_efficiency_regret": 0.3947658428371851,
+              "mean_relative_efficiency_gain": -0.1691441352310275,
+              "fitted_top_ties": 55
+            },
+            "normalized_residual": {
+              "exact_first_argmax_hits": 372,
+              "tie_aware_hits": 372,
+              "hit_rate": 0.6702702702702703,
+              "mean_relative_efficiency_regret": 0.031725875919294114,
+              "mean_relative_efficiency_gain": 0.3199767921735407,
+              "fitted_top_ties": 0
+            }
+          },
+          "paired_comparisons": {
+            "residual": {
+              "changed_selections": 76,
+              "paired_higher_test_efficiency": 47,
+              "paired_lower_test_efficiency": 29,
+              "test_efficiency_equal": 479,
+              "paired_only_top1_hits": 37,
+              "other_only_top1_hits": 25
+            },
+            "independence": {
+              "changed_selections": 329,
+              "paired_higher_test_efficiency": 262,
+              "paired_lower_test_efficiency": 67,
+              "test_efficiency_equal": 226,
+              "paired_only_top1_hits": 227,
+              "other_only_top1_hits": 59
+            },
+            "saving": {
+              "changed_selections": 58,
+              "paired_higher_test_efficiency": 31,
+              "paired_lower_test_efficiency": 27,
+              "test_efficiency_equal": 497,
+              "paired_only_top1_hits": 24,
+              "other_only_top1_hits": 22
+            },
+            "marginal": {
+              "changed_selections": 451,
+              "paired_higher_test_efficiency": 421,
+              "paired_lower_test_efficiency": 30,
+              "test_efficiency_equal": 104,
+              "paired_only_top1_hits": 315,
+              "other_only_top1_hits": 24
+            },
+            "normalized_residual": {
+              "changed_selections": 61,
+              "paired_higher_test_efficiency": 37,
+              "paired_lower_test_efficiency": 24,
+              "test_efficiency_equal": 494,
+              "paired_only_top1_hits": 29,
+              "other_only_top1_hits": 21
+            }
+          }
+        },
+        "1.0": {
+          "comparisons": 21,
+          "contexts": 1,
+          "mmlu_subset_comparisons": 0,
+          "heldout_ties": 0,
+          "max_identity_absolute_error": 5.186961971048731e-12,
+          "max_identity_relative_error": 2.107835545840578e-14,
+          "paired_fitted_efficiency_maximizer": 21,
+          "rules": {
+            "paired": {
+              "exact_first_argmax_hits": 15,
+              "tie_aware_hits": 15,
+              "hit_rate": 0.7142857142857143,
+              "mean_relative_efficiency_regret": 0.0023557425911327674,
+              "mean_relative_efficiency_gain": 0.11703869593080608,
+              "fitted_top_ties": 0
+            },
+            "residual": {
+              "exact_first_argmax_hits": 11,
+              "tie_aware_hits": 11,
+              "hit_rate": 0.5238095238095238,
+              "mean_relative_efficiency_regret": 0.006379847209427911,
+              "mean_relative_efficiency_gain": 0.11249816007889368,
+              "fitted_top_ties": 0
+            },
+            "independence": {
+              "exact_first_argmax_hits": 10,
+              "tie_aware_hits": 10,
+              "hit_rate": 0.47619047619047616,
+              "mean_relative_efficiency_regret": 0.010204009420226227,
+              "mean_relative_efficiency_gain": 0.10821585284755827,
+              "fitted_top_ties": 0
+            },
+            "saving": {
+              "exact_first_argmax_hits": 12,
+              "tie_aware_hits": 12,
+              "hit_rate": 0.5714285714285714,
+              "mean_relative_efficiency_regret": 0.007436810996582231,
+              "mean_relative_efficiency_gain": 0.1113565463373731,
+              "fitted_top_ties": 0
+            },
+            "marginal": {
+              "exact_first_argmax_hits": 0,
+              "tie_aware_hits": 0,
+              "hit_rate": 0.0,
+              "mean_relative_efficiency_regret": 0.3458895045842596,
+              "mean_relative_efficiency_gain": -0.26731791004578254,
+              "fitted_top_ties": 0
+            },
+            "normalized_residual": {
+              "exact_first_argmax_hits": 13,
+              "tie_aware_hits": 13,
+              "hit_rate": 0.6190476190476191,
+              "mean_relative_efficiency_regret": 0.004629026853047916,
+              "mean_relative_efficiency_gain": 0.11446099822030112,
+              "fitted_top_ties": 0
+            }
+          },
+          "paired_comparisons": {
+            "residual": {
+              "changed_selections": 10,
+              "paired_higher_test_efficiency": 7,
+              "paired_lower_test_efficiency": 3,
+              "test_efficiency_equal": 11,
+              "paired_only_top1_hits": 7,
+              "other_only_top1_hits": 3
+            },
+            "independence": {
+              "changed_selections": 14,
+              "paired_higher_test_efficiency": 11,
+              "paired_lower_test_efficiency": 3,
+              "test_efficiency_equal": 7,
+              "paired_only_top1_hits": 8,
+              "other_only_top1_hits": 3
+            },
+            "saving": {
+              "changed_selections": 10,
+              "paired_higher_test_efficiency": 7,
+              "paired_lower_test_efficiency": 3,
+              "test_efficiency_equal": 11,
+              "paired_only_top1_hits": 6,
+              "other_only_top1_hits": 3
+            },
+            "marginal": {
+              "changed_selections": 21,
+              "paired_higher_test_efficiency": 21,
+              "paired_lower_test_efficiency": 0,
+              "test_efficiency_equal": 0,
+              "paired_only_top1_hits": 15,
+              "other_only_top1_hits": 0
+            },
+            "normalized_residual": {
+              "changed_selections": 8,
+              "paired_higher_test_efficiency": 5,
+              "paired_lower_test_efficiency": 3,
+              "test_efficiency_equal": 13,
+              "paired_only_top1_hits": 5,
+              "other_only_top1_hits": 3
+            }
+          }
+        }
+      }
+    }
+  ],
+  "sensitivity": {
+    "0.5": {
+      "paired": {
+        "pooled_hits": 3537,
+        "pooled_comparisons": 5539,
+        "pooled_descriptive_hit_rate": 0.6385629174941325,
+        "pooled_mean_relative_regret": 0.03558498196662307,
+        "pooled_mean_relative_gain": 0.3096894272188284,
+        "split_hit_rate_range": [
+          0.6229508196721312,
+          0.6846846846846847
+        ],
+        "mean_split_hit_rate": 0.6385770710832883,
+        "mean_split_relative_regret": 0.03557549484602334,
+        "mean_split_relative_gain": 0.30976670553175506
+      },
+      "residual": {
+        "pooled_hits": 3428,
+        "pooled_comparisons": 5539,
+        "pooled_descriptive_hit_rate": 0.618884275139917,
+        "pooled_mean_relative_regret": 0.03711203949438526,
+        "pooled_mean_relative_gain": 0.307698809407966,
+        "split_hit_rate_range": [
+          0.5842293906810035,
+          0.6630630630630631
+        ],
+        "mean_split_hit_rate": 0.6189895714276589,
+        "mean_split_relative_regret": 0.03709369640649211,
+        "mean_split_relative_gain": 0.3077836782070923
+      },
+      "independence": {
+        "pooled_hits": 1986,
+        "pooled_comparisons": 5539,
+        "pooled_descriptive_hit_rate": 0.35854847445387256,
+        "pooled_mean_relative_regret": 0.08455846992835507,
+        "pooled_mean_relative_gain": 0.24069524654325364,
+        "split_hit_rate_range": [
+          0.31382978723404253,
+          0.39664804469273746
+        ],
+        "mean_split_hit_rate": 0.3587209968212072,
+        "mean_split_relative_regret": 0.08453447286209119,
+        "mean_split_relative_gain": 0.24077122914398824
+      },
+      "saving": {
+        "pooled_hits": 3516,
+        "pooled_comparisons": 5539,
+        "pooled_descriptive_hit_rate": 0.6347716194258891,
+        "pooled_mean_relative_regret": 0.03540231061000459,
+        "pooled_mean_relative_gain": 0.3100982831534402,
+        "split_hit_rate_range": [
+          0.600358422939068,
+          0.6810810810810811
+        ],
+        "mean_split_hit_rate": 0.6348562249986125,
+        "mean_split_relative_regret": 0.03538690219312897,
+        "mean_split_relative_gain": 0.3101798846545962
+      },
+      "marginal": {
+        "pooled_hits": 807,
+        "pooled_comparisons": 5539,
+        "pooled_descriptive_hit_rate": 0.14569416862249504,
+        "pooled_mean_relative_regret": 0.40029805018307346,
+        "pooled_mean_relative_gain": -0.18005021104763885,
+        "split_hit_rate_range": [
+          0.1111111111111111,
+          0.18435754189944134
+        ],
+        "mean_split_hit_rate": 0.14582646380425018,
+        "mean_split_relative_regret": 0.4004039407821532,
+        "mean_split_relative_gain": -0.18016170200483939
+      },
+      "normalized_residual": {
+        "pooled_hits": 3445,
+        "pooled_comparisons": 5539,
+        "pooled_descriptive_hit_rate": 0.6219534211951616,
+        "pooled_mean_relative_regret": 0.03681766231716936,
+        "pooled_mean_relative_gain": 0.30808625341883067,
+        "split_hit_rate_range": [
+          0.5931899641577061,
+          0.6702702702702703
+        ],
+        "mean_split_hit_rate": 0.6220209184127311,
+        "mean_split_relative_regret": 0.03680234717726735,
+        "mean_split_relative_gain": 0.30816681468664725
+      },
+      "paired_vs_residual_splits": {
+        "higher_hit_rate": 8,
+        "lower_hit_rate": 2,
+        "equal_hit_rate": 0
+      }
+    },
+    "1.0": {
+      "paired": {
+        "pooled_hits": 137,
+        "pooled_comparisons": 212,
+        "pooled_descriptive_hit_rate": 0.6462264150943396,
+        "pooled_mean_relative_regret": 0.009367938878123773,
+        "pooled_mean_relative_gain": 0.12272238835697435,
+        "split_hit_rate_range": [
+          0.38095238095238093,
+          0.9047619047619048
+        ],
+        "mean_split_hit_rate": 0.644927536231884,
+        "mean_split_relative_regret": 0.00937673207068844,
+        "mean_split_relative_gain": 0.1226847837871005
+      },
+      "residual": {
+        "pooled_hits": 114,
+        "pooled_comparisons": 212,
+        "pooled_descriptive_hit_rate": 0.5377358490566038,
+        "pooled_mean_relative_regret": 0.013594824930297114,
+        "pooled_mean_relative_gain": 0.11794181658159643,
+        "split_hit_rate_range": [
+          0.23809523809523808,
+          0.8095238095238095
+        ],
+        "mean_split_hit_rate": 0.5374741200828157,
+        "mean_split_relative_regret": 0.013566119138583303,
+        "mean_split_relative_gain": 0.11795206988233402
+      },
+      "independence": {
+        "pooled_hits": 77,
+        "pooled_comparisons": 212,
+        "pooled_descriptive_hit_rate": 0.3632075471698113,
+        "pooled_mean_relative_regret": 0.020626917439636076,
+        "pooled_mean_relative_gain": 0.11005146110920733,
+        "split_hit_rate_range": [
+          0.09523809523809523,
+          0.6190476190476191
+        ],
+        "mean_split_hit_rate": 0.3629399585921325,
+        "mean_split_relative_regret": 0.020630192371250834,
+        "mean_split_relative_gain": 0.110025466286284
+      },
+      "saving": {
+        "pooled_hits": 102,
+        "pooled_comparisons": 212,
+        "pooled_descriptive_hit_rate": 0.4811320754716981,
+        "pooled_mean_relative_regret": 0.016824607022135188,
+        "pooled_mean_relative_gain": 0.1143752183252515,
+        "split_hit_rate_range": [
+          0.19047619047619047,
+          0.8095238095238095
+        ],
+        "mean_split_hit_rate": 0.4807453416149068,
+        "mean_split_relative_regret": 0.016809289546048364,
+        "mean_split_relative_gain": 0.1143705933742009
+      },
+      "marginal": {
+        "pooled_hits": 0,
+        "pooled_comparisons": 212,
+        "pooled_descriptive_hit_rate": 0.0,
+        "pooled_mean_relative_regret": 0.3596996902386292,
+        "pooled_mean_relative_gain": -0.27457947675319383,
+        "split_hit_rate_range": [
+          0.0,
+          0.0
+        ],
+        "mean_split_hit_rate": 0.0,
+        "mean_split_relative_regret": 0.35980136853297956,
+        "mean_split_relative_gain": -0.27467476681062425
+      },
+      "normalized_residual": {
+        "pooled_hits": 122,
+        "pooled_comparisons": 212,
+        "pooled_descriptive_hit_rate": 0.5754716981132075,
+        "pooled_mean_relative_regret": 0.011928816382183174,
+        "pooled_mean_relative_gain": 0.11988170676638225,
+        "split_hit_rate_range": [
+          0.3333333333333333,
+          0.8571428571428571
+        ],
+        "mean_split_hit_rate": 0.5751552795031056,
+        "mean_split_relative_regret": 0.011913358011119295,
+        "mean_split_relative_gain": 0.11987509765755547
+      },
+      "paired_vs_residual_splits": {
+        "higher_hit_rate": 8,
+        "lower_hit_rate": 2,
+        "equal_hit_rate": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,155 @@
+{
+  "design": "Fixed recorded chain paths and outcomes. Missing costs imputed by the same model positive-cost old112 mean. All-zero reference cells receive the same imputation in the matched scenario. No actual invoice is inferred. 1000 paired task-bootstrap intervals at seed 20260923; imputation means fixed, so intervals exclude uncertainty about imputation accuracy.",
+  "original_result": "The prior imputed-cost implementation already replaced missing costs for every model, including Opus and the reference. The published 168 counted cheap attempts only; 169 is the complete chain count.",
+  "attempts": 469,
+  "missing_attempts": 169,
+  "missing_cheap_attempts": 168,
+  "missing_reference_attempts_in_chain": 1,
+  "tasks_with_missing_attempt": 91,
+  "missing_attempt_source_splits": [
+    "old112"
+  ],
+  "missing_always_Opus_reference_cells": 10,
+  "imputation_means_usd": {
+    "MiniMax-M2.7": 0.4343893703703703,
+    "Qwen3-Max": 0.1070878528,
+    "claude-opus-4-6": 1.2160103431372549,
+    "claude-sonnet-4-6": 0.8847008613861387,
+    "glm-5": 0.4591905056603774,
+    "gpt-5.4": 0.10378908482142857,
+    "kimi-k2.5": 0.02449030105263158,
+    "qwen3.5-plus": 0.123556915625
+  },
+  "scenarios": {
+    "released": {
+      "score": [
+        0.7329545454545454,
+        0.6647727272727273,
+        0.7954545454545455
+      ],
+      "mean_cost_usd": [
+        0.49271690255681816,
+        0.3594981258877841,
+        0.6363454680085228
+      ],
+      "reference_mean_cost_usd": [
+        1.1074332670454548,
+        0.9140369786931819,
+        1.3552106789772727
+      ],
+      "efficiency_ratio": [
+        2.588760015921359,
+        1.9959175983357864,
+        3.4823401616691627
+      ],
+      "quality_change": [
+        0.09659090909090906,
+        0.03409090909090906,
+        0.15909090909090917
+      ]
+    },
+    "cheap168_only_reference_released": {
+      "score": [
+        0.7329545454545454,
+        0.6647727272727273,
+        0.7954545454545455
+      ],
+      "mean_cost_usd": [
+        0.7683941523876154,
+        0.6194318076233714,
+        0.921391126038998
+      ],
+      "reference_mean_cost_usd": [
+        1.1074332670454548,
+        0.9140369786931819,
+        1.3552106789772727
+      ],
+      "efficiency_ratio": [
+        1.6599889686097897,
+        1.336062215042398,
+        2.108243470410562
+      ],
+      "quality_change": [
+        0.09659090909090906,
+        0.03409090909090906,
+        0.15909090909090917
+      ]
+    },
+    "all169_reference_released": {
+      "score": [
+        0.7329545454545454,
+        0.6647727272727273,
+        0.7954545454545455
+      ],
+      "mean_cost_usd": [
+        0.7753033020645316,
+        0.6281545096175595,
+        0.9285605783956192
+      ],
+      "reference_mean_cost_usd": [
+        1.1074332670454548,
+        0.9140369786931819,
+        1.3552106789772727
+      ],
+      "efficiency_ratio": [
+        1.6451959034756494,
+        1.3257154428554243,
+        2.088112159649126
+      ],
+      "quality_change": [
+        0.09659090909090906,
+        0.03409090909090906,
+        0.15909090909090917
+      ]
+    },
+    "all169_reference_also_imputed": {
+      "score": [
+        0.7329545454545454,
+        0.6647727272727273,
+        0.7954545454545455
+      ],
+      "mean_cost_usd": [
+        0.7753033020645316,
+        0.6281545096175595,
+        0.9285605783956192
+      ],
+      "reference_mean_cost_usd": [
+        1.176524763814617,
+        0.982008396745488,
+        1.4163256400818849
+      ],
+      "efficiency_ratio": [
+        1.747837796971306,
+        1.4068404174470108,
+        2.236438192276065
+      ],
+      "quality_change": [
+        0.09659090909090906,
+        0.03409090909090906,
+        0.15909090909090917
+      ]
+    }
+  },
+  "previous_matched_imputation": {
+    "EV": [
+      0.7329545454545454,
+      0.6703125,
+      0.7954545454545454
+    ],
+    "ED": [
+      0.7753033020645316,
+      0.6330975945986227,
+      0.9360358738009346
+    ],
+    "r": [
+      1.7478377969713053,
+      1.4075969016541583,
+      2.2279292784064424
+    ],
+    "Q": [
+      0.09659090909090906,
+      0.03409090909090906,
+      0.1647727272727273
+    ]
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "experiment_id": "X12c_jev_policy_two_primary",
+  "model": "jev-latest",
+  "resolved_models": [
+    "jev-1.13.0"
+  ],
+  "setting": {
+    "seed": 20260917,
+    "n_probing": 600,
+    "n_id_test": 600,
+    "alloc_probing": {
+      "humaneval": 67,
+      "he": 89,
+      "mbpp": 88,
+      "bcb": 89,
+      "hex": 89,
+      "lcb": 89,
+      "ds1000": 89
+    },
+    "alloc_id_test": {
+      "humaneval": 33,
+      "he": 63,
+      "mbpp": 55,
+      "bcb": 115,
+      "hex": 124,
+      "lcb": 124,
+      "ds1000": 86
+    },
+    "models": [
+      "Qwen3-Max",
+      "kimi-k2.5"
+    ],
+    "question_type": "choice",
+    "workers": 24
+  },
+  "api": {
+    "n_calls": 1200,
+    "n_errors": 0,
+    "input_tokens": 849284,
+    "output_tokens": 51600,
+    "estimated_input_cost_usd": 0.035669928,
+    "wall_seconds": null
+  },
+  "probing": {
+    "split": "probing",
+    "n": 600,
+    "n_valid_choice": 600,
+    "parse_rate": 1.0,
+    "selection_counts": {
+      "Qwen3-Max": 596,
+      "kimi-k2.5": 4
+    },
+    "fixed_Qwen3-Max": {
+      "score_mean": 0.6340307222222223,
+      "pass_at_1": 0.5833333333333334,
+      "cost_mean_usd": 0.0004036135333333333
+    },
+    "fixed_kimi-k2.5": {
+      "score_mean": 0.5535982222222222,
+      "pass_at_1": 0.5,
+      "cost_mean_usd": 0.0007904039333333334
+    },
+    "jev_policy": {
+      "score_mean": 0.6331170555555555,
+      "pass_at_1": 0.5833333333333334,
+      "cost_mean_usd": 0.0004029954666666667,
+      "score_sum": 379.8702333333333,
+      "oracle_best_score_mean": 0.7445657222222222,
+      "oracle_best_pass_at_1": 0.69,
+      "oracle_cheapest_cost_mean_usd": 0.00034604936666666667,
+      "choice_matches_best_score_model": 0.8366666666666667
+    }
+  },
+  "id_test": {
+    "split": "id_test",
+    "n": 600,
+    "n_valid_choice": 600,
+    "parse_rate": 1.0,
+    "selection_counts": {
+      "Qwen3-Max": 596,
+      "kimi-k2.5": 4
+    },
+    "fixed_Qwen3-Max": {
+      "score_mean": 0.6244058888888889,
+      "pass_at_1": 0.55,
+      "cost_mean_usd": 0.00040928490000000003
+    },
+    "fixed_kimi-k2.5": {
+      "score_mean": 0.5099560000000001,
+      "pass_at_1": 0.43166666666666664,
+      "cost_mean_usd": 0.00093504285
+    },
+    "jev_policy": {
+      "score_mean": 0.6237282222222221,
+      "pass_at_1": 0.55,
+      "cost_mean_usd": 0.00041174195,
+      "score_sum": 374.2369333333333,
+      "oracle_best_score_mean": 0.7197562222222221,
+      "oracle_best_pass_at_1": 0.6383333333333333,
+      "oracle_cheapest_cost_mean_usd": 0.00036000485,
+      "choice_matches_best_score_model": 0.8183333333333334
+    }
+  }
+}

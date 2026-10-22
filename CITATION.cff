@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "Please cite this software repository when using the experiment implementation."
+type: software
+title: "Route Anything: Experiment Code"
+authors:
+  - name: InfRec-Cardinal
+repository-code: "https://github.com/InfRec-Cardinal/route-anything"
+license: MIT
+version: 0.1.0
+date-released: 2026-10-22

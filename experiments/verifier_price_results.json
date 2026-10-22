@@ -1,0 +1,72 @@
+{
+  "design": "Point estimates from 334 archived id_test tasks; thresholds 0.5 and 1.0 are reported without selecting them on held-out outcomes.",
+  "judge": "Grok-4.6",
+  "actual_judge_dollar_price": null,
+  "price_status": "The archived judge calls provide token counts and estimated relay units, without a substantiated dollar invoice or input/output dollar price.",
+  "intervals": "Not recomputed. All reported values are point estimates.",
+  "cost_ceiling_formula": "mean(V_policy) / eta_reference - mean(primary_cost + rejected * fallback_cost)",
+  "price_frontier": "For input/output prices p_in and p_out in USD per million tokens, efficiency exceeds the reference iff (mean_input_tokens * p_in + mean_output_tokens * p_out) / 1e6 < max_mean_judge_charge_usd_for_efficiency_gain.",
+  "interpretation": "The quality difference must satisfy a separately chosen quality floor. A negative cost ceiling means the policy cannot exceed reference efficiency even with a free judge. The uniform-token price ceiling is a scenario, not an observed price.",
+  "results": [
+    {
+      "model": "Qwen3-Max",
+      "threshold": 0.5,
+      "tasks": 334,
+      "mean_judge_input_tokens": 1302.251497005988,
+      "mean_judge_output_tokens": 2218.440119760479,
+      "mean_judge_total_tokens": 3520.691616766467,
+      "mean_final_quality": 0.7245508982035929,
+      "mean_quality_difference": -0.0119760479041916,
+      "mean_backend_cost_usd": 0.0020248059281437127,
+      "mean_reference_cost_usd": 0.005413263473053893,
+      "reference_efficiency_per_usd": 136.05968927506734,
+      "max_mean_judge_charge_usd_for_efficiency_gain": 0.0033004370006328803,
+      "uniform_input_output_price_ceiling_usd_per_million_tokens": 0.9374399577956003
+    },
+    {
+      "model": "Qwen3-Max",
+      "threshold": 1.0,
+      "tasks": 334,
+      "mean_judge_input_tokens": 1302.251497005988,
+      "mean_judge_output_tokens": 2218.440119760479,
+      "mean_judge_total_tokens": 3520.691616766467,
+      "mean_final_quality": 0.7365269461077845,
+      "mean_quality_difference": 0.0,
+      "mean_backend_cost_usd": 0.005660075389221557,
+      "mean_reference_cost_usd": 0.005413263473053893,
+      "reference_efficiency_per_usd": 136.05968927506734,
+      "max_mean_judge_charge_usd_for_efficiency_gain": -0.00024681191616766473,
+      "uniform_input_output_price_ceiling_usd_per_million_tokens": -0.07010324760972558
+    },
+    {
+      "model": "Kimi-K2.5",
+      "threshold": 0.5,
+      "tasks": 334,
+      "mean_judge_input_tokens": 1298.0119760479042,
+      "mean_judge_output_tokens": 1945.508982035928,
+      "mean_judge_total_tokens": 3243.5209580838323,
+      "mean_final_quality": 0.6976047904191617,
+      "mean_quality_difference": -0.038922155688622784,
+      "mean_backend_cost_usd": 0.0026568529041916165,
+      "mean_reference_cost_usd": 0.005413263473053893,
+      "reference_efficiency_per_usd": 136.05968927506734,
+      "max_mean_judge_charge_usd_for_efficiency_gain": 0.0024703437999610534,
+      "uniform_input_output_price_ceiling_usd_per_million_tokens": 0.7616241214055397
+    },
+    {
+      "model": "Kimi-K2.5",
+      "threshold": 1.0,
+      "tasks": 334,
+      "mean_judge_input_tokens": 1298.0119760479042,
+      "mean_judge_output_tokens": 1945.508982035928,
+      "mean_judge_total_tokens": 3243.5209580838323,
+      "mean_final_quality": 0.7365269461077845,
+      "mean_quality_difference": 0.0,
+      "mean_backend_cost_usd": 0.005765565479041916,
+      "mean_reference_cost_usd": 0.005413263473053893,
+      "reference_efficiency_per_usd": 136.05968927506734,
+      "max_mean_judge_charge_usd_for_efficiency_gain": -0.0003523020059880231,
+      "uniform_input_output_price_ceiling_usd_per_million_tokens": -0.10861715109624319
+    }
+  ]
+}

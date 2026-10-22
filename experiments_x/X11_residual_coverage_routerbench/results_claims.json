@@ -1,0 +1,204 @@
+{
+ "claims": [
+  {
+   "id": "A1",
+   "kind": "IDENTITY",
+   "statement": "r_m(S) = p(S+m) - p(S) (eq:residual): direct count vs difference of coverages",
+   "result": "max |diff| = 1.11e-16 over 12072 (context, theta, S, m) cases",
+   "verdict": "PASS"
+  },
+  {
+   "id": "A2",
+   "kind": "IDENTITY",
+   "statement": "eq:homogeneous with the portfolio's own (p, v_h, v_m, a, b) reproduces the ratio-of-sums eta(S)",
+   "result": "max |diff| = 8.21e-11",
+   "verdict": "PASS"
+  },
+  {
+   "id": "A3",
+   "kind": "IDENTITY",
+   "statement": "eq:app-marginal-identity with common (v_h, v_m, b) := S's values equals N_S/(E[D(S)]+d-rb); substituting S+m's three values recovers the realised change",
+   "result": "max |diff| = 1.20e-10 / 6.96e-11",
+   "verdict": "PASS"
+  },
+  {
+   "id": "C1",
+   "kind": "OUT-OF-SAMPLE",
+   "statement": "eq:marginal sign rule fitted on the 70% split predicts the sign of the realised held-out change eta(S+m)-eta(S) in >= 85% of CI-decided (S,m) cases and beats the independence proxy (1-p(S))P(E_m) and the marginal-P(E_m)-only rules (theta=0.5; 8 families + 57 MMLU subsets)",
+   "result": "3602 (S,m) cases in 63 contexts, 2559 CI-decided: eq:marginal N_S 98.2% (Wilson 95% 97.6-98.6%; 47 disagreements: pred+/real- 44, pred-/real+ 3); independence proxy 91.8%; P(E_m) >= tau (tau fitted on the fit split) 58.3%; P(E_m) > p(S) 52.1%; Frechet-upper-bound rule 86.8%; Frechet-lower-bound rule 63.2%; value-preserving r b - d 98.3%; constant sign (best of always +/-) 51.0%; on all cases: N_S 93.2%, indep 85.9%, tau 61.0%",
+   "verdict": "PASS"
+  },
+  {
+   "id": "C2",
+   "kind": "OUT-OF-SAMPLE",
+   "statement": "ranking candidates by fit-split residual coverage r_m(S) correlates better (Spearman) with the realised held-out change eta(S+m)-eta(S) than ranking by fit-split marginal P(E_m) (theta=0.5; portfolios with >= 3 non-trivial partners)",
+   "result": "566 portfolios: median Spearman(fit r_m, held-out gain) 0.080 vs Spearman(fit P(E_m), held-out gain) -0.412 (means 0.066 vs -0.337); r_m better in 417, P(E_m) better in 113, ties 34 (two-sided sign test p = 6.2e-42); median paired difference +0.263 (held-out bootstrap CI [+0.215, +0.275]); for reference the cost-aware rankings: N_S 0.928, N_indep 0.750, P(E_m)/d_m 0.829; X2-style target held-out r_m: fit r_m 0.642 vs fit P(E_m) 0.399 (r better 352, a better 165, p = 1.3e-16)",
+   "verdict": "PASS"
+  },
+  {
+   "id": "C2b",
+   "kind": "OUT-OF-SAMPLE",
+   "statement": "X2's d2: the partner with the largest fit-split N_S (eq:marginal) yields a larger realised held-out gain than the partner with the largest fit-split P(E_m); and than N_S with the independence proxy (theta=0.5)",
+   "result": "theorem_N vs quality_a: same top in 16%, differ in 473, N_S wins 440 (CI 364), P(E_m) wins 33 (CI 2), mean rel-gain difference on differing +65.6 pts; theorem_N vs N_indep: differ in 322, N_S wins 256 (CI 105), N_indep wins 66 (CI 7); r_m vs P(E_m) (both price-blind): differ in 347, r_m wins 273 (CI 236), P(E_m) wins 74 (CI 46); top N_S = held-out oracle in 67% of portfolios, top P(E_m) in 13%; median realised rel. gain of the top partner: P(E_m) -40.1%, r_m +7.6%, N_indep +15.1%, N_S +22.2%, oracle +27.6%",
+   "verdict": "PASS (N_S vs P(E_m)); PASS (N_S vs N_indep); PASS (r_m vs P(E_m))"
+  },
+  {
+   "id": "C1",
+   "kind": "OUT-OF-SAMPLE",
+   "statement": "eq:marginal sign rule fitted on the 70% split predicts the sign of the realised held-out change eta(S+m)-eta(S) in >= 85% of CI-decided (S,m) cases and beats the independence proxy (1-p(S))P(E_m) and the marginal-P(E_m)-only rules (theta=1.0; 8 families + 57 MMLU subsets) (theta = 1 differs from theta = 0.5 only in the non-binary contexts grade-school-math, mt-bench, rag-other, overall)",
+   "result": "176 (S,m) cases in 2 contexts, 132 CI-decided: eq:marginal N_S 100.0% (Wilson 95% 97.2-100.0%; 0 disagreements: pred+/real- 0, pred-/real+ 0); independence proxy 87.1%; P(E_m) >= tau (tau fitted on the fit split) 68.2%; P(E_m) > p(S) 48.5%; Frechet-upper-bound rule 73.5%; Frechet-lower-bound rule 56.1%; value-preserving r b - d 100.0%; constant sign (best of always +/-) 56.1%; on all cases: N_S 96.6%, indep 80.7%, tau 72.2%",
+   "verdict": "PASS"
+  },
+  {
+   "id": "C2",
+   "kind": "OUT-OF-SAMPLE",
+   "statement": "ranking candidates by fit-split residual coverage r_m(S) correlates better (Spearman) with the realised held-out change eta(S+m)-eta(S) than ranking by fit-split marginal P(E_m) (theta=1.0; portfolios with >= 3 non-trivial partners)",
+   "result": "21 portfolios: median Spearman(fit r_m, held-out gain) 0.143 vs Spearman(fit P(E_m), held-out gain) 0.143 (means 0.123 vs 0.106); r_m better in 7, P(E_m) better in 3, ties 11 (two-sided sign test p = 0.34); median paired difference +0.000 (held-out bootstrap CI [+0.000, +0.000]); for reference the cost-aware rankings: N_S 0.950, N_indep 0.933, P(E_m)/d_m 0.738; X2-style target held-out r_m: fit r_m 0.976 vs fit P(E_m) 0.976 (r better 9, a better 1, p = 0.021)",
+   "verdict": "INCONCLUSIVE"
+  },
+  {
+   "id": "C2b",
+   "kind": "OUT-OF-SAMPLE",
+   "statement": "X2's d2: the partner with the largest fit-split N_S (eq:marginal) yields a larger realised held-out gain than the partner with the largest fit-split P(E_m); and than N_S with the independence proxy (theta=1.0)",
+   "result": "theorem_N vs quality_a: same top in 0%, differ in 21, N_S wins 21 (CI 21), P(E_m) wins 0 (CI 0), mean rel-gain difference on differing +42.4 pts; theorem_N vs N_indep: differ in 4, N_S wins 3 (CI 2), N_indep wins 1 (CI 0); r_m vs P(E_m) (both price-blind): differ in 0, r_m wins 0 (CI 0), P(E_m) wins 0 (CI 0); top N_S = held-out oracle in 62% of portfolios, top P(E_m) in 0%; median realised rel. gain of the top partner: P(E_m) -29.3%, r_m -29.3%, N_indep +12.4%, N_S +12.6%, oracle +16.1%",
+   "verdict": "PASS (N_S vs P(E_m)); INCONCLUSIVE (N_S vs N_indep); INCONCLUSIVE (rankings never differ) (r_m vs P(E_m))"
+  },
+  {
+   "id": "C3a",
+   "kind": "IDENTITY",
+   "statement": "realised r_m({m0}) lies in the Frechet interval [max{0,p_m-p_0}, min{p_m,1-p_0}] (rem:frechet) in 100% of (m0, m) pairs, same sample (theta=0.5)",
+   "result": "2348 pairs in 65 contexts: inside 100.0% (0 outside); bootstrap replicates inside 100.0%; position (r-l)/(u-l): median 0.32, 10-90% [0.18, 0.48], within 1% of the lower bound in 1%, of the upper bound in 0%; independence proxy position median 0.58; realised r_m below the independence proxy in 93% (positively correlated errors); median width 0.275; OUT-OF-SAMPLE diagnostic: held-out r_m inside the FIT-split interval in 96.1% of 1991 pairs (held-out CI overlaps it in 85.3%)",
+   "verdict": "PASS"
+  },
+  {
+   "id": "C3b",
+   "kind": "IN-SAMPLE (bound part is implied by C3a; width correlation is empirical)",
+   "statement": "for equal-marginal pairs (|p_1-p_2| < 0.02) the marginal-only minimax selector's realised excess fallback cost is <= the rem:frechet bound b xy/(x+y) (= (b/2)[min{p,1-p_0}-max{0,p-p_0}] at p_1=p_2) and grows with the interval width (Spearman > 0, CI) (theta=0.5)",
+   "result": "1130 (m0; m1, m2) triples in 64 contexts: excess <= exact bound in 100.0% (0 violations); <= equal-marginal formula at p = (p_1+p_2)/2 in 100.0% (0 violations, max $0.00e+00); median excess/bound 0.05 (10-90% [0.01, 0.15]); excess exactly 0 in 8%; median excess $9.63e-06 vs median bound $1.82e-04; Spearman(excess/b, width) pooled +0.226 [CI +0.151, +0.275]; Spearman(excess $, bound $) +0.469 [CI +0.429, +0.538]; within-context Spearman median 0.093 over 59 contexts with >= 5 triples (positive in 73%)",
+   "verdict": "PASS"
+  },
+  {
+   "id": "C3a",
+   "kind": "IDENTITY",
+   "statement": "realised r_m({m0}) lies in the Frechet interval [max{0,p_m-p_0}, min{p_m,1-p_0}] (rem:frechet) in 100% of (m0, m) pairs, same sample (theta=1.0)",
+   "result": "80 pairs in 3 contexts: inside 100.0% (0 outside); bootstrap replicates inside 100.0%; position (r-l)/(u-l): median 0.25, 10-90% [0.11, 0.46], within 1% of the lower bound in 0%, of the upper bound in 2%; independence proxy position median 0.67; realised r_m below the independence proxy in 98% (positively correlated errors); median width 0.247; OUT-OF-SAMPLE diagnostic: held-out r_m inside the FIT-split interval in 98.3% of 60 pairs (held-out CI overlaps it in 96.7%)",
+   "verdict": "PASS"
+  },
+  {
+   "id": "C3b",
+   "kind": "IN-SAMPLE (bound part is implied by C3a; width correlation is empirical)",
+   "statement": "for equal-marginal pairs (|p_1-p_2| < 0.02) the marginal-only minimax selector's realised excess fallback cost is <= the rem:frechet bound b xy/(x+y) (= (b/2)[min{p,1-p_0}-max{0,p-p_0}] at p_1=p_2) and grows with the interval width (Spearman > 0, CI) (theta=1.0)",
+   "result": "45 (m0; m1, m2) triples in 3 contexts: excess <= exact bound in 100.0% (0 violations); <= equal-marginal formula at p = (p_1+p_2)/2 in 100.0% (0 violations, max $0.00e+00); median excess/bound 0.06 (10-90% [0.00, 0.17]); excess exactly 0 in 18%; median excess $2.34e-05 vs median bound $5.30e-04; Spearman(excess/b, width) pooled +0.359 [CI +0.321, +0.788]; Spearman(excess $, bound $) +0.369 [CI +0.524, +0.870]; within-context Spearman median 0.277 over 3 contexts with >= 5 triples (positive in 100%)",
+   "verdict": "PASS"
+  },
+  {
+   "id": "C4a",
+   "kind": "IN-SAMPLE hypothesis (diagnostic)",
+   "statement": "thm:marginal hypothesis of common v_m: v_m(S+m) = v_m(S) (gpt-4's mean score on the failure set does not change when m is added) (theta=0.5; non-trivial (S,m), |S| in 1..2)",
+   "result": "n=6392 cases in 65 contexts; CI of v_m(S+m)-v_m(S) excludes 0 in 56% (violation frequency); median drift -0.0686 (-11.5% of v_m(S)); negative in 90%; 10-90% rel [-26.4%, -0.1%]; b drift: median +0.3%, CI excl 0 in 18%; v_h drift: CI excl 0 in 5% (max |drift| 0.073); in-sample b4 sign agreement 98.6% (all), 99.9% on 5182 realised-CI-decided, 99.9% on 5133 both-CI-decided; baselines (realised-CI-decided): indep proxy 95.1%, always negative 42.1%; median |rel err| of the predicted change 7.4% -> 2.7% with S+m's v_m, 6.2% with S+m's b",
+   "verdict": "FAIL (large drift)"
+  },
+  {
+   "id": "C4b",
+   "kind": "IN-SAMPLE hypothesis (diagnostic, X2 c2)",
+   "statement": "errors are positively correlated: P(E_i^c & E_j^c) > P(E_i^c) P(E_j^c) for usable model pairs (theta=0.5)",
+   "result": "1864 pairs: excess > 0 in 87%, CI > 0 in 76%, CI < 0 in 5.5%; median excess 0.068; families only: > 0 in 92% of 360",
+   "verdict": "FAIL"
+  },
+  {
+   "id": "C4a",
+   "kind": "IN-SAMPLE hypothesis (diagnostic)",
+   "statement": "thm:marginal hypothesis of common v_m: v_m(S+m) = v_m(S) (gpt-4's mean score on the failure set does not change when m is added) (theta=1.0; non-trivial (S,m), |S| in 1..2)",
+   "result": "n=360 cases in 3 contexts; CI of v_m(S+m)-v_m(S) excludes 0 in 45% (violation frequency); median drift -0.0066 (-1.4% of v_m(S)); negative in 64%; 10-90% rel [-13.4%, +0.0%]; b drift: median +0.0%, CI excl 0 in 52%; v_h drift: CI excl 0 in 0% (max |drift| 0.000); in-sample b4 sign agreement 99.4% (all), 100.0% on 351 realised-CI-decided, 100.0% on 350 both-CI-decided; baselines (realised-CI-decided): indep proxy 91.5%, always negative 61.8%; median |rel err| of the predicted change 12.6% -> 6.1% with S+m's v_m, 5.5% with S+m's b",
+   "verdict": "INCONCLUSIVE"
+  },
+  {
+   "id": "C4b",
+   "kind": "IN-SAMPLE hypothesis (diagnostic, X2 c2)",
+   "statement": "errors are positively correlated: P(E_i^c & E_j^c) > P(E_i^c) P(E_j^c) for usable model pairs (theta=1.0)",
+   "result": "66 pairs: excess > 0 in 98%, CI > 0 in 91%, CI < 0 in 1.5%; median excess 0.103; families only: > 0 in 98% of 66",
+   "verdict": "PASS"
+  },
+  {
+   "id": "C5",
+   "kind": "OUT-OF-SAMPLE",
+   "statement": "prop:marginals content: for equal-marginal candidate pairs (fit split), the r_m-informed selector (argmax fit-split r_m) has a smaller realised held-out excess fallback cost than the minimax marginal-only selector q = x/(x+y) (theta=0.5)",
+   "result": "884 triples in 60 contexts: mean held-out excess marginal-only $3.06e-05, informed $2.13e-05 (ratio 0.70), uniform-random $3.06e-05; mean difference marginal - informed $9.34e-06 [CI $5.37e-07, $1.75e-05]; informed better in 492, marginal better in 284, ties 108 (p = 7.7e-14); the fit-split informed pick is the held-out best partner in 62%",
+   "verdict": "PASS"
+  },
+  {
+   "id": "C5",
+   "kind": "OUT-OF-SAMPLE",
+   "statement": "prop:marginals content: for equal-marginal candidate pairs (fit split), the r_m-informed selector (argmax fit-split r_m) has a smaller realised held-out excess fallback cost than the minimax marginal-only selector q = x/(x+y) (theta=1.0)",
+   "result": "18 triples in 3 contexts: mean held-out excess marginal-only $4.29e-05, informed $2.56e-06 (ratio 0.06), uniform-random $4.32e-05; mean difference marginal - informed $4.04e-05 [CI $-4.81e-05, $1.31e-04]; informed better in 12, marginal better in 4, ties 2 (p = 0.077); the fit-split informed pick is the held-out best partner in 72%",
+   "verdict": "INCONCLUSIVE"
+  }
+ ],
+ "audit": {
+  "C1_recomputed": {
+   "n_cases": 3602,
+   "agreement_all": 0.9319822320932815,
+   "n_ci_decided_reused_flags": 2559,
+   "agreement_ci_decided": 0.9816334505666275,
+   "max_abs_diff_N_fit_vs_main": 2.631228568361621e-14,
+   "main_run": {
+    "agreement_all": 0.9319822320932815,
+    "agreement_ci_decided": 0.9816334505666275
+   }
+  },
+  "C1_ci_flags_recomputed_hellaswag": {
+   "n_cases": 174,
+   "n_flags_matching": 174
+  },
+  "C3a_recomputed": {
+   "n_pairs": 2348,
+   "frac_inside": 1.0,
+   "position_median": 0.3157894736842106,
+   "main_run": {
+    "n_pairs": 2348,
+    "frac_inside": 1.0,
+    "position_median": 0.3157894736842108
+   }
+  },
+  "C3b_recomputed": {
+   "n_triples": 1130,
+   "frac_within_exact_bound": 1.0,
+   "median_ratio": 0.051282051282051225,
+   "spearman_excess_prob_vs_width": 0.22551459355388373,
+   "main_run": {
+    "n_triples": 1130,
+    "frac_within_exact_bound": 1.0,
+    "median_ratio": 0.05128205128205093,
+    "spearman_excess_prob_vs_width": 0.22598795939776123
+   }
+  },
+  "C2_recomputed": {
+   "n_portfolios": 566,
+   "median_spearman_fit_r_vs_gain": 0.07991960869019793,
+   "median_spearman_fit_a_vs_gain": -0.41241128683700945,
+   "r_better": 417,
+   "a_better": 113,
+   "main_run": {
+    "median_spearman_fit_r": 0.07991960869019793,
+    "median_spearman_fit_a": -0.41241128683700945,
+    "sign_test": {
+     "r_better": 417,
+     "a_better": 113,
+     "ties": 34,
+     "p_two_sided": 6.152662153523622e-42
+    }
+   }
+  },
+  "duplicate_prompts": 16,
+  "negative_error_correlation_examples": [
+   "mmlu: claude-inst x mistral7b (-0.014)",
+   "mmlu: claude-v1 x mistral7b (-0.010)",
+   "mmlu: claude-v2 x mistral7b (-0.030)",
+   "hellaswag: wizard13b x gpt35 (-0.021)",
+   "hellaswag: claude-inst x codellama34b (-0.012)",
+   "hellaswag: claude-inst x mistral7b (-0.013)",
+   "hellaswag: claude-v2 x codellama34b (-0.023)",
+   "hellaswag: claude-v2 x mistral7b (-0.027)"
+  ]
+ }
+}

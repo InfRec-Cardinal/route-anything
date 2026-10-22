@@ -1,0 +1,156 @@
+{
+  "experiment": "Jev official ID/OOD full-matrix choice",
+  "model": "jev-latest",
+  "models": [
+    "Qwen3-Max",
+    "kimi-k2.5",
+    "qwen3.5-plus",
+    "MiniMax-M2.7",
+    "glm-5",
+    "gpt-5.4",
+    "claude-sonnet-4-6",
+    "claude-opus-4-6"
+  ],
+  "setting": {
+    "id_tasks": 2919,
+    "ood_tasks": 176,
+    "prompt_cap_chars": 5000,
+    "workers": 24,
+    "cost_aware": true,
+    "offline_matrix_scoring": true
+  },
+  "ID": {
+    "n": 2919,
+    "n_ok": 2919,
+    "n_errors": 0,
+    "choices": {
+      "Qwen3-Max": 2724,
+      "kimi-k2.5": 0,
+      "qwen3.5-plus": 193,
+      "MiniMax-M2.7": 0,
+      "glm-5": 0,
+      "gpt-5.4": 0,
+      "claude-sonnet-4-6": 2,
+      "claude-opus-4-6": 0
+    },
+    "jev_input_tokens": 2845011,
+    "jev_cost_usd": 0.11949046200000002,
+    "policy": {
+      "score_mean": 0.3884466483955693,
+      "pass_at_1": 0.21616992120589243,
+      "backend_cost_mean_usd": 0.0006207571017471737,
+      "total_cost_mean_usd": 0.0006616925118191161
+    },
+    "baselines": {
+      "Qwen3-Max": {
+        "score_mean": 0.3966942446043165,
+        "pass_at_1": 0.22028091812264475,
+        "cost_mean_usd": 0.000524841349777321
+      },
+      "kimi-k2.5": {
+        "score_mean": 0.36655986068288227,
+        "pass_at_1": 0.16615279205207262,
+        "cost_mean_usd": 0.0008026484755053099
+      },
+      "qwen3.5-plus": {
+        "score_mean": 0.37156979559209774,
+        "pass_at_1": 0.21000342583076395,
+        "cost_mean_usd": 0.001708733367591641
+      },
+      "MiniMax-M2.7": {
+        "score_mean": 0.3562200525294051,
+        "pass_at_1": 0.17882836587872558,
+        "cost_mean_usd": 0.005129328194587187
+      },
+      "glm-5": {
+        "score_mean": 0.38032431197898825,
+        "pass_at_1": 0.21651250428228846,
+        "cost_mean_usd": 0.005706924631723192
+      },
+      "gpt-5.4": {
+        "score_mean": 0.4221278063263675,
+        "pass_at_1": 0.23055841041452552,
+        "cost_mean_usd": 0.005677070058239123
+      },
+      "claude-sonnet-4-6": {
+        "score_mean": 0.41310122187963916,
+        "pass_at_1": 0.1815690304898938,
+        "cost_mean_usd": 0.008578225077081192
+      },
+      "claude-opus-4-6": {
+        "score_mean": 0.4383238780404248,
+        "pass_at_1": 0.24768756423432683,
+        "cost_mean_usd": 0.011654803014731072
+      }
+    },
+    "oracle_best_score_mean": 0.6002418065547562,
+    "oracle_best_pass_at_1": 0.4066461116820829
+  },
+  "OOD176": {
+    "n": 176,
+    "n_ok": 176,
+    "n_errors": 0,
+    "choices": {
+      "Qwen3-Max": 83,
+      "kimi-k2.5": 0,
+      "qwen3.5-plus": 81,
+      "MiniMax-M2.7": 0,
+      "glm-5": 0,
+      "gpt-5.4": 0,
+      "claude-sonnet-4-6": 12,
+      "claude-opus-4-6": 0
+    },
+    "jev_input_tokens": 239834,
+    "jev_cost_usd": 0.010073028,
+    "policy": {
+      "score_mean": 0.26704545454545453,
+      "pass_at_1": 0.26704545454545453,
+      "backend_cost_mean_usd": 0.075598503125,
+      "total_cost_mean_usd": 0.07565573623863636
+    },
+    "baselines": {
+      "Qwen3-Max": {
+        "score_mean": 0.32954545454545453,
+        "pass_at_1": 0.32954545454545453,
+        "cost_mean_usd": 0.02390340090909091
+      },
+      "kimi-k2.5": {
+        "score_mean": 0.19886363636363635,
+        "pass_at_1": 0.19886363636363635,
+        "cost_mean_usd": 0.008309133181818182
+      },
+      "qwen3.5-plus": {
+        "score_mean": 0.2727272727272727,
+        "pass_at_1": 0.2727272727272727,
+        "cost_mean_usd": 0.03530201375
+      },
+      "MiniMax-M2.7": {
+        "score_mean": 0.3522727272727273,
+        "pass_at_1": 0.3522727272727273,
+        "cost_mean_usd": 0.10471855113636365
+      },
+      "glm-5": {
+        "score_mean": 0.44886363636363635,
+        "pass_at_1": 0.44886363636363635,
+        "cost_mean_usd": 0.21729568636363636
+      },
+      "gpt-5.4": {
+        "score_mean": 0.6420454545454546,
+        "pass_at_1": 0.6420454545454546,
+        "cost_mean_usd": 0.10379032670454545
+      },
+      "claude-sonnet-4-6": {
+        "score_mean": 0.4318181818181818,
+        "pass_at_1": 0.4318181818181818,
+        "cost_mean_usd": 0.7978129261363637
+      },
+      "claude-opus-4-6": {
+        "score_mean": 0.6363636363636364,
+        "pass_at_1": 0.6363636363636364,
+        "cost_mean_usd": 1.1074332670454545
+      }
+    },
+    "oracle_best_score_mean": 0.7897727272727273,
+    "oracle_best_pass_at_1": 0.7897727272727273
+  }
+}

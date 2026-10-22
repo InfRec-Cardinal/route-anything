@@ -1,0 +1,1051 @@
+{
+  "design": "Exploratory reanalysis designed after original test outcomes were inspected. Rules and candidates are fit on probing only. No new untouched evaluation population is claimed.",
+  "portfolio_protocol": "Same original candidate filters and contexts. Equal-weight means over context-portfolio configurations; overlapping configurations are not independent. Missing-Qwen sensitivity removes the entire affected task from every model, then refits on retained probing tasks. Cost-only score is residual coverage times mean reference cost on base failures minus candidate cost.",
+  "missing_tasks": 148,
+  "missing_fit": 106,
+  "missing_test": 42,
+  "common_resource_valid_tasks": 8208,
+  "CodeRouterBench": {
+    "fit_tasks": 7080,
+    "test_tasks": 2919,
+    "summary": {
+      "1.0": {
+        "portfolios": 139,
+        "rules": {
+          "paired": {
+            "best": 0.9712230215827338,
+            "value": 0.6109888955141703,
+            "cost": 0.01528816028655246,
+            "quality_change": 0.0753189180503109,
+            "cost_saving": 0.00205051023260005,
+            "efficiency_gain": 6.342353934600424,
+            "relative_efficiency_gain": 0.35183118816831055,
+            "relative_efficiency_regret": 0.0005993019794236883,
+            "surplus_at_fit_base_price": 0.1036245293463402
+          },
+          "residual": {
+            "best": 0.8633093525179856,
+            "value": 0.6116245660821934,
+            "cost": 0.015348840173933708,
+            "quality_change": 0.07595458861833411,
+            "cost_saving": 0.0019898303452188025,
+            "efficiency_gain": 5.763122409229708,
+            "relative_efficiency_gain": 0.34594809344373967,
+            "relative_efficiency_regret": 0.006238082302911518,
+            "surplus_at_fit_base_price": 0.09848257713577098
+          },
+          "cost_only": {
+            "best": 0.9568345323741008,
+            "value": 0.6112766652983429,
+            "cost": 0.01529476092071395,
+            "quality_change": 0.07560668783448357,
+            "cost_saving": 0.0020439095984385613,
+            "efficiency_gain": 6.19695380482591,
+            "relative_efficiency_gain": 0.3507856829300487,
+            "relative_efficiency_regret": 0.0013835520289728913,
+            "surplus_at_fit_base_price": 0.10291370952358898
+          },
+          "marginal_success": {
+            "best": 0.4676258992805755,
+            "value": 0.6173250614453321,
+            "cost": 0.017873528157506115,
+            "quality_change": 0.0816550839814726,
+            "cost_saving": -0.0005348576383536037,
+            "efficiency_gain": -1.6328110123037443,
+            "relative_efficiency_gain": 0.22508596341959106,
+            "relative_efficiency_regret": 0.12742612046312035,
+            "surplus_at_fit_base_price": -0.03613217335829413
+          }
+        },
+        "paired_minus_residual": {
+          "value": -0.0006356705680231827,
+          "cost": -6.067988738124749e-05,
+          "surplus_at_fit_base_price": 0.005141952210569235,
+          "changed_choices": 15
+        },
+        "paired_minus_cost_only": {
+          "value": -0.0002877697841726581,
+          "cost": -6.600634161488932e-06,
+          "surplus_at_fit_base_price": 0.0007108198227512265,
+          "changed_choices": 4
+        }
+      },
+      "0.5": {
+        "portfolios": 194,
+        "rules": {
+          "paired": {
+            "best": 0.9639175257731959,
+            "value": 0.5968711856553677,
+            "cost": 0.012771954151139077,
+            "quality_change": 0.05888270043259296,
+            "cost_saving": 0.0013899577357955675,
+            "efficiency_gain": 6.0345762964788445,
+            "relative_efficiency_gain": 0.2586242839634969,
+            "relative_efficiency_regret": 0.0002468175548224158,
+            "surplus_at_fit_base_price": 0.0798324253653679
+          },
+          "residual": {
+            "best": 0.9432989690721649,
+            "value": 0.5966778816505557,
+            "cost": 0.012774131763610905,
+            "quality_change": 0.058689396427781024,
+            "cost_saving": 0.0013877801233237387,
+            "efficiency_gain": 6.016042829241949,
+            "relative_efficiency_gain": 0.25819730533177593,
+            "relative_efficiency_regret": 0.0006634124358266322,
+            "surplus_at_fit_base_price": 0.07960058373497736
+          },
+          "cost_only": {
+            "best": 0.9329896907216495,
+            "value": 0.5963944507970217,
+            "cost": 0.012771115237364673,
+            "quality_change": 0.05840596557424708,
+            "cost_saving": 0.0013907966495699704,
+            "efficiency_gain": 5.987418948357715,
+            "relative_efficiency_gain": 0.2578246307156726,
+            "relative_efficiency_regret": 0.0010255777882592276,
+            "surplus_at_fit_base_price": 0.07945322590583283
+          },
+          "marginal_success": {
+            "best": 0.4072164948453608,
+            "value": 0.6052184509959943,
+            "cost": 0.015407083190666176,
+            "quality_change": 0.06722996577321962,
+            "cost_saving": -0.0012451713037315295,
+            "efficiency_gain": -8.55465924608074,
+            "relative_efficiency_gain": 0.09186335490091316,
+            "relative_efficiency_regret": 0.16190815289360094,
+            "surplus_at_fit_base_price": -0.08828941086436361
+          }
+        },
+        "paired_minus_residual": {
+          "value": 0.000193304004811931,
+          "cost": -2.177612471828755e-06,
+          "surplus_at_fit_base_price": 0.0002318416303905384,
+          "changed_choices": 6
+        },
+        "paired_minus_cost_only": {
+          "value": 0.0004767348583458782,
+          "cost": 8.389137744031902e-07,
+          "surplus_at_fit_base_price": 0.00037919945953508483,
+          "changed_choices": 10
+        }
+      }
+    },
+    "largest_residual_corrections": [
+      {
+        "context": "code_completion",
+        "theta": 1.0,
+        "portfolio": [
+          "kimi-k2.5",
+          "glm-5"
+        ],
+        "stats": {
+          "paired": {
+            "best": true,
+            "value": 0.8913432835820898,
+            "cost": 0.010398837313432833,
+            "quality_change": 0.008955223880596996,
+            "cost_saving": 5.078089552239089e-05,
+            "efficiency_gain": 1.2735338249095491,
+            "relative_efficiency_gain": 0.015081734277996944,
+            "relative_efficiency_regret": 0.0,
+            "surplus_at_fit_base_price": 0.013234188750836417,
+            "candidate": "Qwen3-Max"
+          },
+          "residual": {
+            "best": false,
+            "value": 0.893134328358209,
+            "cost": 0.011404476417910451,
+            "quality_change": 0.01074626865671624,
+            "cost_saving": -0.0009548582089552275,
+            "efficiency_gain": -6.127768912035137,
+            "relative_efficiency_gain": -0.07256767008512567,
+            "relative_efficiency_regret": 0.08634713974581122,
+            "surplus_at_fit_base_price": -0.06971321694604535,
+            "candidate": "gpt-5.4"
+          },
+          "cost_only": {
+            "best": true,
+            "value": 0.8913432835820898,
+            "cost": 0.010398837313432833,
+            "quality_change": 0.008955223880596996,
+            "cost_saving": 5.078089552239089e-05,
+            "efficiency_gain": 1.2735338249095491,
+            "relative_efficiency_gain": 0.015081734277996944,
+            "relative_efficiency_regret": 0.0,
+            "surplus_at_fit_base_price": 0.013234188750836417,
+            "candidate": "Qwen3-Max"
+          },
+          "marginal_success": {
+            "best": false,
+            "value": 0.893134328358209,
+            "cost": 0.011404476417910451,
+            "quality_change": 0.01074626865671624,
+            "cost_saving": -0.0009548582089552275,
+            "efficiency_gain": -6.127768912035137,
+            "relative_efficiency_gain": -0.07256767008512567,
+            "relative_efficiency_regret": 0.08634713974581122,
+            "surplus_at_fit_base_price": -0.06971321694604535,
+            "candidate": "gpt-5.4"
+          }
+        },
+        "n_test": 335
+      },
+      {
+        "context": "code_completion",
+        "theta": 1.0,
+        "portfolio": [
+          "kimi-k2.5",
+          "qwen3.5-plus"
+        ],
+        "stats": {
+          "paired": {
+            "best": true,
+            "value": 0.882985074626866,
+            "cost": 0.00637654444776119,
+            "quality_change": 0.01134328358208958,
+            "cost_saving": 6.012417910448032e-05,
+            "efficiency_gain": 3.05575992743357,
+            "relative_efficiency_gain": 0.022565363728796455,
+            "relative_efficiency_regret": 0.0,
+            "surplus_at_fit_base_price": 0.019653815160544624,
+            "candidate": "Qwen3-Max"
+          },
+          "residual": {
+            "best": false,
+            "value": 0.8919402985074629,
+            "cost": 0.006999676089552233,
+            "quality_change": 0.020298507462686466,
+            "cost_saving": -0.0005630074626865626,
+            "efficiency_gain": -7.99221617958041,
+            "relative_efficiency_gain": -0.059018793810439014,
+            "relative_efficiency_regret": 0.07978380691649666,
+            "surplus_at_fit_base_price": -0.057521952912029356,
+            "candidate": "gpt-5.4"
+          },
+          "cost_only": {
+            "best": true,
+            "value": 0.882985074626866,
+            "cost": 0.00637654444776119,
+            "quality_change": 0.01134328358208958,
+            "cost_saving": 6.012417910448032e-05,
+            "efficiency_gain": 3.05575992743357,
+            "relative_efficiency_gain": 0.022565363728796455,
+            "relative_efficiency_regret": 0.0,
+            "surplus_at_fit_base_price": 0.019653815160544624,
+            "candidate": "Qwen3-Max"
+          },
+          "marginal_success": {
+            "best": false,
+            "value": 0.8919402985074629,
+            "cost": 0.006999676089552233,
+            "quality_change": 0.020298507462686466,
+            "cost_saving": -0.0005630074626865626,
+            "efficiency_gain": -7.99221617958041,
+            "relative_efficiency_gain": -0.059018793810439014,
+            "relative_efficiency_regret": 0.07978380691649666,
+            "surplus_at_fit_base_price": -0.057521952912029356,
+            "candidate": "gpt-5.4"
+          }
+        },
+        "n_test": 335
+      },
+      {
+        "context": "code_completion",
+        "theta": 1.0,
+        "portfolio": [
+          "Qwen3-Max",
+          "MiniMax-M2.7"
+        ],
+        "stats": {
+          "paired": {
+            "best": true,
+            "value": 0.8931343283582093,
+            "cost": 0.00845024746268658,
+            "quality_change": 0.004776119402984946,
+            "cost_saving": -0.00016666417910449378,
+            "efficiency_gain": -1.5499528479032563,
+            "relative_efficiency_gain": -0.014452687408980749,
+            "relative_efficiency_regret": 0.0,
+            "surplus_at_fit_base_price": -0.013316274652647876,
+            "candidate": "kimi-k2.5"
+          },
+          "residual": {
+            "best": false,
+            "value": 0.9002985074626868,
+            "cost": 0.00922072507462687,
+            "quality_change": 0.011940298507462477,
+            "cost_saving": -0.0009371417910447842,
+            "efficiency_gain": -9.604647285262985,
+            "relative_efficiency_gain": -0.08955947600290212,
+            "relative_efficiency_regret": 0.0762082019141876,
+            "surplus_at_fit_base_price": -0.08979205130331092,
+            "candidate": "gpt-5.4"
+          },
+          "cost_only": {
+            "best": true,
+            "value": 0.8931343283582093,
+            "cost": 0.00845024746268658,
+            "quality_change": 0.004776119402984946,
+            "cost_saving": -0.00016666417910449378,
+            "efficiency_gain": -1.5499528479032563,
+            "relative_efficiency_gain": -0.014452687408980749,
+            "relative_efficiency_regret": 0.0,
+            "surplus_at_fit_base_price": -0.013316274652647876,
+            "candidate": "kimi-k2.5"
+          },
+          "marginal_success": {
+            "best": false,
+            "value": 0.9002985074626868,
+            "cost": 0.00922072507462687,
+            "quality_change": 0.011940298507462477,
+            "cost_saving": -0.0009371417910447842,
+            "efficiency_gain": -9.604647285262985,
+            "relative_efficiency_gain": -0.08955947600290212,
+            "relative_efficiency_regret": 0.0762082019141876,
+            "surplus_at_fit_base_price": -0.08979205130331092,
+            "candidate": "gpt-5.4"
+          }
+        },
+        "n_test": 335
+      }
+    ]
+  },
+  "CodeRouterBench_drop_missing": {
+    "fit_tasks": 6974,
+    "test_tasks": 2877,
+    "summary": {
+      "1.0": {
+        "portfolios": 139,
+        "rules": {
+          "paired": {
+            "best": 0.9712230215827338,
+            "value": 0.6203942634266139,
+            "cost": 0.015150467538281205,
+            "quality_change": 0.07631196832547997,
+            "cost_saving": 0.0021005984147630537,
+            "efficiency_gain": 6.722410481281726,
+            "relative_efficiency_gain": 0.36341329872872596,
+            "relative_efficiency_regret": 0.0005993019794236883,
+            "surplus_at_fit_base_price": 0.10666781599953162
+          },
+          "residual": {
+            "best": 0.8633093525179856,
+            "value": 0.6210299339946372,
+            "cost": 0.015211147425662451,
+            "quality_change": 0.07694763889350316,
+            "cost_saving": 0.0020399185273818066,
+            "efficiency_gain": 6.14317895591101,
+            "relative_efficiency_gain": 0.35753020400415503,
+            "relative_efficiency_regret": 0.006238082302911518,
+            "surplus_at_fit_base_price": 0.1015258637889624
+          },
+          "cost_only": {
+            "best": 0.9568345323741008,
+            "value": 0.6206820332107867,
+            "cost": 0.015157068172442693,
+            "quality_change": 0.07659973810965263,
+            "cost_saving": 0.0020939977806015645,
+            "efficiency_gain": 6.577010351507212,
+            "relative_efficiency_gain": 0.3623677934904641,
+            "relative_efficiency_regret": 0.0013835520289728913,
+            "surplus_at_fit_base_price": 0.1059569961767804
+          },
+          "marginal_success": {
+            "best": 0.4676258992805755,
+            "value": 0.6267446880827031,
+            "cost": 0.017750559424179052,
+            "quality_change": 0.08266239298156901,
+            "cost_saving": -0.0004994934711347945,
+            "efficiency_gain": -1.4763969972749118,
+            "relative_efficiency_gain": 0.23614632982704606,
+            "relative_efficiency_regret": 0.1278834468741561,
+            "surplus_at_fit_base_price": -0.042093848629999986
+          }
+        },
+        "paired_minus_residual": {
+          "value": -0.0006356705680231827,
+          "cost": -6.067988738124749e-05,
+          "surplus_at_fit_base_price": 0.005141952210569235,
+          "changed_choices": 15
+        },
+        "paired_minus_cost_only": {
+          "value": -0.0002877697841726581,
+          "cost": -6.600634161488932e-06,
+          "surplus_at_fit_base_price": 0.0007108198227512265,
+          "changed_choices": 4
+        }
+      },
+      "0.5": {
+        "portfolios": 194,
+        "rules": {
+          "paired": {
+            "best": 0.9639175257731959,
+            "value": 0.6069873556635147,
+            "cost": 0.012624737502507012,
+            "quality_change": 0.05989153435499873,
+            "cost_saving": 0.0014298292749785845,
+            "efficiency_gain": 6.366752871075545,
+            "relative_efficiency_gain": 0.26722016982900293,
+            "relative_efficiency_regret": 0.0002468175548224158,
+            "surplus_at_fit_base_price": 0.08268168032608356
+          },
+          "residual": {
+            "best": 0.9432989690721649,
+            "value": 0.6068587956623127,
+            "cost": 0.012628454481270623,
+            "quality_change": 0.059762974353796794,
+            "cost_saving": 0.0014261122962149718,
+            "efficiency_gain": 6.347616589468999,
+            "relative_efficiency_gain": 0.26677463995853157,
+            "relative_efficiency_regret": 0.0006701384231964133,
+            "surplus_at_fit_base_price": 0.0824392486647219
+          },
+          "cost_only": {
+            "best": 0.9381443298969072,
+            "value": 0.6065962159316918,
+            "cost": 0.012623561878798213,
+            "quality_change": 0.05950039462317582,
+            "cost_saving": 0.0014310048986873832,
+            "efficiency_gain": 6.3269050834774605,
+            "relative_efficiency_gain": 0.2665640062344218,
+            "relative_efficiency_regret": 0.0008802936151013881,
+            "surplus_at_fit_base_price": 0.08240465269427426
+          },
+          "marginal_success": {
+            "best": 0.4072164948453608,
+            "value": 0.6156408510527577,
+            "cost": 0.015277725386092239,
+            "quality_change": 0.06854502974424173,
+            "cost_saving": -0.00122315860860664,
+            "efficiency_gain": -8.647897762896665,
+            "relative_efficiency_gain": 0.09882286057374613,
+            "relative_efficiency_regret": 0.16325639994860902,
+            "surplus_at_fit_base_price": -0.0959184316438477
+          }
+        },
+        "paired_minus_residual": {
+          "value": 0.0001285600012019467,
+          "cost": -3.716978763612646e-06,
+          "surplus_at_fit_base_price": 0.0002424316613616623,
+          "changed_choices": 6
+        },
+        "paired_minus_cost_only": {
+          "value": 0.000391139731822917,
+          "cost": 1.1756237087987237e-06,
+          "surplus_at_fit_base_price": 0.00027702763180931385,
+          "changed_choices": 9
+        }
+      }
+    },
+    "largest_residual_corrections": [
+      {
+        "context": "code_completion",
+        "theta": 1.0,
+        "portfolio": [
+          "kimi-k2.5",
+          "glm-5"
+        ],
+        "stats": {
+          "paired": {
+            "best": true,
+            "value": 0.8913432835820898,
+            "cost": 0.010398837313432833,
+            "quality_change": 0.008955223880596996,
+            "cost_saving": 5.078089552239089e-05,
+            "efficiency_gain": 1.2735338249095491,
+            "relative_efficiency_gain": 0.015081734277996944,
+            "relative_efficiency_regret": 0.0,
+            "surplus_at_fit_base_price": 0.013234188750836417,
+            "candidate": "Qwen3-Max"
+          },
+          "residual": {
+            "best": false,
+            "value": 0.893134328358209,
+            "cost": 0.011404476417910451,
+            "quality_change": 0.01074626865671624,
+            "cost_saving": -0.0009548582089552275,
+            "efficiency_gain": -6.127768912035137,
+            "relative_efficiency_gain": -0.07256767008512567,
+            "relative_efficiency_regret": 0.08634713974581122,
+            "surplus_at_fit_base_price": -0.06971321694604535,
+            "candidate": "gpt-5.4"
+          },
+          "cost_only": {
+            "best": true,
+            "value": 0.8913432835820898,
+            "cost": 0.010398837313432833,
+            "quality_change": 0.008955223880596996,
+            "cost_saving": 5.078089552239089e-05,
+            "efficiency_gain": 1.2735338249095491,
+            "relative_efficiency_gain": 0.015081734277996944,
+            "relative_efficiency_regret": 0.0,
+            "surplus_at_fit_base_price": 0.013234188750836417,
+            "candidate": "Qwen3-Max"
+          },
+          "marginal_success": {
+            "best": false,
+            "value": 0.893134328358209,
+            "cost": 0.011404476417910451,
+            "quality_change": 0.01074626865671624,
+            "cost_saving": -0.0009548582089552275,
+            "efficiency_gain": -6.127768912035137,
+            "relative_efficiency_gain": -0.07256767008512567,
+            "relative_efficiency_regret": 0.08634713974581122,
+            "surplus_at_fit_base_price": -0.06971321694604535,
+            "candidate": "gpt-5.4"
+          }
+        },
+        "n_test": 335
+      },
+      {
+        "context": "code_completion",
+        "theta": 1.0,
+        "portfolio": [
+          "kimi-k2.5",
+          "qwen3.5-plus"
+        ],
+        "stats": {
+          "paired": {
+            "best": true,
+            "value": 0.882985074626866,
+            "cost": 0.00637654444776119,
+            "quality_change": 0.01134328358208958,
+            "cost_saving": 6.012417910448032e-05,
+            "efficiency_gain": 3.05575992743357,
+            "relative_efficiency_gain": 0.022565363728796455,
+            "relative_efficiency_regret": 0.0,
+            "surplus_at_fit_base_price": 0.019653815160544624,
+            "candidate": "Qwen3-Max"
+          },
+          "residual": {
+            "best": false,
+            "value": 0.8919402985074629,
+            "cost": 0.006999676089552233,
+            "quality_change": 0.020298507462686466,
+            "cost_saving": -0.0005630074626865626,
+            "efficiency_gain": -7.99221617958041,
+            "relative_efficiency_gain": -0.059018793810439014,
+            "relative_efficiency_regret": 0.07978380691649666,
+            "surplus_at_fit_base_price": -0.057521952912029356,
+            "candidate": "gpt-5.4"
+          },
+          "cost_only": {
+            "best": true,
+            "value": 0.882985074626866,
+            "cost": 0.00637654444776119,
+            "quality_change": 0.01134328358208958,
+            "cost_saving": 6.012417910448032e-05,
+            "efficiency_gain": 3.05575992743357,
+            "relative_efficiency_gain": 0.022565363728796455,
+            "relative_efficiency_regret": 0.0,
+            "surplus_at_fit_base_price": 0.019653815160544624,
+            "candidate": "Qwen3-Max"
+          },
+          "marginal_success": {
+            "best": false,
+            "value": 0.8919402985074629,
+            "cost": 0.006999676089552233,
+            "quality_change": 0.020298507462686466,
+            "cost_saving": -0.0005630074626865626,
+            "efficiency_gain": -7.99221617958041,
+            "relative_efficiency_gain": -0.059018793810439014,
+            "relative_efficiency_regret": 0.07978380691649666,
+            "surplus_at_fit_base_price": -0.057521952912029356,
+            "candidate": "gpt-5.4"
+          }
+        },
+        "n_test": 335
+      },
+      {
+        "context": "code_completion",
+        "theta": 1.0,
+        "portfolio": [
+          "Qwen3-Max",
+          "MiniMax-M2.7"
+        ],
+        "stats": {
+          "paired": {
+            "best": true,
+            "value": 0.8931343283582093,
+            "cost": 0.00845024746268658,
+            "quality_change": 0.004776119402984946,
+            "cost_saving": -0.00016666417910449378,
+            "efficiency_gain": -1.5499528479032563,
+            "relative_efficiency_gain": -0.014452687408980749,
+            "relative_efficiency_regret": 0.0,
+            "surplus_at_fit_base_price": -0.013316274652647876,
+            "candidate": "kimi-k2.5"
+          },
+          "residual": {
+            "best": false,
+            "value": 0.9002985074626868,
+            "cost": 0.00922072507462687,
+            "quality_change": 0.011940298507462477,
+            "cost_saving": -0.0009371417910447842,
+            "efficiency_gain": -9.604647285262985,
+            "relative_efficiency_gain": -0.08955947600290212,
+            "relative_efficiency_regret": 0.0762082019141876,
+            "surplus_at_fit_base_price": -0.08979205130331092,
+            "candidate": "gpt-5.4"
+          },
+          "cost_only": {
+            "best": true,
+            "value": 0.8931343283582093,
+            "cost": 0.00845024746268658,
+            "quality_change": 0.004776119402984946,
+            "cost_saving": -0.00016666417910449378,
+            "efficiency_gain": -1.5499528479032563,
+            "relative_efficiency_gain": -0.014452687408980749,
+            "relative_efficiency_regret": 0.0,
+            "surplus_at_fit_base_price": -0.013316274652647876,
+            "candidate": "kimi-k2.5"
+          },
+          "marginal_success": {
+            "best": false,
+            "value": 0.9002985074626868,
+            "cost": 0.00922072507462687,
+            "quality_change": 0.011940298507462477,
+            "cost_saving": -0.0009371417910447842,
+            "efficiency_gain": -9.604647285262985,
+            "relative_efficiency_gain": -0.08955947600290212,
+            "relative_efficiency_regret": 0.0762082019141876,
+            "surplus_at_fit_base_price": -0.08979205130331092,
+            "candidate": "gpt-5.4"
+          }
+        },
+        "n_test": 335
+      }
+    ]
+  },
+  "RouterBench": {
+    "fit_tasks": 25542,
+    "test_tasks": 10955,
+    "summary": {
+      "0.5": {
+        "portfolios": 566,
+        "rules": {
+          "paired": {
+            "best": 0.6678445229681979,
+            "value": 0.8832445800229988,
+            "cost": 0.0006944528496540594,
+            "quality_change": 0.033546328427961965,
+            "cost_saving": 0.00018422537964112552,
+            "efficiency_gain": 515.6960962302945,
+            "relative_efficiency_gain": 0.33658066720163327,
+            "relative_efficiency_regret": 0.0334743536308898,
+            "surplus_at_fit_base_price": 0.1858513393888015
+          },
+          "residual": {
+            "best": 0.6731448763250883,
+            "value": 0.8826385439996843,
+            "cost": 0.0006916323877402947,
+            "quality_change": 0.03294029240464746,
+            "cost_saving": 0.00018704584155489033,
+            "efficiency_gain": 509.857180524718,
+            "relative_efficiency_gain": 0.3342947389863604,
+            "relative_efficiency_regret": 0.034688318054213324,
+            "surplus_at_fit_base_price": 0.1848168611917358
+          },
+          "cost_only": {
+            "best": 0.6749116607773852,
+            "value": 0.882321692039057,
+            "cost": 0.0006920369535929554,
+            "quality_change": 0.0326234404440201,
+            "cost_saving": 0.0001866412757022296,
+            "efficiency_gain": 513.4784044651741,
+            "relative_efficiency_gain": 0.33532039866526364,
+            "relative_efficiency_regret": 0.03396286847249295,
+            "surplus_at_fit_base_price": 0.1852777447550942
+          },
+          "marginal_success": {
+            "best": 0.13427561837455831,
+            "value": 0.8738940527334519,
+            "cost": 0.0015742429777186142,
+            "quality_change": 0.024195801138414984,
+            "cost_saving": -0.0006955647484234291,
+            "efficiency_gain": -575.2882420868289,
+            "relative_efficiency_gain": -0.21402581402545529,
+            "relative_efficiency_regret": 0.43507704263645564,
+            "surplus_at_fit_base_price": -0.7435409606016616
+          }
+        },
+        "paired_minus_residual": {
+          "value": 0.0006060360233145005,
+          "cost": 2.8204619137648358e-06,
+          "surplus_at_fit_base_price": 0.0010344781970656866,
+          "changed_choices": 62
+        },
+        "paired_minus_cost_only": {
+          "value": 0.000922887983941865,
+          "cost": 2.4158960611040724e-06,
+          "surplus_at_fit_base_price": 0.0005735946337072675,
+          "changed_choices": 44
+        }
+      },
+      "1.0": {
+        "portfolios": 21,
+        "rules": {
+          "paired": {
+            "best": 0.6666666666666666,
+            "value": 0.6656115239930268,
+            "cost": 0.002665552426828146,
+            "quality_change": 0.035209652261675384,
+            "cost_saving": 0.00022234393063584208,
+            "efficiency_gain": 30.665943965303047,
+            "relative_efficiency_gain": 0.14469501372111568,
+            "relative_efficiency_regret": 0.009462554972409491,
+            "surplus_at_fit_base_price": 0.07996481454914484
+          },
+          "residual": {
+            "best": 0.6190476190476191,
+            "value": 0.6698091568033764,
+            "cost": 0.0027207712450683552,
+            "quality_change": 0.03940728507202496,
+            "cost_saving": 0.00016712511239563312,
+            "efficiency_gain": 27.35160480475998,
+            "relative_efficiency_gain": 0.12918737124379961,
+            "relative_efficiency_regret": 0.022445369593681545,
+            "surplus_at_fit_base_price": 0.07275872144869157
+          },
+          "cost_only": {
+            "best": 0.38095238095238093,
+            "value": 0.6676300578034682,
+            "cost": 0.0027511995045417007,
+            "quality_change": 0.03722818607211671,
+            "cost_saving": 0.00013669685292228722,
+            "efficiency_gain": 23.773270028511725,
+            "relative_efficiency_gain": 0.11349968024104193,
+            "relative_efficiency_regret": 0.03631986147995432,
+            "surplus_at_fit_base_price": 0.06404022475393877
+          },
+          "marginal_success": {
+            "best": 0.0,
+            "value": 0.6794889439398111,
+            "cost": 0.004414829287090557,
+            "quality_change": 0.049087072208459495,
+            "cost_saving": -0.0015269329296265692,
+            "efficiency_gain": -65.43809227239048,
+            "relative_efficiency_gain": -0.29461387701968655,
+            "relative_efficiency_regret": 0.3896220750350484,
+            "surplus_at_fit_base_price": -0.270655196687367
+          }
+        },
+        "paired_minus_residual": {
+          "value": -0.004197632810349577,
+          "cost": -5.521881824020895e-05,
+          "surplus_at_fit_base_price": 0.007206093100453256,
+          "changed_choices": 11
+        },
+        "paired_minus_cost_only": {
+          "value": -0.002018533810441327,
+          "cost": -8.564707771355483e-05,
+          "surplus_at_fit_base_price": 0.015924589795206064,
+          "changed_choices": 10
+        }
+      }
+    },
+    "largest_residual_corrections": [
+      {
+        "context": "mmlu-formal-logic",
+        "theta": 0.5,
+        "portfolio": [
+          "WizardLM/WizardLM-13B-V1.2"
+        ],
+        "stats": {
+          "paired": {
+            "best": true,
+            "value": 0.8648648648648649,
+            "cost": 0.0007444594594594596,
+            "quality_change": 0.16216216216216217,
+            "cost_saving": 0.0005092972972972975,
+            "efficiency_gain": 601.2576427127505,
+            "relative_efficiency_gain": 1.0727592610692995,
+            "relative_efficiency_regret": 0.0,
+            "surplus_at_fit_base_price": 0.5503401604375677,
+            "candidate": "claude-instant-v1"
+          },
+          "residual": {
+            "best": false,
+            "value": 0.7297297297297297,
+            "cost": 0.0008771675675675677,
+            "quality_change": 0.027027027027026973,
+            "cost_saving": 0.00037658918918918936,
+            "efficiency_gain": 271.43829551691783,
+            "relative_efficiency_gain": 0.4842981188743963,
+            "relative_efficiency_regret": 0.2839023099534128,
+            "surplus_at_fit_base_price": 0.3140570945482457,
+            "candidate": "mistralai/mixtral-8x7b-chat"
+          },
+          "cost_only": {
+            "best": false,
+            "value": 0.7297297297297297,
+            "cost": 0.0008771675675675677,
+            "quality_change": 0.027027027027026973,
+            "cost_saving": 0.00037658918918918936,
+            "efficiency_gain": 271.43829551691783,
+            "relative_efficiency_gain": 0.4842981188743963,
+            "relative_efficiency_regret": 0.2839023099534128,
+            "surplus_at_fit_base_price": 0.3140570945482457,
+            "candidate": "mistralai/mixtral-8x7b-chat"
+          },
+          "marginal_success": {
+            "best": false,
+            "value": 0.7297297297297297,
+            "cost": 0.0008771675675675677,
+            "quality_change": 0.027027027027026973,
+            "cost_saving": 0.00037658918918918936,
+            "efficiency_gain": 271.43829551691783,
+            "relative_efficiency_gain": 0.4842981188743963,
+            "relative_efficiency_regret": 0.2839023099534128,
+            "surplus_at_fit_base_price": 0.3140570945482457,
+            "candidate": "mistralai/mixtral-8x7b-chat"
+          }
+        },
+        "n_test": 37
+      },
+      {
+        "context": "mmlu-astronomy",
+        "theta": 0.5,
+        "portfolio": [
+          "mistralai/mixtral-8x7b-chat"
+        ],
+        "stats": {
+          "paired": {
+            "best": true,
+            "value": 0.9777777777777777,
+            "cost": 0.0002138,
+            "quality_change": 0.022222222222222143,
+            "cost_saving": 5.764444444444455e-05,
+            "efficiency_gain": 1053.0672027773203,
+            "relative_efficiency_gain": 0.299144555393604,
+            "relative_efficiency_regret": 0.0,
+            "surplus_at_fit_base_price": 0.1917930654812835,
+            "candidate": "claude-instant-v1"
+          },
+          "residual": {
+            "best": false,
+            "value": 0.9555555555555556,
+            "cost": 0.0002680488888888889,
+            "quality_change": 0.0,
+            "cost_saving": 3.3955555555556646e-06,
+            "efficiency_gain": 44.59352601283172,
+            "relative_efficiency_gain": 0.012667672563877665,
+            "relative_efficiency_regret": 0.22051193736707148,
+            "surplus_at_fit_base_price": 0.009988598631451566,
+            "candidate": "zero-one-ai/Yi-34B-Chat"
+          },
+          "cost_only": {
+            "best": false,
+            "value": 0.9555555555555556,
+            "cost": 0.0002680488888888889,
+            "quality_change": 0.0,
+            "cost_saving": 3.3955555555556646e-06,
+            "efficiency_gain": 44.59352601283172,
+            "relative_efficiency_gain": 0.012667672563877665,
+            "relative_efficiency_regret": 0.22051193736707148,
+            "surplus_at_fit_base_price": 0.009988598631451566,
+            "candidate": "zero-one-ai/Yi-34B-Chat"
+          },
+          "marginal_success": {
+            "best": false,
+            "value": 0.9555555555555556,
+            "cost": 0.0010372222222222224,
+            "quality_change": 0.0,
+            "cost_saving": -0.0007657777777777778,
+            "efficiency_gain": -2598.9979129947474,
+            "relative_efficiency_gain": -0.7382967327262988,
+            "relative_efficiency_regret": 0.7985572381555242,
+            "surplus_at_fit_base_price": -2.2526643248678657,
+            "candidate": "claude-v1"
+          }
+        },
+        "n_test": 45
+      },
+      {
+        "context": "mmlu-college-physics",
+        "theta": 0.5,
+        "portfolio": [
+          "claude-instant-v1"
+        ],
+        "stats": {
+          "paired": {
+            "best": true,
+            "value": 0.7419354838709677,
+            "cost": 0.0005915903225806453,
+            "quality_change": 0.09677419354838712,
+            "cost_saving": 0.0002932741935483868,
+            "efficiency_gain": 525.0298631755956,
+            "relative_efficiency_gain": 0.7200994585398561,
+            "relative_efficiency_regret": 0.0,
+            "surplus_at_fit_base_price": 0.2972798761115812,
+            "candidate": "WizardLM/WizardLM-13B-V1.2"
+          },
+          "residual": {
+            "best": false,
+            "value": 0.7419354838709677,
+            "cost": 0.0007444258064516131,
+            "quality_change": 0.09677419354838712,
+            "cost_saving": 0.00014043870967741894,
+            "efficiency_gain": 267.5472801219362,
+            "relative_efficiency_gain": 0.36695179657844024,
+            "relative_efficiency_regret": 0.2053065363215642,
+            "surplus_at_fit_base_price": 0.19278932192182605,
+            "candidate": "mistralai/mixtral-8x7b-chat"
+          },
+          "cost_only": {
+            "best": true,
+            "value": 0.7419354838709677,
+            "cost": 0.0005915903225806453,
+            "quality_change": 0.09677419354838712,
+            "cost_saving": 0.0002932741935483868,
+            "efficiency_gain": 525.0298631755956,
+            "relative_efficiency_gain": 0.7200994585398561,
+            "relative_efficiency_regret": 0.0,
+            "surplus_at_fit_base_price": 0.2972798761115812,
+            "candidate": "WizardLM/WizardLM-13B-V1.2"
+          },
+          "marginal_success": {
+            "best": false,
+            "value": 0.6451612903225806,
+            "cost": 0.0017541548387096774,
+            "quality_change": 0.0,
+            "cost_saving": -0.0008692903225806453,
+            "efficiency_gain": -361.31703778669123,
+            "relative_efficiency_gain": -0.4955607700059584,
+            "relative_efficiency_regret": 0.7067383356877248,
+            "surplus_at_fit_base_price": -0.5943163541454062,
+            "candidate": "claude-v1"
+          }
+        },
+        "n_test": 31
+      }
+    ]
+  },
+  "one_step": {
+    "protocol": "Original two primaries, two thresholds and five fixed resource prices; no verifier noise. The price rule was already stored in the original analysis. Loss compares each probing-selected attempt/direct choice with the better held-out action at the stated price. Grid means share tasks and mix resource prices.",
+    "summary": {
+      "cell21": {
+        "comparisons": 420,
+        "decided": 327,
+        "rules": {
+          "full_value_cost": {
+            "agreement_all": 0.9095238095238095,
+            "agreement_decided": 0.9327217125382263,
+            "mean_surplus_regret_score_units": 0.001261622996672363,
+            "mean_money_equivalent_regret": 0.003794482965223325,
+            "attempt_fraction": 0.7714285714285715,
+            "mean_quality_change": 0.04674087792671413,
+            "mean_dollar_saving": 0.0028363872041880338
+          },
+          "cost_threshold": {
+            "agreement_all": 0.9023809523809524,
+            "agreement_decided": 0.9204892966360856,
+            "mean_surplus_regret_score_units": 0.0018342997783027685,
+            "mean_money_equivalent_regret": 0.006665928594078765,
+            "attempt_fraction": 0.7738095238095238,
+            "mean_quality_change": 0.04604440079872435,
+            "mean_dollar_saving": 0.0028873590923462703
+          },
+          "always_attempt": {
+            "agreement_all": 0.680952380952381,
+            "agreement_decided": 0.6391437308868502,
+            "mean_surplus_regret_score_units": 0.007104325513923511,
+            "mean_money_equivalent_regret": 0.0068387173975376385,
+            "attempt_fraction": 1.0,
+            "mean_quality_change": 0.04604800496621653,
+            "mean_dollar_saving": 0.0027065410715712106
+          }
+        },
+        "reference_price_only": {
+          "lambda": 34.727,
+          "comparisons": 84,
+          "rules": {
+            "full_value_cost": {
+              "agreement_all": 0.9404761904761905,
+              "mean_surplus_regret_score_units": 0.0006573399931770798,
+              "mean_money_equivalent_regret": 1.8928787202380852e-05,
+              "mean_quality_change": 0.04604440079872435,
+              "mean_dollar_saving": 0.0028873590923462703
+            },
+            "cost_threshold": {
+              "agreement_all": 0.9404761904761905,
+              "mean_surplus_regret_score_units": 0.0006573399931770798,
+              "mean_money_equivalent_regret": 1.8928787202380852e-05,
+              "mean_quality_change": 0.04604440079872435,
+              "mean_dollar_saving": 0.0028873590923462703
+            },
+            "always_attempt": {
+              "agreement_all": 0.7142857142857143,
+              "mean_surplus_regret_score_units": 0.006933003233140387,
+              "mean_money_equivalent_regret": 0.0001996430222345837,
+              "mean_quality_change": 0.04604800496621652,
+              "mean_dollar_saving": 0.0027065410715712106
+            }
+          }
+        }
+      },
+      "dim9": {
+        "comparisons": 180,
+        "decided": 160,
+        "rules": {
+          "full_value_cost": {
+            "agreement_all": 0.8833333333333333,
+            "agreement_decided": 0.925,
+            "mean_surplus_regret_score_units": 0.002206797889034252,
+            "mean_money_equivalent_regret": 0.011601734371992857,
+            "attempt_fraction": 0.85,
+            "mean_quality_change": 0.050210897377841394,
+            "mean_dollar_saving": 0.003413163411751932
+          },
+          "cost_threshold": {
+            "agreement_all": 0.9055555555555556,
+            "agreement_decided": 0.95,
+            "mean_surplus_regret_score_units": 0.0021571659500230077,
+            "mean_money_equivalent_regret": 0.011649476448803877,
+            "attempt_fraction": 0.8055555555555556,
+            "mean_quality_change": 0.05020184849592551,
+            "mean_dollar_saving": 0.003436837397782581
+          },
+          "always_attempt": {
+            "agreement_all": 0.7444444444444445,
+            "agreement_decided": 0.7625,
+            "mean_surplus_regret_score_units": 0.004903245341774536,
+            "mean_money_equivalent_regret": 0.011667169872408314,
+            "attempt_fraction": 1.0,
+            "mean_quality_change": 0.050236707367483605,
+            "mean_dollar_saving": 0.0033414868021003808
+          }
+        },
+        "reference_price_only": {
+          "lambda": 34.727,
+          "comparisons": 36,
+          "rules": {
+            "full_value_cost": {
+              "agreement_all": 1.0,
+              "mean_surplus_regret_score_units": 0.0,
+              "mean_money_equivalent_regret": 0.0,
+              "mean_quality_change": 0.05020184849592551,
+              "mean_dollar_saving": 0.003436837397782581
+            },
+            "cost_threshold": {
+              "agreement_all": 1.0,
+              "mean_surplus_regret_score_units": 0.0,
+              "mean_money_equivalent_regret": 0.0,
+              "mean_quality_change": 0.05020184849592551,
+              "mean_dollar_saving": 0.003436837397782581
+            },
+            "always_attempt": {
+              "agreement_all": 0.8055555555555556,
+              "mean_surplus_regret_score_units": 0.0032763812646976445,
+              "mean_money_equivalent_regret": 9.434679830384556e-05,
+              "mean_quality_change": 0.05023670736748361,
+              "mean_dollar_saving": 0.003341486802100381
+            }
+          }
+        }
+      }
+    }
+  }
+}

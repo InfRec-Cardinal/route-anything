@@ -1,0 +1,110 @@
+{
+ "experiment_id": "X9_optimal_routing",
+ "seed": 20260917,
+ "claims": [
+  {
+   "id": "C1",
+   "kind": "IDENTITY",
+   "statement": "thm:optimal-routing (i): the root eta* of Phi equals the maximum efficiency over deterministic state-wise policies, and the optimal rule is the state-wise argmax of v - eta* c; two-action sub-menus obey p W_{eta*} >= eta* a",
+   "prediction": "root = LP certificate (exact max over all randomized routers) = best deterministic policy found by exhaustive (two-action) / hill-climb / random search, to 1e-9 relative; argmax policy attains it; no single-state deviation improves it; rule agreement 100% (exact matched-reference W)",
+   "measurement": "usd/cell21: eta*=1021.76 (r*=29.423); LP certificate rel dev -6.0e-15; hill-climb 2000/2000 starts reach eta*, random 200000 policies max rel dev -8.56e-01; argmax policy eta rel dev -6.2e-15; one-swap max - eta* = -6.37e-12; two-action exhaustive (2^21 policies x 14 sub-menus) max |dev| 1.4e-12; rule pW>=eta*a agreement 294/294 (homogeneous-W form 258) | usd/dim9: eta*=1002.27 (r*=28.861); LP certificate rel dev 1.8e-14; hill-climb 2000/2000 starts reach eta*, random 200000 policies max rel dev -6.87e-01; argmax policy eta rel dev 1.8e-14; one-swap max - eta* = -1.67e+01; two-action exhaustive (2^9 policies x 14 sub-menus) max |dev| 1.7e-12; rule pW>=eta*a agreement 126/126 (homogeneous-W form 104) | sec/cell21: eta*=0.0676911 (r*=1.236); LP certificate rel dev -7.2e-15; hill-climb 2000/2000 starts reach eta*, random 200000 policies max rel dev -3.32e-01; argmax policy eta rel dev -7.2e-15; one-swap max - eta* = -4.86e-16; two-action exhaustive (2^21 policies x 14 sub-menus) max |dev| 1.5e-15; rule pW>=eta*a agreement 294/294 (homogeneous-W form 283) | sec/dim9: eta*=0.0653437 (r*=1.193); LP certificate rel dev 1.1e-14; hill-climb 2000/2000 starts reach eta*, random 200000 policies max rel dev -1.97e-01; argmax policy eta rel dev 1.1e-14; one-swap max - eta* = -2.20e-04; two-action exhaustive (2^9 policies x 14 sub-menus) max |dev| 1.6e-15; rule pW>=eta*a agreement 126/126 (homogeneous-W form 121)",
+   "verdict": "PASS",
+   "note": "Phi strictly decreasing and convex on the grid in all runs. The homogeneous W = lambda b + v_h - v_b (b, v_b unconditional state means) is an approximation here (reference outcomes depend on acceptance; X1 C3/C4) and disagrees with the argmax in some states; the exact form W = lambda cbar_h + v_h - vbar_h agrees everywhere."
+  },
+  {
+   "id": "C2",
+   "kind": "IDENTITY",
+   "statement": "thm:optimal-routing (ii): the Dinkelbach iteration from lambda_0 = eta_B is monotone, finite (design criterion: steps <= |X|), reaches eta*, and its first step is the net-gain maximization of thm:surplus",
+   "prediction": "lambda_t nondecreasing, strictly increasing until it stops, terminal value = root; steps <= |X| (theorem bound: <= |U|^|X| deterministic routers); Phi(eta_B) = max net gain",
+   "measurement": "usd/cell21: path [34.72694, 411.03611, 1021.76052, 1021.76052] -> 2 steps (3 policy evaluations) <= |X| = 21; terminal rel err 6.2e-15; Phi(lambda_t) = E_gt[D](lambda_t+1 - lambda_t) resid 2.8e-17; Phi(eta_B) = 0.46994 = net gain of g_0 (resid 0.0e+00) >= max over 20,000 random policies 0.34520; probing bootstrap: steps max 4, mean 2.53 | usd/dim9: path [34.72694, 371.74583, 1002.26806, 1002.26806] -> 2 steps (3 policy evaluations) <= |X| = 9; terminal rel err 1.8e-14; Phi(lambda_t) = E_gt[D](lambda_t+1 - lambda_t) resid 5.6e-17; Phi(eta_B) = 0.46160 = net gain of g_0 (resid 0.0e+00) >= max over 20,000 random policies 0.38444; probing bootstrap: steps max 3, mean 2.02 | sec/cell21: path [0.05478, 0.06769, 0.06769] -> 1 steps (2 policy evaluations) <= |X| = 21; terminal rel err 7.2e-15; Phi(lambda_t) = E_gt[D](lambda_t+1 - lambda_t) resid 4.2e-17; Phi(eta_B) = 0.08390 = net gain of g_0 (resid 0.0e+00) >= max over 20,000 random policies -0.11244; probing bootstrap: steps max 3, mean 1.51 | sec/dim9: path [0.05478, 0.06534, 0.06534] -> 1 steps (2 policy evaluations) <= |X| = 9; terminal rel err 1.1e-14; Phi(lambda_t) = E_gt[D](lambda_t+1 - lambda_t) resid 5.6e-17; Phi(eta_B) = 0.07022 = net gain of g_0 (resid 0.0e+00) >= max over 20,000 random policies -0.06653; probing bootstrap: steps max 2, mean 1.17",
+   "verdict": "PASS",
+   "note": "The theorem bounds the number of steps by the number of deterministic routers; |X| is the tighter design criterion and holds with 1-4 steps in every run and probing resample."
+  },
+  {
+   "id": "C3",
+   "kind": "IDENTITY",
+   "statement": "thm:optimal-routing (iii): under the floor E[V] >= vbar - eps the Charnes-Cooper optimum randomizes in at most one state, kappa from the LP dual makes every positive-mass action a maximizer of (1+kappa) v - eta*_eps c, and the two-action price is eta*_eps/(1+kappa)",
+   "prediction": "<= 1 randomizing state for every eps, every fine-grid eps and every probing resample; optimality violation 0; kappa(dual) = kappa(tie); eta*_eps = root of Phi_eps",
+   "measurement": "usd/cell21: randomizing states per eps [1, 1, 1, 0, 0] (max over 65 fine-grid eps: 1; over 1000 probing resamples x 5 eps: 1); kappa [5.428, 2.363, 1.512, -0.0, -0.0], LP dual vs tie formula rel dev 9.2e-15; eta*_eps vs root of Phi_eps rel dev 6.1e-16; max violation of (1+kappa)v - eta*_eps c optimality 6.7e-16; price eta*_eps/(1+kappa) [144.3148, 291.6768, 398.2069, 1021.7605, 1021.7605] | usd/dim9: randomizing states per eps [1, 1, 1, 0, 0] (max over 65 fine-grid eps: 1; over 1000 probing resamples x 5 eps: 1); kappa [4.987, 5.36, 5.794, -0.0, -0.0], LP dual vs tie formula rel dev 0.0e+00; eta*_eps vs root of Phi_eps rel dev 8.3e-16; max violation of (1+kappa)v - eta*_eps c optimality 4.4e-16; price eta*_eps/(1+kappa) [137.5963, 137.5963, 137.5963, 1002.2681, 1002.2681] | sec/cell21: randomizing states per eps [0, 0, 0, 0, 0] (max over 65 fine-grid eps: 1; over 1000 probing resamples x 5 eps: 1); kappa [-0.0, -0.0, -0.0, -0.0, -0.0], LP dual vs tie formula rel dev 0.0e+00; eta*_eps vs root of Phi_eps rel dev 2.1e-16; max violation of (1+kappa)v - eta*_eps c optimality 0.0e+00; price eta*_eps/(1+kappa) [0.0677, 0.0677, 0.0677, 0.0677, 0.0677] | sec/dim9: randomizing states per eps [0, 0, 0, 0, 0] (max over 65 fine-grid eps: 1; over 1000 probing resamples x 5 eps: 1); kappa [-0.0, -0.0, -0.0, -0.0, -0.0], LP dual vs tie formula rel dev 0.0e+00; eta*_eps vs root of Phi_eps rel dev 2.1e-16; max violation of (1+kappa)v - eta*_eps c optimality 0.0e+00; price eta*_eps/(1+kappa) [0.0653, 0.0653, 0.0653, 0.0653, 0.0653]",
+   "verdict": "PASS",
+   "note": "In dollars the floor binds for eps < shortfall of the unconstrained optimum (kappa > 0, exactly one randomizing state); for larger eps kappa = 0 and the rule is the unconstrained one. In seconds the unconstrained optimum already improves quality, so kappa = 0 at every eps."
+  },
+  {
+   "id": "C4",
+   "kind": "OUT-OF-SAMPLE",
+   "statement": "the probing-fitted rule policy (21 cells; unconstrained and every eps) realizes a higher efficiency on id_test than DimensionBest and than the best fixed cascade of X1 (primary x theta selected on probing), with paired bootstrap CIs excluding 0",
+   "prediction": "lower CI bound of the paired difference in eta/eta_B > 0 against both baselines, both resource bases, all rules",
+   "measurement": "usd/cell21/unconstrained: r=28.187 [26.840, 29.659]; diff vs DimensionBest +24.798 [+23.600, +26.064]; vs best fixed cascade +26.182 [+24.846, +27.571] | usd/cell21/eps=0: r=25.516 [24.278, 26.903]; diff vs DimensionBest +22.128 [+21.026, +23.332]; vs best fixed cascade +23.512 [+22.301, +24.843] | usd/cell21/eps=0.005: r=27.071 [25.786, 28.538]; diff vs DimensionBest +23.682 [+22.496, +24.968]; vs best fixed cascade +25.067 [+23.802, +26.527] | usd/cell21/eps=0.01: r=27.612 [26.311, 29.072]; diff vs DimensionBest +24.223 [+23.042, +25.493]; vs best fixed cascade +25.608 [+24.309, +27.019] | usd/cell21/eps=0.02: r=28.187 [26.840, 29.659]; diff vs DimensionBest +24.798 [+23.600, +26.064]; vs best fixed cascade +26.182 [+24.846, +27.571] | usd/cell21/eps=0.05: r=28.187 [26.840, 29.659]; diff vs DimensionBest +24.798 [+23.600, +26.064]; vs best fixed cascade +26.182 [+24.846, +27.571] | usd/dim9/unconstrained: r=28.024 [26.713, 29.452]; diff vs DimensionBest +24.635 [+23.431, +25.909]; vs best fixed cascade +26.020 [+24.713, +27.387] | usd/dim9/eps=0: r=22.733 [21.584, 23.954]; diff vs DimensionBest +19.344 [+18.326, +20.410]; vs best fixed cascade +20.729 [+19.583, +21.896] | usd/dim9/eps=0.005: r=24.241 [23.042, 25.528]; diff vs DimensionBest +20.852 [+19.811, +21.957]; vs best fixed cascade +22.237 [+21.084, +23.450] | usd/dim9/eps=0.01: r=25.984 [24.735, 27.349]; diff vs DimensionBest +22.595 [+21.466, +23.743]; vs best fixed cascade +23.980 [+22.747, +25.260] | usd/dim9/eps=0.02: r=28.024 [26.713, 29.452]; diff vs DimensionBest +24.635 [+23.431, +25.909]; vs best fixed cascade +26.020 [+24.713, +27.387] | usd/dim9/eps=0.05: r=28.024 [26.713, 29.452]; diff vs DimensionBest +24.635 [+23.431, +25.909]; vs best fixed cascade +26.020 [+24.713, +27.387] | sec/cell21/unconstrained: r=1.217 [1.179, 1.258]; diff vs DimensionBest +0.558 [+0.512, +0.604]; vs best fixed cascade +0.529 [+0.496, +0.568] | sec/cell21/eps=0: r=1.217 [1.179, 1.258]; diff vs DimensionBest +0.558 [+0.512, +0.604]; vs best fixed cascade +0.529 [+0.496, +0.568] | sec/cell21/eps=0.005: r=1.217 [1.179, 1.258]; diff vs DimensionBest +0.558 [+0.512, +0.604]; vs best fixed cascade +0.529 [+0.496, +0.568] | sec/cell21/eps=0.01: r=1.217 [1.179, 1.258]; diff vs DimensionBest +0.558 [+0.512, +0.604]; vs best fixed cascade +0.529 [+0.496, +0.568] | sec/cell21/eps=0.02: r=1.217 [1.179, 1.258]; diff vs DimensionBest +0.558 [+0.512, +0.604]; vs best fixed cascade +0.529 [+0.496, +0.568] | sec/cell21/eps=0.05: r=1.217 [1.179, 1.258]; diff vs DimensionBest +0.558 [+0.512, +0.604]; vs best fixed cascade +0.529 [+0.496, +0.568] | sec/dim9/unconstrained: r=1.161 [1.129, 1.197]; diff vs DimensionBest +0.502 [+0.459, +0.545]; vs best fixed cascade +0.474 [+0.447, +0.503] | sec/dim9/eps=0: r=1.161 [1.129, 1.197]; diff vs DimensionBest +0.502 [+0.459, +0.545]; vs best fixed cascade +0.474 [+0.447, +0.503] | sec/dim9/eps=0.005: r=1.161 [1.129, 1.197]; diff vs DimensionBest +0.502 [+0.459, +0.545]; vs best fixed cascade +0.474 [+0.447, +0.503] | sec/dim9/eps=0.01: r=1.161 [1.129, 1.197]; diff vs DimensionBest +0.502 [+0.459, +0.545]; vs best fixed cascade +0.474 [+0.447, +0.503] | sec/dim9/eps=0.02: r=1.161 [1.129, 1.197]; diff vs DimensionBest +0.502 [+0.459, +0.545]; vs best fixed cascade +0.474 [+0.447, +0.503] | sec/dim9/eps=0.05: r=1.161 [1.129, 1.197]; diff vs DimensionBest +0.502 [+0.459, +0.545]; vs best fixed cascade +0.474 [+0.447, +0.503]",
+   "verdict": "PASS",
+   "note": "Baselines on id_test (dollars): DimensionBest r=3.389, best fixed cascade attempt:Qwen3-Max@0.5 r=2.004, ACRouter r=1.745, best single dispatch direct:Qwen3-Max r=20.097; (seconds): DimensionBest 0.659, best cascade attempt:gpt-5.4@0.5 0.687, ACRouter 1.015, best dispatch direct:gpt-5.4 0.910. In dollars most of the lead comes from cheap direct dispatch (Qwen3-Max, kimi-k2.5) that the coarser baselines do not use; the 9-dimension rule is listed for comparison."
+  },
+  {
+   "id": "C5",
+   "kind": "OUT-OF-SAMPLE",
+   "statement": "floor satisfaction: the eps-rule fitted on probing satisfies E[V] >= vbar - eps on id_test in >= 95% of paired bootstrap resamples (21 cells, every eps in the grid, both bases)",
+   "prediction": "rate >= 0.95 for every eps",
+   "measurement": "usd/cell21/eps=0: in-sample floor binding (shortfall -0.0000); realized E[V]-vbar -0.0044 [-0.0175, +0.0097]; satisfaction rate 0.266 (fixed vbar 0.272; point violated); margin for 95%: fit at eps=-0.03 (margin 0.0300, rate 0.958, r=18.458) | usd/cell21/eps=0.005: in-sample floor binding (shortfall 0.0050); realized E[V]-vbar -0.0083 [-0.0212, +0.0056]; satisfaction rate 0.320 (fixed vbar 0.322; point violated); margin for 95%: fit at eps=-0.0225 (margin 0.0275, rate 0.959, r=19.783) | usd/cell21/eps=0.01: in-sample floor binding (shortfall 0.0100); realized E[V]-vbar -0.0140 [-0.0272, -0.0004]; satisfaction rate 0.292 (fixed vbar 0.300; point violated); margin for 95%: fit at eps=-0.0125 (margin 0.0225, rate 0.960, r=21.942) | usd/cell21/eps=0.02: in-sample floor slack (shortfall 0.0158); realized E[V]-vbar -0.0201 [-0.0343, -0.0056]; satisfaction rate 0.498 (fixed vbar 0.473; point violated); margin for 95%: fit at eps=0.005 (margin 0.0150, rate 0.956, r=27.071) | usd/cell21/eps=0.05: in-sample floor slack (shortfall 0.0158); realized E[V]-vbar -0.0201 [-0.0343, -0.0056]; satisfaction rate 1.000 (fixed vbar 1.000; point ok); margin for 95%: fit at eps=0.05 (margin 0.0000, rate 1.000, r=28.187) | usd/dim9/eps=0: in-sample floor binding (shortfall 0.0000); realized E[V]-vbar -0.0090 [-0.0227, +0.0060]; satisfaction rate 0.106 (fixed vbar 0.118; point violated); margin for 95%: fit at eps=-0.03 (margin 0.0300, rate 0.968, r=16.824) | usd/dim9/eps=0.005: in-sample floor binding (shortfall 0.0050); realized E[V]-vbar -0.0116 [-0.0255, +0.0033]; satisfaction rate 0.185 (fixed vbar 0.183; point violated); margin for 95%: fit at eps=-0.025 (margin 0.0300, rate 0.962, r=17.533) | usd/dim9/eps=0.01: in-sample floor binding (shortfall 0.0100); realized E[V]-vbar -0.0141 [-0.0279, +0.0004]; satisfaction rate 0.285 (fixed vbar 0.296; point violated); margin for 95%: fit at eps=-0.02 (margin 0.0300, rate 0.954, r=18.326) | usd/dim9/eps=0.02: in-sample floor slack (shortfall 0.0158); realized E[V]-vbar -0.0192 [-0.0332, -0.0047]; satisfaction rate 0.550 (fixed vbar 0.520; point ok); margin for 95%: fit at eps=-0.0025 (margin 0.0225, rate 0.957, r=22.054) | usd/dim9/eps=0.05: in-sample floor slack (shortfall 0.0158); realized E[V]-vbar -0.0192 [-0.0332, -0.0047]; satisfaction rate 1.000 (fixed vbar 1.000; point ok); margin for 95%: fit at eps=0.05 (margin 0.0000, rate 1.000, r=28.024) | sec/cell21/eps=0: in-sample floor slack (shortfall -0.0101); realized E[V]-vbar +0.0132 [+0.0063, +0.0205]; satisfaction rate 1.000 (fixed vbar 0.944; point ok); margin for 95%: fit at eps=0 (margin 0.0000, rate 1.000, r=1.217) | sec/cell21/eps=0.005: in-sample floor slack (shortfall -0.0101); realized E[V]-vbar +0.0132 [+0.0063, +0.0205]; satisfaction rate 1.000 (fixed vbar 0.991; point ok); margin for 95%: fit at eps=0.005 (margin 0.0000, rate 1.000, r=1.217) | sec/cell21/eps=0.01: in-sample floor slack (shortfall -0.0101); realized E[V]-vbar +0.0132 [+0.0063, +0.0205]; satisfaction rate 1.000 (fixed vbar 1.000; point ok); margin for 95%: fit at eps=0.01 (margin 0.0000, rate 1.000, r=1.217) | sec/cell21/eps=0.02: in-sample floor slack (shortfall -0.0101); realized E[V]-vbar +0.0132 [+0.0063, +0.0205]; satisfaction rate 1.000 (fixed vbar 1.000; point ok); margin for 95%: fit at eps=0.02 (margin 0.0000, rate 1.000, r=1.217) | sec/cell21/eps=0.05: in-sample floor slack (shortfall -0.0101); realized E[V]-vbar +0.0132 [+0.0063, +0.0205]; satisfaction rate 1.000 (fixed vbar 1.000; point ok); margin for 95%: fit at eps=0.05 (margin 0.0000, rate 1.000, r=1.217) | sec/dim9/eps=0: in-sample floor slack (shortfall -0.0046); realized E[V]-vbar +0.0088 [+0.0041, +0.0140]; satisfaction rate 1.000 (fixed vbar 0.878; point ok); margin for 95%: fit at eps=0 (margin 0.0000, rate 1.000, r=1.161) | sec/dim9/eps=0.005: in-sample floor slack (shortfall -0.0046); realized E[V]-vbar +0.0088 [+0.0041, +0.0140]; satisfaction rate 1.000 (fixed vbar 0.958; point ok); margin for 95%: fit at eps=0.005 (margin 0.0000, rate 1.000, r=1.161) | sec/dim9/eps=0.01: in-sample floor slack (shortfall -0.0046); realized E[V]-vbar +0.0088 [+0.0041, +0.0140]; satisfaction rate 1.000 (fixed vbar 0.993; point ok); margin for 95%: fit at eps=0.01 (margin 0.0000, rate 1.000, r=1.161) | sec/dim9/eps=0.02: in-sample floor slack (shortfall -0.0046); realized E[V]-vbar +0.0088 [+0.0041, +0.0140]; satisfaction rate 1.000 (fixed vbar 1.000; point ok); margin for 95%: fit at eps=0.02 (margin 0.0000, rate 1.000, r=1.161) | sec/dim9/eps=0.05: in-sample floor slack (shortfall -0.0046); realized E[V]-vbar +0.0088 [+0.0041, +0.0140]; satisfaction rate 1.000 (fixed vbar 1.000; point ok); margin for 95%: fit at eps=0.05 (margin 0.0000, rate 1.000, r=1.161)",
+   "verdict": "FAIL",
+   "note": "In dollars the fitted floor binds in-sample for eps < 0.0158 and the realized quality of every fitted rule falls 0.0033-0.0090 below its in-sample value (selection of the argmax on probing plus split shift), so the binding eps-rules satisfy their own floor in only 11-32% of resamples and the unconstrained rule at eps = 0.02 in about half; the bootstrap sd of E[V]-vbar is about 0.007, so even without shift a floor that binds exactly is met in about 50% of resamples. Refitting at a smaller eps (a safety margin of 0.015-0.03, table 2) restores >= 95%. In seconds the unconstrained optimum improves quality, the floor is slack and is satisfied in 100% of resamples. The theorem is a statement about expectations under known primitives; this measures the estimation gap, not a failure of the theorem."
+  },
+  {
+   "id": "C6",
+   "kind": "OUT-OF-SAMPLE",
+   "statement": "descriptive: the gap of the 21-cell rule to the per-task oracle and its lead over ACRouter are positive with paired CIs and decompose additively over states through the net gain pi(x) E[V - eta_B D | x] (identity); the state-granularity ordering (1 action, 9 dimensions, 21 cells, per-task) is reported with paired CIs",
+   "prediction": "oracle - rule > 0 and rule - ACRouter > 0 with CI lower bounds > 0; per-state contributions sum to eta - eta_B exactly; granularity differences reported (not a pass criterion)",
+   "measurement": "usd: r(21 cells) - r(9 dims) = +0.162 [-0.082, +0.423]; r(9 dims) - r(best single action) = +7.927 [+7.285, +8.581]; gap to per-task oracle (2,919 states) 5.324 [4.781, 5.851] = 15.9% of the oracle's r; lead over ACRouter +26.442 [+25.136, +27.845]; net gain at the id_test reference price (score units/task): rule 0.4034, oracle 0.4493, ACRouter 0.2140, DimensionBest 0.3515; oracle-rule gap positive in 20/21 states (top-3 [('code_completion|cruxeval', 0.019161610060976192), ('data_science|ds1000', 0.005652072296172829), ('multi_language|hex', 0.005211556657786519)]); rule-ACRouter gap positive in 16/21 states | sec: r(21 cells) - r(9 dims) = +0.055 [+0.032, +0.078]; r(9 dims) - r(best single action) = +0.251 [+0.222, +0.281]; gap to per-task oracle (2,919 states) 1.326 [1.198, 1.472] = 52.2% of the oracle's r; lead over ACRouter +0.202 [+0.168, +0.235]; net gain at the id_test reference price (score units/task): rule 0.0804, oracle 0.2999, ACRouter 0.0073, DimensionBest -0.2582; oracle-rule gap positive in 21/21 states (top-3 [('algorithm|lcb', 0.07746162805533185), ('test_generation|lcb', 0.059928504207715866), ('data_science|ds1000', 0.019816574979892355)]); rule-ACRouter gap positive in 17/21 states",
+   "verdict": "PASS",
+   "note": "ACRouter is scored as the ex-ante dispatch of its released per-task decisions (61% Opus) without its router/verifier overhead; its objective was accuracy, not efficiency, so the lead is the value of the efficiency rule plus fine states, not a like-for-like router comparison. Per-state tables in README and results.json."
+  }
+ ],
+ "audit": {
+  "A1_eta_star_usd_cell21": {
+   "run_py": 1021.7605154050107,
+   "audit_pandas_brentq": 1021.7605154050029,
+   "rel_mismatch": 7.566063523217681e-15
+  },
+  "A2_oos_r_unconstrained_usd_cell21": {
+   "run_py": 28.186559401218652,
+   "audit_plain_loop": 28.186559401218627,
+   "rel_mismatch": 8.822998010366711e-16,
+   "rule_actions_match": true
+  },
+  "A3_kappa_eps0_usd_cell21": {
+   "run_py_lp_dual": 5.428316537754615,
+   "audit_tie_formula_pandas": 5.428316537754646,
+   "rel_mismatch": 5.7266823836258806e-15,
+   "eta_eps_run_py": 927.70105226465,
+   "eta_eps_audit": 927.701052264648,
+   "eta_eps_rel_mismatch": 2.2058432228718783e-15,
+   "floor_check_EV_minus_vbar": -2.7755575615628914e-16
+  },
+  "A3b_dinkelbach_path_usd_cell21": {
+   "run_py": [
+    34.72694088693041,
+    411.03610998476387,
+    1021.7605154050043,
+    1021.7605154050043
+   ],
+   "audit_pandas_loop": [
+    34.7269408869304,
+    411.0361099847629,
+    1021.7605154050029,
+    1021.7605154050029
+   ],
+   "max_abs_diff": 1.3642420526593924e-12,
+   "same_length": true
+  },
+  "zero_latency_rows": {
+   "n": 3150,
+   "share_with_score_zero": 0.714920634920635,
+   "by_model": {
+    "glm-5": 1452,
+    "qwen3.5-plus": 1070,
+    "MiniMax-M2.7": 541,
+    "kimi-k2.5": 84,
+    "Qwen3-Max": 2,
+    "claude-opus-4-6": 1
+   }
+  }
+ }
+}

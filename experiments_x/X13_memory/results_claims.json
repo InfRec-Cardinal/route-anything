@@ -1,0 +1,122 @@
+{
+ "experiment_id": "X13_memory",
+ "seed": 20260917,
+ "claims": [
+  {
+   "id": "C1",
+   "statement": "sign(sum_j nu_j G_j) from probing primitives equals the sign of the realized eta_inf - eta_U in >= 95% of CI-decided (verifier, retention, delta, cell set, prior, route, basis) settings of the fixed-process replay",
+   "kind": "SEMI-SYNTHETIC (recorded outcomes, real verifiers, constructed iid stream) / OUT-OF-SAMPLE primitives",
+   "result": "279/279 decided settings agree (1.000); naive always-positive 0.427, always-negative 0.573, omega>psi 0.427; task-bootstrap decisions 1.000 (259 decided); by prior dimbest 1.000 (169), opus 1.000 (110); by verifier W0 1.000 (90), W1 1.000 (100), W2 1.000 (78), W3 1.000 (11); finite-horizon identity eq:finite-memory: prediction inside the realized CI in 0.043 of iid settings (median normalized error 0.077, sign agreement 1.000 on 46) and in 0.400 of single random passes (median normalized error 0.052, sign agreement 1.000 on 20); EXCLUDED from the pool and reported separately: the 2-cell judge pilot (12 test / 6 probing tasks, primitives from 3 probing tasks per cell) agrees in 14/25 (0.560); pooled with it 293/304 (0.964)",
+   "verdict": "PASS"
+  },
+  {
+   "id": "C2",
+   "statement": "eq:noise-threshold (psi_j/r_j < g^I/(g^I-g^W)) predicts the sign of the realized per-cell stationary gain in >= 90% of CI-decided cells with g^I > 0 > g^W (declared threshold 0.90), beating the naive baselines; INCONCLUSIVE when the decided hypothesis cells do not contain both signs (no discriminating power)",
+   "kind": "SEMI-SYNTHETIC / OUT-OF-SAMPLE primitives",
+   "result": "46/48 decided hypothesis cells agree (0.958); decided negative 0, positive 48; cells above the threshold 8/54; naive always-pos 1.000, always-neg 0.000, majority rule (psi/r<1/2) 0.917; the premise g^I>0>g^W holds in only 54/1014 cell rows (sign patterns {'undefined': 470, 'I-W-': 200, 'I+W+': 242, 'I+W-': 66, 'I-W+': 36}): the record (a model name) carries cost information, so both record types usually have the same sign; judge pilot (excluded, 3 probing tasks per cell): 0/4",
+   "verdict": "INCONCLUSIVE"
+  },
+  {
+   "id": "C2b",
+   "statement": "per-cell form of thm:memory without the sign premise: sign(omega_j g_j^I + psi_j g_j^W) from probing equals the sign of the realized per-cell stationary gain in >= 90% of CI-decided cells, beating the naive baselines",
+   "kind": "SEMI-SYNTHETIC / OUT-OF-SAMPLE primitives",
+   "result": "858/909 decided cells agree (0.944); naive always-pos 0.670, always-neg 0.330, majority rule 0.647; by verifier W0 0.933 (284), W1 0.957 (329), W2 0.941 (272), W3 0.917 (24); by cell set cell12 0.969 (321), cell21 0.978 (135), cell9 1.000 (52), clus50 0.905 (401); judge pilot (excluded, 3 probing tasks per cell): 0/20",
+   "verdict": "PASS"
+  },
+  {
+   "id": "C3",
+   "statement": "prop:cascade-records: g_j^s = Delta_j^s W_{eta_U,j} under record-independent a_j, b_j, v_h, v_b (identity), and the W-form threshold Delta^I/(Delta^I-Delta^W) equals the g-form threshold under the same hypotheses",
+   "kind": "IDENTITY (holds by algebra; the record-independent-cost hypothesis is violated in the data and the violation is measured)",
+   "result": "max identity residual 0.000000000000 over 144 cell rows; W-form vs g-form threshold under the hypotheses: max gap 0.0000000000, decision agreement 1.000 on 4 cells with Delta^I>0>Delta^W; VIOLATION: with the actual (model-dependent) attempt costs sign(g^s) = sign(Delta^s W) in 0.389 (I) / 0.526 (W) of cells, median relative gap 6.141 / 2.664, the attempt-cost term eta_U (a^I - a^U) is 0.750 x |g^I| at the median; realized state-conditional gains track the actual g (Spearman I 0.915, W 0.847) better than Delta W (I 0.431, W 0.417); realized cascade sign agreement with sum nu G 1.000 (24 decided), cascade with the imperfect verifier deciding 1.000 (8 decided)",
+   "verdict": "PASS"
+  },
+  {
+   "id": "C4",
+   "statement": "eq:fifo fits the realized event-FIFO coverage better than the mean-span substitution E -> M/beta in eq:ttl, and the substitution under-estimates coverage (tested where the predicted gap exceeds the sampling noise)",
+   "kind": "SEMI-SYNTHETIC (coverage of the replayed iid write process; probing r_j = OOS, realized write rates = in-sample mechanism check)",
+   "result": "all unsaturated FIFO points (real < 0.995, >= 200 arrivals after the FIFO filled): eq:fifo inside the realized 95% CI in 0.953 (in-sample rates; OOS 0.482), bias -0.0005; MAE eq:fifo 0.0064 vs substitution 0.0085 (OOS 0.0495 vs 0.0507); substitution < eq:fifo in 0.999 of points (Bernoulli), max predicted gap 0.0468; DETECTABLE points (gap > CI half-width): 450, eq:fifo closer in 0.949 (OOS 0.809), substitution below realized in 0.960 (OOS 0.833), below the CI in 0.842, eq:fifo in CI 0.938, MAE 0.0021 vs 0.0157; main stream beta~0.147: 350 detectable of 2742; high-beta stream (eps=1, beta~0.573): 100 detectable of 1161, eq:fifo closer in 0.950; TTL: eq:ttl in CI 0.948 (OOS 0.522), MAE 0.0042 (OOS 0.0307)",
+   "verdict": "PASS"
+  },
+  {
+   "id": "C5",
+   "statement": "under state-dependent writes (every accepted attempt writes) the write type is not independent of the record state in some cells, and the 2x2 recurrence / exact chain predicts the stationary record probabilities better than the fixed-process formula",
+   "kind": "diagnostic (SEMI-SYNTHETIC; chi-square on pooled late-window arrivals; chain OUT-OF-SAMPLE, 2x2 IN-SAMPLE)",
+   "result": "chi-square rejects independence at 0.01 in 375/624 SD cell rows (fixed-process control: 11/656); MAE of (i*, w*): fixed-process OOS 0.075/0.056, exact chain OOS 0.050/0.033, 2x2 in-sample 0.007/0.003, fixed-process in-sample 0.013/0.004; realized-sign agreement in SD settings: naive fixed-process 1.000 vs chain 0.920 (50 decided)",
+   "verdict": "PASS"
+  },
+  {
+   "id": "C6",
+   "statement": "serving records without re-verification (lookup cost c_ell ~ 0) makes g_j^W >= 0 in some cells (the hypothesis g^W < 0 of thm:memory fails), as prop:cascade-records warns",
+   "kind": "diagnostic (SEMI-SYNTHETIC accounting variant; predicted from probing, realized in the replay)",
+   "result": "at c_ell = 0: g^W formula eta_U(c^U - c_ell) - v^U >= 0 in 18/36 cell rows (W0/W1/W2 pooled), realized state-W gain CI >= 0 in 7 and < 0 in 9; predicted/realized sign agreement 1.000; c_ell=0.00000: formula>=0 in 18/36, realized CI>=0 in 7; c_ell=0.00022: formula>=0 in 15/36, realized CI>=0 in 7",
+   "verdict": "PASS"
+  }
+ ],
+ "audit": {
+  "audit1_stream0_late_sums": {
+   "engine": [
+    5878.450000000117,
+    43.163350600000165,
+    7149.733333333417,
+    44.30159241000091
+   ],
+   "scalar": [
+    5878.450000000117,
+    43.163350600000165,
+    7149.733333333417,
+    44.30159241000091
+   ],
+   "max_abs_diff": 0.0
+  },
+  "audit2_eta_U_pandas": {
+   "pandas": 169.60699265875525,
+   "engine": 169.60699265875536,
+   "abs_diff": 1.1368683772161603e-13
+  },
+  "audit3_fifo_formula": {
+   "cell": "code_generation|humaneval",
+   "M": 50,
+   "q_j": 0.06209160639036437,
+   "beta": 0.1435294044320989,
+   "python": 0.9594471739186197,
+   "numpy": 0.9594471739186197,
+   "abs_diff": 0.0,
+   "realized": 0.9629726890756303,
+   "substitution_python": 0.9557764147865135,
+   "substitution_below_formula": true
+  },
+  "setting_audited": {
+   "pop": "c12",
+   "cellset": "cell12",
+   "verifier": "W2",
+   "mode": "FP",
+   "retention": "geo",
+   "rpar": 0.0,
+   "route": "direct"
+  }
+ },
+ "spend": {
+  "rows": 3818,
+  "live_calls": 3586,
+  "units_est": 14188.026003999996,
+  "prompt_tokens": 2969818,
+  "completion_tokens": 479760,
+  "by_model": {
+   "deepseek-v4-pro": {
+    "rows": 3670,
+    "live_calls": 3458,
+    "units_est": 965.9759809999981,
+    "prompt_tokens": 2794741,
+    "completion_tokens": 168085
+   },
+   "grok-4.6": {
+    "rows": 148,
+    "live_calls": 128,
+    "units_est": 13222.050022999996,
+    "prompt_tokens": 175077,
+    "completion_tokens": 311675
+   }
+  }
+ },
+ "runtime_s": 648.6
+}

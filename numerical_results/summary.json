@@ -1,0 +1,65 @@
+{
+  "construction": [
+    {
+      "rho": "1",
+      "hit": "163/400",
+      "quality": "1/4",
+      "efficiency": "1763/15850"
+    },
+    {
+      "rho": "1/4",
+      "hit": "7/16",
+      "quality": "1/4",
+      "efficiency": "71/610"
+    },
+    {
+      "rho": "0",
+      "hit": "39/80",
+      "quality": "1/4",
+      "efficiency": "359/2850"
+    }
+  ],
+  "routing_information_band": [
+    0.022222222222222223,
+    0.8
+  ],
+  "noise_threshold": 0.37499999999999994,
+  "fifo_example": {
+    "ordinary_fifo": "9/25",
+    "mean_span_ttl": "3439/10000"
+  },
+  "zipf_truncation_cells": 200000,
+  "max_missing_tail_error": 1.539885789011111e-11,
+  "max_cumulative_tail_error": 7.69942124562661e-06,
+  "routing_information_band_exact": [
+    "1/45",
+    "4/5"
+  ],
+  "routing_crossover_exact": "1/10",
+  "noise_threshold_exact": "3/8",
+  "typed_fallback": [
+    {
+      "rho": "1",
+      "value": "167/200",
+      "efficiency": "167/1585"
+    },
+    {
+      "rho": "1/4",
+      "value": "127/160",
+      "efficiency": "127/1220"
+    },
+    {
+      "rho": "0",
+      "value": "29/40",
+      "efficiency": "29/285"
+    }
+  ],
+  "selection_score_crossing": "20/209",
+  "zipf_product_check": {
+    "L_N_R_N_at_max_horizon": 0.9545839523924549,
+    "limit_c_pi_over_2": 0.9549296585513715,
+    "sqrt_N_times_gap_at_max_horizon": 0.3457061589166033
+  },
+  "exact_checks": "Uniform-fallback efficiencies 1763/15850, 71/610, 359/2850; type-dependent fallback efficiencies 167/1585, 127/1220, 29/285; selection-score crossing 20/209; noise threshold 3/8; band 1/45 to 4/5 with crossover 1/10; explicit recurrence iteration equals the finite-horizon formula.",
+  "checks": "Exact construction, steering signs, FIFO distinction, and finite-horizon recurrence passed."
+}

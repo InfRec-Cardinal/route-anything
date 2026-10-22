@@ -1,0 +1,31 @@
+{
+  "scope": "Archived BigCodeBench grading diagnostic; no new model requests.",
+  "bcb_tasks": 1097,
+  "bcb_allzero_tasks": 750,
+  "sample_design": "Archived sample: 20 library-importing and 20 other all-zero tasks; 20 non-all-zero control tasks.",
+  "original_sampling_seed": 20260917,
+  "groups": {
+    "allzero": {
+      "tasks": 40,
+      "responses": 320,
+      "nonempty_responses": 318,
+      "passed": 91,
+      "pass_fraction_nonempty": 0.2861635220125786
+    },
+    "ctrl_zero": {
+      "tasks": 20,
+      "responses": 52,
+      "nonempty_responses": 50,
+      "passed": 5,
+      "pass_fraction_nonempty": 0.1
+    },
+    "ctrl_one": {
+      "tasks": 20,
+      "responses": 108,
+      "nonempty_responses": 107,
+      "passed": 107,
+      "pass_fraction_nonempty": 1.0
+    }
+  },
+  "interpretation": "The local official-test recheck is inconsistent with universal model failure on the all-zero subset. It supports treating these released zeros as an evaluation limitation; it does not identify the cause of every zero or replace their released scores."
+}

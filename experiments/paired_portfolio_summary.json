@@ -1,0 +1,169 @@
+{
+  "design": "All candidate filters, scores, and choices use fitting tasks only; realized gains and task-bootstrap intervals use disjoint held-out tasks.",
+  "paired_score": "mean(V_new - V_old) - eta_old * mean(D_new - D_old), estimated on the fitting split.",
+  "paired_gain": "paired_score / mean(D_new), the fitting-split empirical efficiency change.",
+  "inference": "95% percentile paired task bootstrap within each context, fitting choices fixed. Aggregate proportions are descriptive; portfolios, nested contexts, and thresholds share tasks.",
+  "resamples": 500,
+  "CodeRouterBench": {
+    "split": "Released probing / id_test assignments, unchanged.",
+    "fit_tasks": 7080,
+    "heldout_tasks": 2919,
+    "summary": {
+      "1.0": {
+        "portfolios": 139,
+        "sign_cases": 674,
+        "decided_sign_cases": 522,
+        "agreement_all": {
+          "simplified_residual": 0.913946587537092,
+          "paired_score": 0.9376854599406528,
+          "paired_gain": 0.9376854599406528,
+          "independence": 0.7151335311572701
+        },
+        "agreement_decided": {
+          "simplified_residual": 0.9655172413793104,
+          "paired_score": 1.0,
+          "paired_gain": 1.0,
+          "independence": 0.7547892720306514
+        },
+        "heldout_best_choice_rate": {
+          "simplified_residual": 0.8633093525179856,
+          "paired_score": 0.9712230215827338,
+          "paired_gain": 0.9712230215827338,
+          "independence": 0.8633093525179856,
+          "marginal_quality": 0.4676258992805755
+        },
+        "mean_relative_heldout_gain": {
+          "simplified_residual": 0.34594809344373967,
+          "paired_score": 0.35183118816831055,
+          "paired_gain": 0.35183118816831055,
+          "independence": 0.34838094846626805,
+          "marginal_quality": 0.22508596341959106,
+          "heldout_oracle": 0.35232824629367193
+        },
+        "paired_changes_choice": 15,
+        "paired_better_point": 15,
+        "paired_worse_point": 0,
+        "paired_better_interval": 8,
+        "paired_worse_interval": 0
+      },
+      "0.5": {
+        "portfolios": 194,
+        "sign_cases": 958,
+        "decided_sign_cases": 775,
+        "agreement_all": {
+          "simplified_residual": 0.9311064718162839,
+          "paired_score": 0.9478079331941545,
+          "paired_gain": 0.9478079331941545,
+          "independence": 0.7118997912317327
+        },
+        "agreement_decided": {
+          "simplified_residual": 0.9858064516129033,
+          "paired_score": 0.9961290322580645,
+          "paired_gain": 0.9961290322580645,
+          "independence": 0.7483870967741936
+        },
+        "heldout_best_choice_rate": {
+          "simplified_residual": 0.9432989690721649,
+          "paired_score": 0.9690721649484536,
+          "paired_gain": 0.9639175257731959,
+          "independence": 0.9175257731958762,
+          "marginal_quality": 0.4072164948453608
+        },
+        "mean_relative_heldout_gain": {
+          "simplified_residual": 0.25819730533177593,
+          "paired_score": 0.2586744471179534,
+          "paired_gain": 0.2586242839634969,
+          "independence": 0.25745058161362094,
+          "marginal_quality": 0.09186335490091316,
+          "heldout_oracle": 0.25886703792165144
+        },
+        "paired_changes_choice": 6,
+        "paired_better_point": 5,
+        "paired_worse_point": 1,
+        "paired_better_interval": 1,
+        "paired_worse_interval": 0
+      }
+    }
+  },
+  "RouterBench": {
+    "split": "Original seed 20260917, 70/30 within eval_name x reference success at 0.5.",
+    "fit_tasks": 25542,
+    "heldout_tasks": 10955,
+    "summary": {
+      "0.5": {
+        "portfolios": 566,
+        "sign_cases": 3602,
+        "decided_sign_cases": 2548,
+        "agreement_all": {
+          "simplified_residual": 0.9319822320932815,
+          "paired_score": 0.9336479733481399,
+          "paired_gain": 0.9336479733481399,
+          "independence": 0.8586896168795114
+        },
+        "agreement_decided": {
+          "simplified_residual": 0.9819466248037677,
+          "paired_score": 0.9846938775510204,
+          "paired_gain": 0.9846938775510204,
+          "independence": 0.9171899529042387
+        },
+        "heldout_best_choice_rate": {
+          "simplified_residual": 0.6731448763250883,
+          "paired_score": 0.6607773851590106,
+          "paired_gain": 0.6678445229681979,
+          "independence": 0.36395759717314485,
+          "marginal_quality": 0.13427561837455831
+        },
+        "mean_relative_heldout_gain": {
+          "simplified_residual": 0.3342947389863604,
+          "paired_score": 0.33425846540188037,
+          "paired_gain": 0.3365806672016333,
+          "independence": 0.26351727194218943,
+          "marginal_quality": -0.21402581402545529,
+          "heldout_oracle": 0.38915589386348703
+        },
+        "paired_changes_choice": 62,
+        "paired_better_point": 31,
+        "paired_worse_point": 31,
+        "paired_better_interval": 3,
+        "paired_worse_interval": 2
+      },
+      "1.0": {
+        "portfolios": 21,
+        "sign_cases": 176,
+        "decided_sign_cases": 129,
+        "agreement_all": {
+          "simplified_residual": 0.9659090909090909,
+          "paired_score": 0.9772727272727273,
+          "paired_gain": 0.9772727272727273,
+          "independence": 0.8068181818181818
+        },
+        "agreement_decided": {
+          "simplified_residual": 1.0,
+          "paired_score": 1.0,
+          "paired_gain": 1.0,
+          "independence": 0.8604651162790697
+        },
+        "heldout_best_choice_rate": {
+          "simplified_residual": 0.6190476190476191,
+          "paired_score": 0.6666666666666666,
+          "paired_gain": 0.6666666666666666,
+          "independence": 0.5238095238095238,
+          "marginal_quality": 0.0
+        },
+        "mean_relative_heldout_gain": {
+          "simplified_residual": 0.12918737124379964,
+          "paired_score": 0.1446950137211156,
+          "paired_gain": 0.1446950137211156,
+          "independence": 0.11649299668358569,
+          "marginal_quality": -0.2946138770196865,
+          "heldout_oracle": 0.155211815546362
+        },
+        "paired_changes_choice": 11,
+        "paired_better_point": 6,
+        "paired_worse_point": 5,
+        "paired_better_interval": 3,
+        "paired_worse_interval": 1
+      }
+    }
+  }
+}

@@ -1,0 +1,143 @@
+{
+ "seed": 20260917,
+ "claims": [
+  {
+   "id": "C1",
+   "kind": "LIVE",
+   "statement": "p_{retry|fail} < marginal success (positive error correlation across attempts of the same model)",
+   "result": "fresh retry (no feedback) minus marginal p_1, pooled per model: qwen3.5-plus -0.761 [-0.865, -0.648]; qwen3-max -0.813 [-0.890, -0.733]; kimi-k2.5 -0.685 [-0.794, -0.579]; deepseek-v4-pro -0.706 [-0.804, -0.595]; deepseek-flash -0.604 [-0.709, -0.496] | with feedback: qwen3.5-plus -0.329 [-0.497, -0.174]; qwen3-max -0.392 [-0.569, -0.219]; kimi-k2.5 -0.337 [-0.491, -0.198]; deepseek-v4-pro -0.323 [-0.465, -0.182]; deepseek-flash -0.375 [-0.506, -0.243]",
+   "verdict": "PASS",
+   "note": "5/5 decided cells in the predicted direction (5 cells)"
+  },
+  {
+   "id": "C2",
+   "kind": "LIVE",
+   "statement": "p_{switch|fail} > p_{retry|fail} at equal or lower incremental cost",
+   "result": "\u0394p (switch \u2212 retry, attempt 2, paired on the failure set): qwen3.5-plus -0.027 [-0.178, 0.128]; qwen3-max 0.026 [0.000, 0.091]; deepseek-v4-pro 0.021 [-0.074, 0.111]; deepseek-flash 0.230 [0.094, 0.367] | \u0394a $ : qwen3.5-plus 0.31 [0.21, 0.40] m$; qwen3-max 0.25 [0.17, 0.32] m$; deepseek-v4-pro 0.05 [0.02, 0.08] m$; deepseek-flash -1.84 [-2.22, -1.48] m$ | \u0394a s : qwen3.5-plus -5.89 [-17.49, 5.92]; qwen3-max 5.05 [-4.09, 14.87]; deepseek-v4-pro 23.61 [18.99, 29.06]; deepseek-flash 12.48 [6.38, 18.54]",
+   "verdict": "INCONCLUSIVE",
+   "note": "success part: 1/1 decided cells in the predicted direction (4 cells); cost part (switch cheaper?): $ 1/4 decided cells in the predicted direction (4 cells), s 0/2 decided cells in the predicted direction (4 cells), tokens 3/4 decided cells in the predicted direction (4 cells)"
+  },
+  {
+   "id": "C3",
+   "kind": "LIVE (split-half OUT-OF-SAMPLE; in-sample also reported)",
+   "statement": "per-segment sign of p_k W_\u03bb + (1\u2212p_k)\u0394_{k+1} \u2212 \u03bb a_k matches the realized \u0394J_\u03bb sign on CI-decided (source, k) cells, above the naive baselines (always attempt / always stop) and not below the marginal-rate predictor",
+   "result": "OOS: rule 346/361 (0.958) vs marginal-rate 343/361 (0.950); always-attempt 0.321, always-stop 0.679; discriminating cells (predictors disagree): rule right 4/5; $ cells: rule 115/128 (always-attempt 0.906); s cells: rule 231/233 (always-stop 1.000); in-sample rule 209/209 vs marginal 205/209",
+   "verdict": "INCONCLUSIVE",
+   "note": "rule agrees (>= 0.8, >= best pooled naive 0.679) but is below the marginal-rate predictor or below a within-basis naive baseline (usd: rule 0.898 vs best naive 0.906; sec: rule 0.991 vs best naive 1.000)"
+  },
+  {
+   "id": "C3b",
+   "kind": "LIVE (split-half OUT-OF-SAMPLE)",
+   "statement": "where the conditional rule and the marginal-rate predictor disagree in sign, the conditional rule is the one that matches the realized sign (the conditioning on failure carries information beyond the marginal rate)",
+   "result": "discriminating CI-decided OOS cells: 5; conditional rule right on 4 (0.800 [0.376, 0.964]); overall agreement rule 346/361 vs marginal 343/361",
+   "verdict": "INCONCLUSIVE",
+   "note": "only 5 discriminating OOS cells (rule right on 4); too few for a sign test"
+  },
+  {
+   "id": "C4",
+   "kind": "LIVE",
+   "statement": "feedback-conditioned retry beats a fresh retry on the same failure set (\u03c3 > 0: the failed attempt leaves reusable work)",
+   "result": "qwen3.5-plus 0.432 [0.278, 0.605] (n=37); qwen3-max 0.421 [0.263, 0.593] (n=38); kimi-k2.5 0.348 [0.178, 0.520] (n=46); deepseek-v4-pro 0.383 [0.219, 0.551] (n=47); deepseek-flash 0.230 [0.082, 0.393] (n=61)",
+   "verdict": "PASS",
+   "note": "5/5 decided cells in the predicted direction (5 cells)"
+  },
+  {
+   "id": "C5",
+   "kind": "LIVE",
+   "statement": "the imperfect visible-test verifier has false accepts e > 0 and loses quality relative to the hidden-test verifier",
+   "result": "attempt-level e (\u03b8=1 / \u03b8=0.5): qwen3.5-plus 0.000 / 0.217; qwen3-max 0.002 / 0.221; kimi-k2.5 0.008 / 0.178; deepseek-v4-pro 0.007 / 0.233; deepseek-flash 0.000 / 0.169 | chain Q loss (retry K=3, \u03b8=1 / \u03b8=0.5): qwen3.5-plus -0.106 [-0.141, -0.071] / -0.131 [-0.170, -0.092]; qwen3-max -0.102 [-0.138, -0.067] / -0.127 [-0.166, -0.088]; kimi-k2.5 -0.102 [-0.138, -0.071] / -0.117 [-0.155, -0.081]; deepseek-v4-pro -0.110 [-0.145, -0.074] / -0.141 [-0.184, -0.102]; deepseek-flash -0.092 [-0.127, -0.060] / -0.113 [-0.152, -0.078]",
+   "verdict": "PASS",
+   "note": "Q loss: 18/18 decided cells in the predicted direction (18 cells); attempt-level e > 0 (Wilson CI excludes 0) for 8/10 (model, \u03b8) pairs"
+  }
+ ],
+ "spend": {
+  "tag": "X7b",
+  "tags": [
+   "X7b",
+   "X7b:flash_rerun"
+  ],
+  "ledger_units_by_tag": {
+   "X7b": 122173.32026100004,
+   "X7b:flash_rerun": 36418.29999999999
+  },
+  "ledger_by_model": {
+   "qwen3.5-plus": {
+    "calls": 393,
+    "live_calls": 382,
+    "cached": 11,
+    "prompt_tokens": 139070,
+    "completion_tokens": 130301,
+    "units_est": 13468.55
+   },
+   "qwen3-max": {
+    "calls": 556,
+    "live_calls": 525,
+    "cached": 31,
+    "prompt_tokens": 241374,
+    "completion_tokens": 178269,
+    "units_est": 20982.149999999998
+   },
+   "kimi-k2.5": {
+    "calls": 458,
+    "live_calls": 446,
+    "cached": 12,
+    "prompt_tokens": 210239,
+    "completion_tokens": 151694,
+    "units_est": 18096.65
+   },
+   "deepseek-v4-pro": {
+    "calls": 402,
+    "live_calls": 391,
+    "cached": 11,
+    "prompt_tokens": 129903,
+    "completion_tokens": 97391,
+    "units_est": 88.77026099999995
+   },
+   "deepseek-flash": {
+    "calls": 645,
+    "live_calls": 535,
+    "cached": 110,
+    "prompt_tokens": 195041,
+    "completion_tokens": 1924069,
+    "units_est": 105955.50000000007
+   }
+  },
+  "ledger_units_tag_total": 158591.62026100006,
+  "ledger_units_all_experiments": 359635.30598300014,
+  "cap_units": 1500000.0,
+  "allocation_units": 200000.0,
+  "live_pass_runtimes_s": {
+   "run_main_pass.log": 7368.4,
+   "run_rerun_pass.log": 1009.9
+  },
+  "attempt_rows_view_a": 2193,
+  "attempt_rows_view_b": 124,
+  "attempt_rows": 2317,
+  "live_attempt_rows": 2205,
+  "cached_attempt_rows": 112,
+  "attempts_jsonl_rows_total": 2317,
+  "attempt_tokens_by_model": {
+   "qwen3.5-plus": 262340,
+   "qwen3-max": 440801,
+   "kimi-k2.5": 365520,
+   "deepseek-v4-pro": 235278,
+   "deepseek-flash": 2211520
+  },
+  "attempt_usd_by_model": {
+   "qwen3.5-plus": 0.09912870000000001,
+   "qwen3-max": 0.34666842,
+   "kimi-k2.5": 0.45433625,
+   "deepseek-v4-pro": 0.18582387999999997,
+   "deepseek-flash": 1.3527767000000002
+  },
+  "api_errors": 0,
+  "job_errors": [],
+  "api_error_rows_all_runs": 0,
+  "jobs_reissued_this_run": 0,
+  "stopped_by_soft_cap": false,
+  "units_before": 158591.62026100006,
+  "units_after": 158591.62026100006,
+  "live_wallclock_min": 143.32492889960608
+ },
+ "runtime_s": 2.4
+}

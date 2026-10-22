@@ -1,0 +1,874 @@
+{
+  "scope": "Archived first-failure HumanEval/he pairs with both fresh and feedback retry outputs.",
+  "interpretation": "EvalPlus was not used to produce the experiment feedback; it overlaps base tests and is not a disjoint holdout. Coverage is small and does not support replacing the five-model overall result.",
+  "selection": "Headline budget-matched view; source humaneval/he; first attempt failed base tests; both second attempts recorded.",
+  "model_calls": 0,
+  "n_candidate_pairs": 13,
+  "n_candidate_tasks": 6,
+  "n_pairs": 9,
+  "n_unique_tasks": 5,
+  "excluded_tasks": {
+    "dim4_he_completion_HumanEval_32": "TypeError: Value after * must be an iterable, not float"
+  },
+  "n_rescored_outputs": 27,
+  "summary": {
+    "pooled": {
+      "n_pairs": 9,
+      "base_fresh_passes": 0,
+      "base_retry_passes": 4,
+      "plus_fresh_passes": 0,
+      "plus_retry_passes": 4,
+      "plus_root_passes": 0,
+      "plus_paired_difference": 0.4444444444444444,
+      "paired_bootstrap_unit": "task_id (all model pairs on the sampled task retained)",
+      "paired_bootstrap_95_interval": [
+        0.2,
+        0.8
+      ]
+    },
+    "deepseek-flash": {
+      "n_pairs": 3,
+      "base_fresh_passes": 0,
+      "base_retry_passes": 2,
+      "plus_fresh_passes": 0,
+      "plus_retry_passes": 2,
+      "plus_root_passes": 0,
+      "plus_paired_difference": 0.6666666666666666,
+      "paired_bootstrap_unit": "task_id (all model pairs on the sampled task retained)",
+      "paired_bootstrap_95_interval": [
+        0.0,
+        1.0
+      ]
+    },
+    "deepseek-v4-pro": {
+      "n_pairs": 1,
+      "base_fresh_passes": 0,
+      "base_retry_passes": 0,
+      "plus_fresh_passes": 0,
+      "plus_retry_passes": 0,
+      "plus_root_passes": 0,
+      "plus_paired_difference": 0.0,
+      "paired_bootstrap_unit": "task_id (all model pairs on the sampled task retained)",
+      "paired_bootstrap_95_interval": [
+        0.0,
+        0.0
+      ]
+    },
+    "kimi-k2.5": {
+      "n_pairs": 1,
+      "base_fresh_passes": 0,
+      "base_retry_passes": 0,
+      "plus_fresh_passes": 0,
+      "plus_retry_passes": 0,
+      "plus_root_passes": 0,
+      "plus_paired_difference": 0.0,
+      "paired_bootstrap_unit": "task_id (all model pairs on the sampled task retained)",
+      "paired_bootstrap_95_interval": [
+        0.0,
+        0.0
+      ]
+    },
+    "qwen3-max": {
+      "n_pairs": 2,
+      "base_fresh_passes": 0,
+      "base_retry_passes": 1,
+      "plus_fresh_passes": 0,
+      "plus_retry_passes": 1,
+      "plus_root_passes": 0,
+      "plus_paired_difference": 0.5,
+      "paired_bootstrap_unit": "task_id (all model pairs on the sampled task retained)",
+      "paired_bootstrap_95_interval": [
+        0.0,
+        1.0
+      ]
+    },
+    "qwen3.5-plus": {
+      "n_pairs": 2,
+      "base_fresh_passes": 0,
+      "base_retry_passes": 1,
+      "plus_fresh_passes": 0,
+      "plus_retry_passes": 1,
+      "plus_root_passes": 0,
+      "plus_paired_difference": 0.5,
+      "paired_bootstrap_unit": "task_id (all model pairs on the sampled task retained)",
+      "paired_bootstrap_95_interval": [
+        0.0,
+        1.0
+      ]
+    }
+  },
+  "tasks": {
+    "dim1_humaneval_HumanEval_140": {
+      "source": "humaneval",
+      "base_source": "HumanEval base tests (humaneval-x Python)",
+      "plus_source": "evalplus/humanevalplus cached test field",
+      "plus_cases": 1004,
+      "base_literal_calls": 5,
+      "plus_cases_matching_literal_base_calls": 5,
+      "overlap_method": "AST literal calls only; does not enumerate computed or loop-generated base inputs",
+      "canonical_pass": true,
+      "canonical_error": null
+    },
+    "dim1_humaneval_HumanEval_145": {
+      "source": "humaneval",
+      "base_source": "HumanEval base tests (humaneval-x Python)",
+      "plus_source": "evalplus/humanevalplus cached test field",
+      "plus_cases": 1006,
+      "base_literal_calls": 6,
+      "plus_cases_matching_literal_base_calls": 6,
+      "overlap_method": "AST literal calls only; does not enumerate computed or loop-generated base inputs",
+      "canonical_pass": true,
+      "canonical_error": null
+    },
+    "dim1_humaneval_HumanEval_160": {
+      "source": "humaneval",
+      "base_source": "HumanEval base tests (humaneval-x Python)",
+      "plus_source": "evalplus/humanevalplus cached test field",
+      "plus_cases": 452,
+      "base_literal_calls": 3,
+      "plus_cases_matching_literal_base_calls": 3,
+      "overlap_method": "AST literal calls only; does not enumerate computed or loop-generated base inputs",
+      "canonical_pass": true,
+      "canonical_error": null
+    },
+    "dim4_he_completion_HumanEval_32": {
+      "source": "he",
+      "base_source": "HumanEval base tests (humaneval-x Python)",
+      "plus_source": "evalplus/humanevalplus cached test field",
+      "plus_cases": 886,
+      "base_literal_calls": 0,
+      "plus_cases_matching_literal_base_calls": 0,
+      "overlap_method": "AST literal calls only; does not enumerate computed or loop-generated base inputs",
+      "canonical_pass": false,
+      "canonical_error": "TypeError: Value after * must be an iterable, not float"
+    },
+    "dim4_he_completion_HumanEval_39": {
+      "source": "he",
+      "base_source": "HumanEval base tests (humaneval-x Python)",
+      "plus_source": "evalplus/humanevalplus cached test field",
+      "plus_cases": 12,
+      "base_literal_calls": 10,
+      "plus_cases_matching_literal_base_calls": 10,
+      "overlap_method": "AST literal calls only; does not enumerate computed or loop-generated base inputs",
+      "canonical_pass": true,
+      "canonical_error": null
+    },
+    "dim4_he_completion_HumanEval_99": {
+      "source": "he",
+      "base_source": "HumanEval base tests (humaneval-x Python)",
+      "plus_source": "evalplus/humanevalplus cached test field",
+      "plus_cases": 714,
+      "base_literal_calls": 5,
+      "plus_cases_matching_literal_base_calls": 5,
+      "overlap_method": "AST literal calls only; does not enumerate computed or loop-generated base inputs",
+      "canonical_pass": true,
+      "canonical_error": null
+    }
+  },
+  "pairs": [
+    {
+      "job_id": "dim1_humaneval_HumanEval_140|qwen3.5-plus",
+      "task_id": "dim1_humaneval_HumanEval_140",
+      "source": "humaneval",
+      "root_model": "qwen3.5-plus",
+      "base_root": false,
+      "plus_root": false,
+      "base_fresh": false,
+      "base_retry": false,
+      "plus_fresh": false,
+      "plus_retry": false
+    },
+    {
+      "job_id": "dim1_humaneval_HumanEval_145|deepseek-flash",
+      "task_id": "dim1_humaneval_HumanEval_145",
+      "source": "humaneval",
+      "root_model": "deepseek-flash",
+      "base_root": false,
+      "plus_root": false,
+      "base_fresh": false,
+      "base_retry": true,
+      "plus_fresh": false,
+      "plus_retry": true
+    },
+    {
+      "job_id": "dim1_humaneval_HumanEval_145|deepseek-v4-pro",
+      "task_id": "dim1_humaneval_HumanEval_145",
+      "source": "humaneval",
+      "root_model": "deepseek-v4-pro",
+      "base_root": false,
+      "plus_root": false,
+      "base_fresh": false,
+      "base_retry": false,
+      "plus_fresh": false,
+      "plus_retry": false
+    },
+    {
+      "job_id": "dim1_humaneval_HumanEval_145|kimi-k2.5",
+      "task_id": "dim1_humaneval_HumanEval_145",
+      "source": "humaneval",
+      "root_model": "kimi-k2.5",
+      "base_root": false,
+      "plus_root": false,
+      "base_fresh": false,
+      "base_retry": false,
+      "plus_fresh": false,
+      "plus_retry": false
+    },
+    {
+      "job_id": "dim1_humaneval_HumanEval_145|qwen3-max",
+      "task_id": "dim1_humaneval_HumanEval_145",
+      "source": "humaneval",
+      "root_model": "qwen3-max",
+      "base_root": false,
+      "plus_root": false,
+      "base_fresh": false,
+      "base_retry": false,
+      "plus_fresh": false,
+      "plus_retry": false
+    },
+    {
+      "job_id": "dim1_humaneval_HumanEval_145|qwen3.5-plus",
+      "task_id": "dim1_humaneval_HumanEval_145",
+      "source": "humaneval",
+      "root_model": "qwen3.5-plus",
+      "base_root": false,
+      "plus_root": false,
+      "base_fresh": false,
+      "base_retry": true,
+      "plus_fresh": false,
+      "plus_retry": true
+    },
+    {
+      "job_id": "dim1_humaneval_HumanEval_160|qwen3-max",
+      "task_id": "dim1_humaneval_HumanEval_160",
+      "source": "humaneval",
+      "root_model": "qwen3-max",
+      "base_root": false,
+      "plus_root": false,
+      "base_fresh": false,
+      "base_retry": true,
+      "plus_fresh": false,
+      "plus_retry": true
+    },
+    {
+      "job_id": "dim4_he_completion_HumanEval_39|deepseek-flash",
+      "task_id": "dim4_he_completion_HumanEval_39",
+      "source": "he",
+      "root_model": "deepseek-flash",
+      "base_root": false,
+      "plus_root": false,
+      "base_fresh": false,
+      "base_retry": true,
+      "plus_fresh": false,
+      "plus_retry": true
+    },
+    {
+      "job_id": "dim4_he_completion_HumanEval_99|deepseek-flash",
+      "task_id": "dim4_he_completion_HumanEval_99",
+      "source": "he",
+      "root_model": "deepseek-flash",
+      "base_root": false,
+      "plus_root": false,
+      "base_fresh": false,
+      "base_retry": false,
+      "plus_fresh": false,
+      "plus_retry": false
+    }
+  ],
+  "scores": [
+    {
+      "job_id": "dim1_humaneval_HumanEval_140|qwen3.5-plus",
+      "task_id": "dim1_humaneval_HumanEval_140",
+      "root_model": "qwen3.5-plus",
+      "source": "humaneval",
+      "branch": "root",
+      "k": 1,
+      "base_pass": false,
+      "plus_pass": false,
+      "plus_fraction": 0.0,
+      "failure_kind": "assertion",
+      "timed_out": false,
+      "evaluation_seconds": 0.1361,
+      "error": "AssertionError",
+      "request_audit": {
+        "message_count": 2,
+        "full_plus_suite_in_request": false,
+        "request_feedback_present": false,
+        "cached_response_chars": 652,
+        "logged_response_chars": 652
+      }
+    },
+    {
+      "job_id": "dim1_humaneval_HumanEval_140|qwen3.5-plus",
+      "task_id": "dim1_humaneval_HumanEval_140",
+      "root_model": "qwen3.5-plus",
+      "source": "humaneval",
+      "branch": "fresh",
+      "k": 2,
+      "base_pass": false,
+      "plus_pass": false,
+      "plus_fraction": 0.0,
+      "failure_kind": "assertion",
+      "timed_out": false,
+      "evaluation_seconds": 0.1355,
+      "error": "AssertionError",
+      "request_audit": {
+        "message_count": 2,
+        "full_plus_suite_in_request": false,
+        "request_feedback_present": false,
+        "cached_response_chars": 659,
+        "logged_response_chars": 659
+      }
+    },
+    {
+      "job_id": "dim1_humaneval_HumanEval_140|qwen3.5-plus",
+      "task_id": "dim1_humaneval_HumanEval_140",
+      "root_model": "qwen3.5-plus",
+      "source": "humaneval",
+      "branch": "retry",
+      "k": 2,
+      "base_pass": false,
+      "plus_pass": false,
+      "plus_fraction": 0.0,
+      "failure_kind": "assertion",
+      "timed_out": false,
+      "evaluation_seconds": 0.1358,
+      "error": "AssertionError",
+      "request_audit": {
+        "message_count": 4,
+        "full_plus_suite_in_request": false,
+        "request_feedback_present": true,
+        "cached_response_chars": 629,
+        "logged_response_chars": 629
+      }
+    },
+    {
+      "job_id": "dim1_humaneval_HumanEval_145|deepseek-flash",
+      "task_id": "dim1_humaneval_HumanEval_145",
+      "root_model": "deepseek-flash",
+      "source": "humaneval",
+      "branch": "root",
+      "k": 1,
+      "base_pass": false,
+      "plus_pass": false,
+      "plus_fraction": 0.0,
+      "failure_kind": "empty_response",
+      "timed_out": false,
+      "evaluation_seconds": 0.0,
+      "error": "empty response",
+      "request_audit": {
+        "message_count": 2,
+        "full_plus_suite_in_request": false,
+        "request_feedback_present": false,
+        "cached_response_chars": 0,
+        "logged_response_chars": 0
+      }
+    },
+    {
+      "job_id": "dim1_humaneval_HumanEval_145|deepseek-flash",
+      "task_id": "dim1_humaneval_HumanEval_145",
+      "root_model": "deepseek-flash",
+      "source": "humaneval",
+      "branch": "fresh",
+      "k": 2,
+      "base_pass": false,
+      "plus_pass": false,
+      "plus_fraction": 0.0,
+      "failure_kind": "empty_response",
+      "timed_out": false,
+      "evaluation_seconds": 0.0,
+      "error": "empty response",
+      "request_audit": {
+        "message_count": 2,
+        "full_plus_suite_in_request": false,
+        "request_feedback_present": false,
+        "cached_response_chars": 0,
+        "logged_response_chars": 0
+      }
+    },
+    {
+      "job_id": "dim1_humaneval_HumanEval_145|deepseek-flash",
+      "task_id": "dim1_humaneval_HumanEval_145",
+      "root_model": "deepseek-flash",
+      "source": "humaneval",
+      "branch": "retry",
+      "k": 2,
+      "base_pass": true,
+      "plus_pass": true,
+      "plus_fraction": 1.0,
+      "failure_kind": "passed",
+      "timed_out": false,
+      "evaluation_seconds": 0.1845,
+      "error": null,
+      "request_audit": {
+        "message_count": 4,
+        "full_plus_suite_in_request": false,
+        "request_feedback_present": true,
+        "cached_response_chars": 246,
+        "logged_response_chars": 246
+      }
+    },
+    {
+      "job_id": "dim1_humaneval_HumanEval_145|deepseek-v4-pro",
+      "task_id": "dim1_humaneval_HumanEval_145",
+      "root_model": "deepseek-v4-pro",
+      "source": "humaneval",
+      "branch": "root",
+      "k": 1,
+      "base_pass": false,
+      "plus_pass": false,
+      "plus_fraction": 0.0,
+      "failure_kind": "assertion",
+      "timed_out": false,
+      "evaluation_seconds": 0.1801,
+      "error": "AssertionError",
+      "request_audit": {
+        "message_count": 2,
+        "full_plus_suite_in_request": false,
+        "request_feedback_present": false,
+        "cached_response_chars": 802,
+        "logged_response_chars": 802
+      }
+    },
+    {
+      "job_id": "dim1_humaneval_HumanEval_145|deepseek-v4-pro",
+      "task_id": "dim1_humaneval_HumanEval_145",
+      "root_model": "deepseek-v4-pro",
+      "source": "humaneval",
+      "branch": "fresh",
+      "k": 2,
+      "base_pass": false,
+      "plus_pass": false,
+      "plus_fraction": 0.0,
+      "failure_kind": "assertion",
+      "timed_out": false,
+      "evaluation_seconds": 0.1734,
+      "error": "AssertionError",
+      "request_audit": {
+        "message_count": 2,
+        "full_plus_suite_in_request": false,
+        "request_feedback_present": false,
+        "cached_response_chars": 570,
+        "logged_response_chars": 570
+      }
+    },
+    {
+      "job_id": "dim1_humaneval_HumanEval_145|deepseek-v4-pro",
+      "task_id": "dim1_humaneval_HumanEval_145",
+      "root_model": "deepseek-v4-pro",
+      "source": "humaneval",
+      "branch": "retry",
+      "k": 2,
+      "base_pass": false,
+      "plus_pass": false,
+      "plus_fraction": 0.0,
+      "failure_kind": "assertion",
+      "timed_out": false,
+      "evaluation_seconds": 0.1797,
+      "error": "AssertionError",
+      "request_audit": {
+        "message_count": 4,
+        "full_plus_suite_in_request": false,
+        "request_feedback_present": true,
+        "cached_response_chars": 1034,
+        "logged_response_chars": 1034
+      }
+    },
+    {
+      "job_id": "dim1_humaneval_HumanEval_145|kimi-k2.5",
+      "task_id": "dim1_humaneval_HumanEval_145",
+      "root_model": "kimi-k2.5",
+      "source": "humaneval",
+      "branch": "root",
+      "k": 1,
+      "base_pass": false,
+      "plus_pass": false,
+      "plus_fraction": 0.0,
+      "failure_kind": "assertion",
+      "timed_out": false,
+      "evaluation_seconds": 0.1583,
+      "error": "AssertionError",
+      "request_audit": {
+        "message_count": 2,
+        "full_plus_suite_in_request": false,
+        "request_feedback_present": false,
+        "cached_response_chars": 723,
+        "logged_response_chars": 723
+      }
+    },
+    {
+      "job_id": "dim1_humaneval_HumanEval_145|kimi-k2.5",
+      "task_id": "dim1_humaneval_HumanEval_145",
+      "root_model": "kimi-k2.5",
+      "source": "humaneval",
+      "branch": "fresh",
+      "k": 2,
+      "base_pass": false,
+      "plus_pass": false,
+      "plus_fraction": 0.0,
+      "failure_kind": "assertion",
+      "timed_out": false,
+      "evaluation_seconds": 0.165,
+      "error": "AssertionError",
+      "request_audit": {
+        "message_count": 2,
+        "full_plus_suite_in_request": false,
+        "request_feedback_present": false,
+        "cached_response_chars": 720,
+        "logged_response_chars": 720
+      }
+    },
+    {
+      "job_id": "dim1_humaneval_HumanEval_145|kimi-k2.5",
+      "task_id": "dim1_humaneval_HumanEval_145",
+      "root_model": "kimi-k2.5",
+      "source": "humaneval",
+      "branch": "retry",
+      "k": 2,
+      "base_pass": false,
+      "plus_pass": false,
+      "plus_fraction": 0.0,
+      "failure_kind": "assertion",
+      "timed_out": false,
+      "evaluation_seconds": 0.1543,
+      "error": "AssertionError",
+      "request_audit": {
+        "message_count": 4,
+        "full_plus_suite_in_request": false,
+        "request_feedback_present": true,
+        "cached_response_chars": 885,
+        "logged_response_chars": 885
+      }
+    },
+    {
+      "job_id": "dim1_humaneval_HumanEval_145|qwen3-max",
+      "task_id": "dim1_humaneval_HumanEval_145",
+      "root_model": "qwen3-max",
+      "source": "humaneval",
+      "branch": "root",
+      "k": 1,
+      "base_pass": false,
+      "plus_pass": false,
+      "plus_fraction": 0.0,
+      "failure_kind": "assertion",
+      "timed_out": false,
+      "evaluation_seconds": 0.1471,
+      "error": "AssertionError",
+      "request_audit": {
+        "message_count": 2,
+        "full_plus_suite_in_request": false,
+        "request_feedback_present": false,
+        "cached_response_chars": 908,
+        "logged_response_chars": 908
+      }
+    },
+    {
+      "job_id": "dim1_humaneval_HumanEval_145|qwen3-max",
+      "task_id": "dim1_humaneval_HumanEval_145",
+      "root_model": "qwen3-max",
+      "source": "humaneval",
+      "branch": "fresh",
+      "k": 2,
+      "base_pass": false,
+      "plus_pass": false,
+      "plus_fraction": 0.0,
+      "failure_kind": "assertion",
+      "timed_out": false,
+      "evaluation_seconds": 0.1652,
+      "error": "AssertionError",
+      "request_audit": {
+        "message_count": 2,
+        "full_plus_suite_in_request": false,
+        "request_feedback_present": false,
+        "cached_response_chars": 917,
+        "logged_response_chars": 917
+      }
+    },
+    {
+      "job_id": "dim1_humaneval_HumanEval_145|qwen3-max",
+      "task_id": "dim1_humaneval_HumanEval_145",
+      "root_model": "qwen3-max",
+      "source": "humaneval",
+      "branch": "retry",
+      "k": 2,
+      "base_pass": false,
+      "plus_pass": false,
+      "plus_fraction": 0.0,
+      "failure_kind": "assertion",
+      "timed_out": false,
+      "evaluation_seconds": 0.2145,
+      "error": "AssertionError",
+      "request_audit": {
+        "message_count": 4,
+        "full_plus_suite_in_request": false,
+        "request_feedback_present": true,
+        "cached_response_chars": 908,
+        "logged_response_chars": 908
+      }
+    },
+    {
+      "job_id": "dim1_humaneval_HumanEval_145|qwen3.5-plus",
+      "task_id": "dim1_humaneval_HumanEval_145",
+      "root_model": "qwen3.5-plus",
+      "source": "humaneval",
+      "branch": "root",
+      "k": 1,
+      "base_pass": false,
+      "plus_pass": false,
+      "plus_fraction": 0.0,
+      "failure_kind": "assertion",
+      "timed_out": false,
+      "evaluation_seconds": 0.2118,
+      "error": "AssertionError",
+      "request_audit": {
+        "message_count": 2,
+        "full_plus_suite_in_request": false,
+        "request_feedback_present": false,
+        "cached_response_chars": 877,
+        "logged_response_chars": 877
+      }
+    },
+    {
+      "job_id": "dim1_humaneval_HumanEval_145|qwen3.5-plus",
+      "task_id": "dim1_humaneval_HumanEval_145",
+      "root_model": "qwen3.5-plus",
+      "source": "humaneval",
+      "branch": "fresh",
+      "k": 2,
+      "base_pass": false,
+      "plus_pass": false,
+      "plus_fraction": 0.0,
+      "failure_kind": "assertion",
+      "timed_out": false,
+      "evaluation_seconds": 0.2142,
+      "error": "AssertionError",
+      "request_audit": {
+        "message_count": 2,
+        "full_plus_suite_in_request": false,
+        "request_feedback_present": false,
+        "cached_response_chars": 819,
+        "logged_response_chars": 819
+      }
+    },
+    {
+      "job_id": "dim1_humaneval_HumanEval_145|qwen3.5-plus",
+      "task_id": "dim1_humaneval_HumanEval_145",
+      "root_model": "qwen3.5-plus",
+      "source": "humaneval",
+      "branch": "retry",
+      "k": 2,
+      "base_pass": true,
+      "plus_pass": true,
+      "plus_fraction": 1.0,
+      "failure_kind": "passed",
+      "timed_out": false,
+      "evaluation_seconds": 0.1992,
+      "error": null,
+      "request_audit": {
+        "message_count": 4,
+        "full_plus_suite_in_request": false,
+        "request_feedback_present": true,
+        "cached_response_chars": 2699,
+        "logged_response_chars": 2699
+      }
+    },
+    {
+      "job_id": "dim1_humaneval_HumanEval_160|qwen3-max",
+      "task_id": "dim1_humaneval_HumanEval_160",
+      "root_model": "qwen3-max",
+      "source": "humaneval",
+      "branch": "root",
+      "k": 1,
+      "base_pass": false,
+      "plus_pass": false,
+      "plus_fraction": 0.0,
+      "failure_kind": "assertion",
+      "timed_out": false,
+      "evaluation_seconds": 0.11,
+      "error": "AssertionError",
+      "request_audit": {
+        "message_count": 2,
+        "full_plus_suite_in_request": false,
+        "request_feedback_present": false,
+        "cached_response_chars": 1377,
+        "logged_response_chars": 1377
+      }
+    },
+    {
+      "job_id": "dim1_humaneval_HumanEval_160|qwen3-max",
+      "task_id": "dim1_humaneval_HumanEval_160",
+      "root_model": "qwen3-max",
+      "source": "humaneval",
+      "branch": "fresh",
+      "k": 2,
+      "base_pass": false,
+      "plus_pass": false,
+      "plus_fraction": 0.0,
+      "failure_kind": "assertion",
+      "timed_out": false,
+      "evaluation_seconds": 0.1117,
+      "error": "AssertionError",
+      "request_audit": {
+        "message_count": 2,
+        "full_plus_suite_in_request": false,
+        "request_feedback_present": false,
+        "cached_response_chars": 1377,
+        "logged_response_chars": 1377
+      }
+    },
+    {
+      "job_id": "dim1_humaneval_HumanEval_160|qwen3-max",
+      "task_id": "dim1_humaneval_HumanEval_160",
+      "root_model": "qwen3-max",
+      "source": "humaneval",
+      "branch": "retry",
+      "k": 2,
+      "base_pass": true,
+      "plus_pass": true,
+      "plus_fraction": 1.0,
+      "failure_kind": "passed",
+      "timed_out": false,
+      "evaluation_seconds": 0.1097,
+      "error": null,
+      "request_audit": {
+        "message_count": 4,
+        "full_plus_suite_in_request": false,
+        "request_feedback_present": true,
+        "cached_response_chars": 1079,
+        "logged_response_chars": 1079
+      }
+    },
+    {
+      "job_id": "dim4_he_completion_HumanEval_39|deepseek-flash",
+      "task_id": "dim4_he_completion_HumanEval_39",
+      "root_model": "deepseek-flash",
+      "source": "he",
+      "branch": "root",
+      "k": 1,
+      "base_pass": false,
+      "plus_pass": false,
+      "plus_fraction": 0.0,
+      "failure_kind": "empty_response",
+      "timed_out": false,
+      "evaluation_seconds": 0.0,
+      "error": "empty response",
+      "request_audit": {
+        "message_count": 2,
+        "full_plus_suite_in_request": false,
+        "request_feedback_present": false,
+        "cached_response_chars": 0,
+        "logged_response_chars": 0
+      }
+    },
+    {
+      "job_id": "dim4_he_completion_HumanEval_39|deepseek-flash",
+      "task_id": "dim4_he_completion_HumanEval_39",
+      "root_model": "deepseek-flash",
+      "source": "he",
+      "branch": "fresh",
+      "k": 2,
+      "base_pass": false,
+      "plus_pass": false,
+      "plus_fraction": 0.0,
+      "failure_kind": "empty_response",
+      "timed_out": false,
+      "evaluation_seconds": 0.0,
+      "error": "empty response",
+      "request_audit": {
+        "message_count": 2,
+        "full_plus_suite_in_request": false,
+        "request_feedback_present": false,
+        "cached_response_chars": 0,
+        "logged_response_chars": 0
+      }
+    },
+    {
+      "job_id": "dim4_he_completion_HumanEval_39|deepseek-flash",
+      "task_id": "dim4_he_completion_HumanEval_39",
+      "root_model": "deepseek-flash",
+      "source": "he",
+      "branch": "retry",
+      "k": 2,
+      "base_pass": true,
+      "plus_pass": true,
+      "plus_fraction": 1.0,
+      "failure_kind": "passed",
+      "timed_out": false,
+      "evaluation_seconds": 3.1225,
+      "error": null,
+      "request_audit": {
+        "message_count": 4,
+        "full_plus_suite_in_request": false,
+        "request_feedback_present": true,
+        "cached_response_chars": 784,
+        "logged_response_chars": 784
+      }
+    },
+    {
+      "job_id": "dim4_he_completion_HumanEval_99|deepseek-flash",
+      "task_id": "dim4_he_completion_HumanEval_99",
+      "root_model": "deepseek-flash",
+      "source": "he",
+      "branch": "root",
+      "k": 1,
+      "base_pass": false,
+      "plus_pass": false,
+      "plus_fraction": 0.0,
+      "failure_kind": "empty_response",
+      "timed_out": false,
+      "evaluation_seconds": 0.0,
+      "error": "empty response",
+      "request_audit": {
+        "message_count": 2,
+        "full_plus_suite_in_request": false,
+        "request_feedback_present": false,
+        "cached_response_chars": 0,
+        "logged_response_chars": 0
+      }
+    },
+    {
+      "job_id": "dim4_he_completion_HumanEval_99|deepseek-flash",
+      "task_id": "dim4_he_completion_HumanEval_99",
+      "root_model": "deepseek-flash",
+      "source": "he",
+      "branch": "fresh",
+      "k": 2,
+      "base_pass": false,
+      "plus_pass": false,
+      "plus_fraction": 0.0,
+      "failure_kind": "empty_response",
+      "timed_out": false,
+      "evaluation_seconds": 0.0,
+      "error": "empty response",
+      "request_audit": {
+        "message_count": 2,
+        "full_plus_suite_in_request": false,
+        "request_feedback_present": false,
+        "cached_response_chars": 0,
+        "logged_response_chars": 0
+      }
+    },
+    {
+      "job_id": "dim4_he_completion_HumanEval_99|deepseek-flash",
+      "task_id": "dim4_he_completion_HumanEval_99",
+      "root_model": "deepseek-flash",
+      "source": "he",
+      "branch": "retry",
+      "k": 2,
+      "base_pass": false,
+      "plus_pass": false,
+      "plus_fraction": 0.0,
+      "failure_kind": "empty_response",
+      "timed_out": false,
+      "evaluation_seconds": 0.0,
+      "error": "empty response",
+      "request_audit": {
+        "message_count": 4,
+        "full_plus_suite_in_request": false,
+        "request_feedback_present": true,
+        "cached_response_chars": 0,
+        "logged_response_chars": 0
+      }
+    }
+  ]
+}

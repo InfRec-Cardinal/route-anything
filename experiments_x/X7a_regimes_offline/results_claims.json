@@ -1,0 +1,83 @@
+{
+ "seed": 20260917,
+ "claims": [
+  {
+   "id": "C1",
+   "statement": "Lemma thm:surplus / eq:unified-identity hold for every policy of every regime (R1 ex-ante, R2 cascades incl. noisy verifiers and v_c, R3 chain trace and its variants, constants, oracle bound) on id_test, OOD176 and RouterBench, in dollars and (id_test) seconds; the four terms of eq:cascade-surplus sum to Q and S",
+   "kind": "IDENTITY",
+   "result": "486 policies x 1001 bootstrap rows: max |residual|/|eta| = 2.1e-14 (dollars), 1.9e-15 (seconds, 266 id_test policies); max decomposition residual 5.6e-14",
+   "verdict": "PASS",
+   "note": "Code check: the identity is algebra on paired outcomes (Y_B, C_B observed for every task); the R3 chain uses H = 1{Opus not run}, A = sum of cheap attempt costs."
+  },
+  {
+   "id": "C2",
+   "statement": "Ranking of the regimes by eta/eta_B (best policy per regime, paired 95% CIs): id_test (R3 = counterfactual ACRouter map + oracle cascade), OOD176 (R3 = released trace), RouterBench (R1 = our LR router, R3 = LR + oracle cascade)",
+   "kind": "IN-SAMPLE",
+   "result": "id_test: R1(6.32) > R2(2.00) > R3-cf(1.39); OOD176: R1(24.29) > R1-mem(13.25) > R3(2.59) > R2(1.91); RouterBench: R1(20.58) > R2(2.89) > R3-cf(1.39) (adjacent gaps CI-decided: id_test True, OOD176 True, RouterBench True). Under the quality floor eps <= 0.01: id_test R1(6.32) > R2(2.00) > R3-cf(1.39); OOD176 R3(2.59) > R2(1.91); RouterBench R2(2.89) > R3-cf(1.39) > R1(1.08)",
+   "verdict": "PASS",
+   "note": "Descriptive: the best policy of each regime is selected on the same sample it is evaluated on (in-sample selection); RouterBench R1 decisions come from a router fitted on the disjoint 70% split."
+  },
+  {
+   "id": "C3",
+   "statement": "Where the in-loop verification of the R3-OOD trace pays: four-term decomposition of its net gain against always-Opus and the same terms for its chain variants (single primary + oracle -> Opus; longer chains; unconditional / gated / no escalation)",
+   "kind": "IN-SAMPLE",
+   "result": "R3 trace: eta/eta_B 2.59 [1.97, 3.54], E[V] 0.733 [0.670, 0.795] vs Opus 0.636, E[D] $0.493 vs $1.107; net gain 0.783 [0.549, 1.057] $/task = avoided reference work 0.876 - attempt cost 0.262 + accepted quality change/eta_B +0.168 - recovery 0.000; e = 0.051. Variants: MiniMax + oracle -> Opus (R2) 1.41 [1.25, 1.65]; chain[4] always escalate 1.66 [1.41, 2.11] (E[V] 0.784); chain[4] never escalate 4.72 [3.79, 5.97] (E[V] 0.710). Gate 'applied_in_cheap >= 2' as a signal for Opus success among chain-failed tasks: P(Opus resolves | escalated) = 0.14 vs P(Opus resolves | not escalated) = 0.41; TPR 0.31, FPR 0.66. 168/469 attempts are unrecorded runs billed at $0 (imputed-cost sensitivity: eta/eta_B 1.75)",
+   "verdict": "PASS",
+   "note": "Descriptive. The trace is a deterministic replay of the outcome matrix (verified 176/176), so its verifier is the ground-truth test outcome (TPR = 1, FPR = 0 by construction) and erroneous acceptance comes only from the give-up branch (chain exhausted, no escalation)."
+  },
+  {
+   "id": "C4",
+   "statement": "R1 lookup/ex-ante routers versus R2 oracle cascades under the quality floor E[V] >= vbar - eps: which policies satisfy eps <= 0.01, and how the efficiency ranking changes under the floor",
+   "kind": "IN-SAMPLE",
+   "result": "id_test: R1 10/10 satisfy eps=0.01 (eps=0.05: 10), R2 14/14 (theta=1: Q >= 0 for all: True); OOD176: R1 0/5, R2 7/7, R3 trace 1; RouterBench: R1 1/5, R2 20/20. Floor-feasible bests (eta/eta_B): id_test R1: routellm_mf (6.32), R2: Qwen3-Max \u03b8=0.5 (2.00), R3-cf: ACRouter map + oracle \u03b8=0.5 -> Opus (1.39); OOD176 R2: gpt-5.4 + oracle (1.91), R3: ACRouter chain (k=2) (2.59); RouterBench R1: LR (lambda=0\u03b7_B) (1.08), R2: gpt-3.5-turbo-1106 \u03b8=0.5 (2.89), R3-cf: LR (lambda=1\u03b7_B) + oracle theta=1 (1.39)",
+   "verdict": "PASS",
+   "note": "In-sample classification with CI-decided flags per policy (see the floor table). At theta = 1 an oracle hit has Y_P = 1 >= Y_B, so Q >= 0 is automatic for R2; R1 routers trade quality for cost and can violate the floor while winning on eta."
+  },
+  {
+   "id": "C5",
+   "statement": "X7 live parts: R2 with real verifiers (LLM judge, sandbox in-prompt tests) and R3 on id_test (ACRouter release mode + escalation variant), and the operating-point prediction of the R3 - R2 sign from measured (kappa_ver, TPR, FPR, cbar_h)",
+   "kind": "NOT-INSTANTIABLE",
+   "result": "Not measurable offline: ACRouter ID mode dispatches once per task (no within-task escalation in the released id_decisions.jsonl), the released routers ship no verifier scores, and the only R3 trace (OOD176) uses the ground-truth test outcome as its verifier",
+   "verdict": "NOT-INSTANTIABLE",
+   "note": "Pending X7-b (collection A/B). The offline counterfactual \"ACRouter map + oracle verify-then-escalate\" is reported as what the live id_test variant would reach with a perfect, free verifier (the verifier-side bound: e = 0 at theta = 1, no verification cost); it is not an efficiency bound, see deviation 1 and the per-decision optimal-escalation bound."
+  }
+ ],
+ "audit": {
+  "acrouter_id_map_r_independent": 1.7445047714384538,
+  "acrouter_id_map_r_pipeline": 1.7445047714384538,
+  "r3_ood_trace_r_independent": 2.588760015921357,
+  "r3_ood_trace_r_pipeline": 2.5887600159213573,
+  "rb_mixtral_theta1_r_independent": 1.288286420148051,
+  "rb_mixtral_theta1_r_pipeline": 1.288286420148051,
+  "acrouter_release_metrics_reproduced": {
+   "AvgPerf": 50.1435834189791,
+   "paper_AvgPerf": 50.14,
+   "paper_total_usd": 22.31,
+   "paper_perf_per_usd": 2.25
+  },
+  "trace_check": {
+   "chain_run_identical": true,
+   "resolved_identical": true,
+   "escalated_identical": true,
+   "cost_max_abs_diff_usd": 5.000000000143778e-07,
+   "n_steps": {
+    "1": 62,
+    "2": 18,
+    "3": 42,
+    "4": 25,
+    "5": 29
+   },
+   "n_escalated": 29,
+   "n_attempts_total": 469,
+   "n_cheap_attempts_unrecorded": 168,
+   "n_tasks_with_unrecorded_attempt": 91,
+   "metrics_reproduced": {
+    "AvgPerf": 73.29545454545455,
+    "total_usd": 86.71817485,
+    "perf_per_usd": 0.8452144509756659
+   }
+  },
+  "max_abs_rel_diff": 2.220446049250313e-16
+ },
+ "runtime_s": 70.5
+}

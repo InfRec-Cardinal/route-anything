@@ -1,0 +1,79 @@
+{
+ "experiment_id": "X8_operating_point",
+ "seed": 20260917,
+ "claims": [
+  {
+   "id": "C1",
+   "kind": "OUT-OF-SAMPLE",
+   "statement": "The sign of eta(theta) - eta_B is predicted by the floor pi0 TPR(theta) b >= vbar a without FPR; adding FPR does not improve the sign prediction",
+   "result": "416 CI-decided distinct operating points (of 450): floor without FPR 0.976; with FPR added as p b 0.892 (disagrees with the FPR-free floor in 35 cells, floor right in 1.00 of them); with FPR penalized 0.950 (disagrees in 23, floor right in 0.74); general affine form with beta's 0.981 (disagrees in 2); plug-in probing sign 0.986; naive baselines always+ 0.296 / majority 0.704 / per-basis majority 0.829; by basis usd 0.948 (n=194), sec 1.000 (n=222)",
+   "verdict": "PASS"
+  },
+  {
+   "id": "C2",
+   "kind": "OUT-OF-SAMPLE",
+   "statement": "The general all-accept condition a beta0 <= pi0 b (probing) predicts whether theta = 0 is realized-optimal on id_test (sufficient condition)",
+   "result": "90 cells (verifier x primary x basis x [source]): general condition a beta0 <= pi0 b predicts theta=0 optimal in 53 cells, realized in 0.925 of them (4 violations); agreement 0.878 vs majority baseline 0.622; homogeneous form agreement 0.767 (sufficiency 0.927); CI-decided cells 59: agreement 0.932, sufficiency 0.919; dollars: theta=0 realized-optimal share 0.89, seconds: 0.36; violations: V1/kimi-k2.5/usd/he: probing a/b 0.023 vs pi0/beta0 0.085, id_test a/b 0.023 vs pi0/beta0 0.000 (condition on id_test itself: False), eta(0)-eta(best) CI -133.089 [-163.000, -111.370]; V2/kimi-k2.5/usd/he: probing a/b 0.023 vs pi0/beta0 0.085, id_test a/b 0.023 vs pi0/beta0 0.000 (condition on id_test itself: False), eta(0)-eta(best) CI -119.543 [-149.022, -98.110]; V3/kimi-k2.5/usd/hex: probing a/b 1.009 vs pi0/beta0 1.141, id_test a/b 1.260 vs pi0/beta0 0.980 (condition on id_test itself: False), eta(0)-eta(best) CI -1.637 [-6.269, 0.000]; oracle/kimi-k2.5/usd/he: probing a/b 0.023 vs pi0/beta0 0.085, id_test a/b 0.023 vs pi0/beta0 0.000 (condition on id_test itself: False), eta(0)-eta(best) CI -119.543 [-149.022, -98.110]",
+   "verdict": "PASS"
+  },
+  {
+   "id": "C3",
+   "kind": "OUT-OF-SAMPLE",
+   "statement": "theta_min(eps) from Q >= -eps and argmax_theta eta(theta), both predicted from probing primitives, lie inside the realized id_test bootstrap intervals",
+   "result": "theta_min(eps): predicted (model-based, probing) inside the realized 95% bootstrap interval in 0.950 of 360 cells (plug-in 0.956; naive theta_min=0 0.383; exact match 0.683); by eps: 0.0: 0.93, 0.01: 0.93, 0.02: 0.96, 0.05: 0.98; argmax theta: inside 0.900 of 90 cells (plug-in 0.911; naive 0 0.711; exact 0.844); pooled-only cells: theta_min 1.00, argmax 0.91",
+   "verdict": "PASS"
+  },
+  {
+   "id": "C4",
+   "kind": "DIAGNOSTIC",
+   "statement": "Monotone likelihood ratio of Sigma per verifier (diagnostic) and its implication: under MLR the admissible thresholds {Q >= -eps} form an interval [theta_min, inf)",
+   "result": "V1: MLR holds in 0/3 primaries (LR violations [1, 1, 1], ROC concavity violations [1, 1, 1]); V2: MLR holds in 2/3 primaries (LR violations [1, 0, 0], ROC concavity violations [2, 2, 1]); V3: MLR holds in 2/2 primaries (LR violations [0, 0], ROC concavity violations [10, 10]); oracle: MLR holds in 3/3 primaries (LR violations [0, 0, 0], ROC concavity violations [0, 0, 0]); realized admissible set {theta: Q >= -eps} is an interval in V1 1.00, V2 1.00, V3 0.97, oracle 1.00 of (primary x basis x eps x source) cells; implication MLR => interval: realized admissible set is an interval in 0.991 of the 232 cells whose (verifier, primary) has MLR on probing",
+   "verdict": "PASS"
+  },
+  {
+   "id": "C5",
+   "kind": "DIAGNOSTIC",
+   "statement": "Sigma is conditionally independent of Y_B given the primary's correctness (no trend of P(Y_B=1 | Y, Sigma-bin)); also tested within source (task difficulty confounder)",
+   "result": "pooled: 8/16 stratum tests reject independence at 5% (permutation Spearman trend, probing); within-source (Y_B permuted within source): 0/10 reject (5 further tests degenerate: fewer than 10 informative points, i.e. the score hardly varies within a source in that stratum); V1/Qwen3-Max: Y=1 rho +0.11 (p 0.035; within-source -0.06, p 0.525) | Y=0 rho -0.32 (p 0.000; within-source +0.11, p 1.000); beta1(theta) 0.91-0.94, beta0(theta) 0.30-0.39; V1/kimi-k2.5: Y=1 rho +0.03 (p 0.586; within-source -0.05, p 0.557) | Y=0 rho -0.28 (p 0.000; within-source +nan, p nan); beta1(theta) 0.93-0.94, beta0(theta) 0.37-0.47; V1/qwen3.5-plus: Y=1 rho +0.04 (p 0.409; within-source -0.06, p 0.387) | Y=0 rho -0.10 (p 0.218; within-source +0.26, p 0.370); beta1(theta) 0.93-0.95, beta0(theta) 0.22-0.24; V2/Qwen3-Max: Y=1 rho -0.01 (p 0.626; within-source +0.12, p 0.162) | Y=0 rho +0.31 (p 0.000; within-source -0.01, p 0.912); beta1(theta) 0.91-0.91, beta0(theta) 0.39-0.72; V2/kimi-k2.5: Y=1 rho +0.08 (p 0.261; within-source +0.20, p 0.090) | Y=0 rho -0.00 (p 0.938; within-source -0.08, p 0.293); beta1(theta) 0.93-0.93, beta0(theta) 0.33-0.48; V2/qwen3.5-plus: Y=1 rho +0.11 (p 0.187; within-source +0.18, p 0.101) | Y=0 rho +0.12 (p 0.160; within-source +0.02, p 0.932); beta1(theta) 0.94-0.94, beta0(theta) 0.24-0.38; V3/Qwen3-Max: Y=1 rho +0.18 (p 0.001; within-source +0.11, p 0.119) | Y=0 rho -0.24 (p 0.001; within-source -0.00, p 0.974); beta1(theta) 0.91-0.95, beta0(theta) 0.28-0.40; V3/kimi-k2.5: Y=1 rho +0.16 (p 0.010; within-source +0.12, p 0.075) | Y=0 rho -0.52 (p 0.000; within-source -0.11, p 0.138); beta1(theta) 0.92-0.96, beta0(theta) 0.22-0.47",
+   "verdict": "FAIL"
+  },
+  {
+   "id": "C6",
+   "kind": "IN-SAMPLE",
+   "statement": "A cheap imperfect verifier (V1 visible tests) at its best floor-respecting theta (eps = 0.02, chosen on id_test: IN-SAMPLE) vs the oracle cascade (theta = 1 on the released score), vs the reference (always-Opus, no verifier) and vs accept-all (primary alone, floor-violating); in addition the operating-point floor predicts V1's sign vs the reference at the theta chosen from probing (OUT-OF-SAMPLE sub-test, verdict criterion)",
+   "result": "over 6 (primary x basis) cells, V1 at its in-sample floor-respecting theta beats the oracle cascade in 0, the reference in 1 (1 with CI excluding 0) and accept-all in 0; at the theta chosen from probing the floor pi0 TPR b >= vbar a predicts the realized sign vs the reference in 5/5 CI-decided cells (verdict criterion); the constant-b model-based eta/eta_B lies inside the realized CI in 2/6 (reported only: the model ignores the selection effect cbar_h != b, vbar_h != vbar and is expected to over-predict, cf. the paper's instance and X1); Qwen3-Max|usd: V1 theta*=0.55 (TPR 0.22, FPR 0.01) r=1.06 [1.03,1.10] vs oracle theta=1 2.46, accept-all 19.65 (Q +0.045 / floor-violating), reference 1; V1 - oracle -1.40 eta_B [-2.00,-0.98], V1 - reference +0.06 eta_B [+0.02,+0.11]; V3 theta*=0.2 r=1.14 [1.04,1.26]; Qwen3-Max|sec: V1 theta*=0.55 (TPR 0.22, FPR 0.01) r=0.40 [0.38,0.42] vs oracle theta=1 0.54, accept-all 0.56 (Q +0.045 / floor-violating), reference 1; V1 - oracle -0.14 eta_B [-0.17,-0.11], V1 - reference -0.60 eta_B [-0.67,-0.54]; V3 theta*=0.3 r=0.08 [0.08,0.09]; kimi-k2.5|usd: V1 theta*=0.55 (TPR 0.19, FPR 0.01) r=0.99 [0.97,1.01] vs oracle theta=1 1.62, accept-all 11.18 (Q +0.039 / floor-violating), reference 1; V1 - oracle -0.63 eta_B [-0.89,-0.44], V1 - reference -0.01 eta_B [-0.03,+0.01]; V3 theta*=0.9 r=0.66 [0.62,0.71]; kimi-k2.5|sec: V1 theta*=0.55 (TPR 0.19, FPR 0.01) r=0.41 [0.38,0.44] vs oracle theta=1 0.52, accept-all 0.48 (Q +0.039 / floor-violating), reference 1; V1 - oracle -0.11 eta_B [-0.14,-0.09], V1 - reference -0.59 eta_B [-0.66,-0.53]; V3 theta*=0.95 r=0.10 [0.09,0.10]; qwen3.5-plus|usd: V1 theta*=0.55 (TPR 0.21, FPR 0.00) r=0.84 [0.81,0.87] vs oracle theta=1 1.54, accept-all 3.18 (Q +0.042 / floor-violating), reference 1; V1 - oracle -0.70 eta_B [-0.91,-0.53], V1 - reference -0.16 eta_B [-0.20,-0.12]; qwen3.5-plus|sec: V1 theta*=0.55 (TPR 0.21, FPR 0.00) r=0.09 [0.08,0.10] vs oracle theta=1 0.10, accept-all 0.09 (Q +0.042 / floor-violating), reference 1; V1 - oracle -0.01 eta_B [-0.01,-0.01], V1 - reference -0.91 eta_B [-1.00,-0.82]",
+   "verdict": "PASS"
+  },
+  {
+   "id": "J",
+   "kind": "LIVE",
+   "statement": "Judge calibration (Addendum): best AUROC over the 5 configurations on 60 items; AUROC >= 0.75 required to use the judge without a flag",
+   "result": "best grok46 (grok-4.6, thinking=False): AUROC 0.842 [0.7291294642857142, 0.9343275138492529] accuracy 0.683; dsv4pro_think: 0.658, dsv4pro_nothink: 0.656, dsflash: 0.734, qwen3max: 0.583, grok46: 0.842",
+   "verdict": "PASS"
+  }
+ ],
+ "audit": {
+  "eta_ratio_V2_Qwen3Max_theta1_usd": {
+   "audit": 2.3934909644071753,
+   "main": 2.3934909644071753,
+   "match": true
+  },
+  "TPR_FPR_V1_Qwen3Max_theta05_probing": {
+   "audit": [
+    0.6925465838509317,
+    0.7415730337078652
+   ],
+   "main": [
+    0.6925465838509317,
+    0.7415730337078652
+   ],
+   "match": true
+  },
+  "judge_best_auroc": {
+   "audit": 0.8416666666666667,
+   "main": 0.8416666666666667,
+   "match": true
+  },
+  "identity_max_rel_resid": 4.947182378081712e-15
+ }
+}

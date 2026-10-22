@@ -1,0 +1,47 @@
+{
+  "resamples": 2000,
+  "seed": 20260923,
+  "results": [
+    {
+      "model": "Qwen3-Max",
+      "threshold": 0.5,
+      "tasks": 334,
+      "ceiling_usd": 0.0033004370006328803,
+      "interval_usd": [
+        0.0028491570352266807,
+        0.0037856764936148113
+      ]
+    },
+    {
+      "model": "Qwen3-Max",
+      "threshold": 1.0,
+      "tasks": 334,
+      "ceiling_usd": -0.00024681191616766473,
+      "interval_usd": [
+        -0.00025612542065868286,
+        -0.00023362085179640753
+      ]
+    },
+    {
+      "model": "kimi-k2.5",
+      "threshold": 0.5,
+      "tasks": 334,
+      "ceiling_usd": 0.0024703437999610534,
+      "interval_usd": [
+        0.002028282451169262,
+        0.002974065207193133
+      ]
+    },
+    {
+      "model": "kimi-k2.5",
+      "threshold": 1.0,
+      "tasks": 334,
+      "ceiling_usd": -0.0003523020059880231,
+      "interval_usd": [
+        -0.0003886567559880249,
+        -0.0003177612806886235
+      ]
+    }
+  ],
+  "interpretation": "Paired percentile task bootstrap; all archived outputs and thresholds fixed. Reference efficiency is recomputed in each resample. Sampling uncertainty only; no actual vendor price inferred."
+}

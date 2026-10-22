@@ -1,0 +1,86 @@
+{
+  "design": "Exploratory point-statistic reanalysis after inspection of original held-out results. Primitive estimates use fitting tasks only. All comparisons are retained without bootstrap filtering. Contexts and portfolios share tasks.",
+  "cost_only": "r_m(S) times the fitting mean reference cost conditional on base-portfolio failure, minus the fitting mean candidate calling cost.",
+  "always_negative": "Predict a negative held-out efficiency change for every addition.",
+  "protocol": "Unchanged original splits, thresholds, contexts, portfolios and candidate filters from paired_portfolio_analysis. RouterBench theta=1 includes only nonbinary contexts. CodeRouterBench retains released missing rows.",
+  "CodeRouterBench": {
+    "fit_tasks": 7080,
+    "heldout_tasks": 2919,
+    "summary": {
+      "1.0": {
+        "comparisons": 674,
+        "correct": {
+          "paired": 632,
+          "residual": 616,
+          "independence": 482,
+          "cost_only": 550,
+          "always_negative": 417
+        },
+        "agreement_all": {
+          "paired": 0.9376854599406528,
+          "residual": 0.913946587537092,
+          "independence": 0.7151335311572701,
+          "cost_only": 0.8160237388724035,
+          "always_negative": 0.6186943620178041
+        }
+      },
+      "0.5": {
+        "comparisons": 958,
+        "correct": {
+          "paired": 908,
+          "residual": 892,
+          "independence": 682,
+          "cost_only": 818,
+          "always_negative": 641
+        },
+        "agreement_all": {
+          "paired": 0.9478079331941545,
+          "residual": 0.9311064718162839,
+          "independence": 0.7118997912317327,
+          "cost_only": 0.8538622129436325,
+          "always_negative": 0.6691022964509394
+        }
+      }
+    }
+  },
+  "RouterBench": {
+    "fit_tasks": 25542,
+    "heldout_tasks": 10955,
+    "summary": {
+      "0.5": {
+        "comparisons": 3602,
+        "correct": {
+          "paired": 3363,
+          "residual": 3357,
+          "independence": 3093,
+          "cost_only": 3347,
+          "always_negative": 1605
+        },
+        "agreement_all": {
+          "paired": 0.9336479733481399,
+          "residual": 0.9319822320932815,
+          "independence": 0.8586896168795114,
+          "cost_only": 0.9292059966685174,
+          "always_negative": 0.4455857856746252
+        }
+      },
+      "1.0": {
+        "comparisons": 176,
+        "correct": {
+          "paired": 172,
+          "residual": 170,
+          "independence": 142,
+          "cost_only": 166,
+          "always_negative": 75
+        },
+        "agreement_all": {
+          "paired": 0.9772727272727273,
+          "residual": 0.9659090909090909,
+          "independence": 0.8068181818181818,
+          "cost_only": 0.9431818181818182,
+          "always_negative": 0.42613636363636365
+        }
+      }
+    }
+  }
+}
