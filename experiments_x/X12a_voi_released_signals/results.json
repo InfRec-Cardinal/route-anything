@@ -251,7 +251,7 @@
    }
   },
   "acrouter_release": {
-   "path": "data/agent-as-a-router/outputs_hf/outputs/current/id_decisions.jsonl",
+   "path": "data/agent-as-a-router/outputs/current/id_decisions.jsonl",
    "n_rows": 2919,
    "fields": {
     "chosen_model": [

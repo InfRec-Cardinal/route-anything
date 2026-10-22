@@ -29,7 +29,7 @@ data/
         ood176_tasks.jsonl
         models.json
       id/voter_decisions/
-    outputs_hf/outputs/
+    outputs/
   routerbench/
     routerbench_0shot.pkl
 ```
