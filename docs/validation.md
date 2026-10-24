@@ -1,5 +1,27 @@
 # Release validation
 
+## October 24, 2026 refresh
+
+All empirical checks below replay recorded outcomes locally. No model collection, GPU retraining, or Hugging Face upload was performed. Reproduction outputs were written to temporary directories, preserving the archived reference files.
+
+| Check | Outcome |
+| --- | --- |
+| CodeRouterBench quality-floor certification | Full 200 fitting/certification splits and 1,000 paired bootstrap replicates; all 1,047 reference numeric fields matched. |
+| RouterBench quality-floor certification | Full 200 halvings and 1,000 paired bootstrap replicates; all 349 certification reference numeric fields matched. A rerun after extracting the shared solver preserved the short-run results. |
+| Disjoint feedback/scoring retries (Table 14) | Full recorded-outcome replay with 2,000 task-cluster bootstrap resamples; all 734 numeric fields matched. There were 263 first-attempt failures and no missing retry samples. |
+| Omni-modal implementation checks | Syntax and trainer CLI checks; invented-data tests of missing-score baseline selection, identical train/test fallback semantics, shared method/seed panels, paired bootstrap differences, and leaf-table fitting passed. Type-plan generation and replay CLI also passed. |
+| Quality-floor synthetic example | Price-path monotonicity, a quality-constrained fractional program, and stopping at the first failed certificate passed without datasets or network. |
+| Learned-price CPU paths | Invented-data smoke: 100 fitting inputs, 40 test inputs, ten baseline paths, fifteen Frugal-style search chains, prompt parsing and aggregate output passed. This is not a full rerun of Tables 11–12. |
+| Analytical regression | Four coordinate CSVs and the summary still matched the earlier archive. |
+| Data download and runner | Download selection was checked with a mocked client against the legacy file inventory; explicit `--data-root` overrides dataset environment settings, while omission preserves them. |
+| Release contents | The omni-modal directory contains source, Markdown and dependency text only. No original records, matrices, split assignments, fitted tables, media, or weights were included. |
+
+Code/text numeric comparisons use relative tolerance `1e-8` and absolute tolerance `1e-10`. Full local certification runtimes were approximately 39 seconds (code) and 43 seconds (text); these are replay-analysis times, not inference latency. Missing-score tests use deliberately invented examples, not the proprietary matrix.
+
+CI compiles Python, checks command-line entry points, reruns the analytical checks, and runs the omni-modal, quality-floor and learned-price synthetic checks on Python 3.12. It does not download datasets or model weights. GPU training, the complete private omni-modal evaluation, and unbundled image/winner-label recipes have not been rerun. Newly documented aggregate manuscript results must not be presented as newly reproduced private-matrix results.
+
+## October 22, 2026 initial release
+
 The following checks were executed on 2026-10-22 while preparing this release. Experiments ran in a separate copy so the archived scientific result files remained unchanged. No paid model inference was performed.
 
 | Check | Outcome |

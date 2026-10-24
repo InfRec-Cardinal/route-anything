@@ -19,3 +19,10 @@ experiments_x/X8_operating_point/rows_*.csv
 experiments_x/X12b_llm_signal/signal_rows.csv
 experiments_x/common/budget.json
 experiments_x/common/usage_ledger.jsonl
+
+# The omni-modal release contains code and documentation only.
+experiments/omnimodal/**/*.json
+experiments/omnimodal/**/*.jsonl
+experiments/omnimodal/**/*.csv
+experiments/omnimodal/**/*.pt
+experiments/omnimodal/**/*.safetensors

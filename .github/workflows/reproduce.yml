@@ -15,4 +15,13 @@ jobs:
           cache: pip
       - run: python -m pip install -r requirements.txt
       - run: python -m compileall -q scripts experiments experiments_x
+      - run: python scripts/download_data.py --help
+      - run: python scripts/run_experiment.py --help
+      - run: python experiments/disjoint_retry/analyze.py --help
       - run: python scripts/reproduce.py --outdir runs/analytical
+      - name: Synthetic routing checks (no data or model downloads)
+        run: python experiments/omnimodal/synthetic_demo.py --out runs/omnimodal-synthetic
+      - name: Synthetic quality-floor checks (no data downloads)
+        run: python experiments/quality_floor/synthetic_demo.py
+      - name: Synthetic learned-price baselines (CPU only)
+        run: python experiments/learned_price/smoke.py --out runs/learned-price-synthetic

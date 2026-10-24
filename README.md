@@ -1,14 +1,34 @@
 # Route Anything
 
-**Experiment code for _Route Anything: A Theory of Inference Routers_.**
+**Experiment code for _Route Anything: an attempt for AGI through a simple omni-modal router_ (manuscript dated October 24, 2026).**
 
-When is it worth paying for another model, a verifier, a routing signal, or a stored decision? This repository evaluates those choices using reference-relative quality and resource accounting. It contains the paper's analytical examples, benchmark replays, collection scripts, and recorded aggregate results.
+A router chooses which model, generator, or robot policy should run for an input. The paper studies how much routing can gain, what learned routers recover, and when routing pays through price. Its theory chooses the arm with the highest expected value minus priced cost, with a reference policy and a quality tolerance fixing the operating point.
 
-[中文说明](README.zh-CN.md) · [Experiment guide](docs/experiments.md) · [Data and attribution](docs/data.md) · [Reproduction notes](docs/reproducibility.md) · [Hugging Face replay data](https://huggingface.co/datasets/Lance1573/route-anything-data)
+[中文说明](README.zh-CN.md) · [Paper-to-code map](docs/paper-map.md) · [Experiment guide](docs/experiments.md) · [Data](docs/data.md) · [Reproduction notes](docs/reproducibility.md) · [Validation](docs/validation.md)
+
+## Release scope
+
+| Setting | What this repository provides | Data availability |
+| --- | --- | --- |
+| Omni-modal routing, §§3–5 and Appendix B | Released router implementations and evaluation utilities; see [implementation coverage](experiments/omnimodal/README.md) | **The omni-modal outcome matrix is proprietary and is not released.** |
+| Priced code/text testbeds, §6 and Appendix C | Offline replay, quality-floor certification, collection utilities, and archived aggregate results | CodeRouterBench and the existing code/text replay bundle are public; RouterBench is obtained separately from upstream. |
+| Historical extensions | Analytical examples, allocation, latency, and optional stepwise experiments | Retained for continuity; they are not all experiments in the October manuscript. |
+
+No omni-modal matrix records, task-level derived tables, split files, embeddings, media, or trained checkpoints are included in the code release or uploaded to Hugging Face. The existing [Hugging Face replay bundle](https://huggingface.co/datasets/Lance1573/route-anything-data) covers the earlier code/text studies; it is **not** the paper's 25-benchmark omni-modal matrix. Reproducing the matrix-based empirical scores requires separately authorized data. Synthetic examples check code behavior, not those scores.
+
+## Findings in the current manuscript
+
+These are reported manuscript results, not claims that the public checkout recreates the private evaluation:
+
+- On 19,814 complete-panel test inputs from 24 benchmarks, the per-input oracle scores 87.98 versus 82.60 for the training-selected fixed arm. The underlying matrix spans 25 benchmarks; SciCode is excluded from this headroom panel.
+- The capability-tree router scores 79.98 versus 79.68 on its separate 3,444-input panel. Outcome regression reaches 71.55% robot success versus 42.8% for winner-label prediction.
+- The fitted zero-loss code route reaches 25.5× reference efficiency with a 0.44-point test quality loss. Independent floor certification holds on test in all 200 reported splits at a median 19.4×. The empirical split count is not a universal guarantee.
+
+Evaluation panels have different inputs and baselines. [The paper map](docs/paper-map.md) records section and table correspondence, units, and reproduction limits.
 
 ## Quick start
 
-Python 3.11 or newer is recommended. CPU replay uses NumPy, pandas, SciPy, Matplotlib, and scikit-learn. GPU generation is a separate optional experiment.
+Use Python 3.11 or newer for CPU analyses:
 
 ```bash
 git clone https://github.com/InfRec-Cardinal/route-anything.git
@@ -19,62 +39,46 @@ python -m pip install -r requirements.txt
 python scripts/reproduce.py --outdir runs/analytical
 ```
 
-On Windows, activate the environment with `.venv\Scripts\Activate.ps1`.
+On Windows, activate the environment with `.venv\Scripts\Activate.ps1`. The analytical command needs no dataset or API key. It checks finite examples and recurrence formulas and writes figures, four coordinate tables, and a summary. These are mathematical illustrations retained from the earlier release.
 
-The analytical command needs no dataset or API key. It writes `allocation.pdf`, `memory.pdf`, four coordinate tables, and `summary.json`. Built-in assertions check the exact finite examples and recurrence formulas. These figures evaluate specified mathematical models; they are separate from benchmark measurements.
+For the current manuscript's learned routers and certification studies, follow [omni-modal code](experiments/omnimodal/README.md) and [quality-floor certification](experiments/quality_floor/README.md). GPU training dependencies are separate from CPU replay.
 
-## Reproduce benchmark experiments
+## Reproduce public code/text experiments
 
-Obtain the datasets using the instructions in [docs/data.md](docs/data.md), then run from the repository root:
+Download the existing code/text records, then run an offline experiment:
 
 ```bash
+python scripts/download_data.py
 python scripts/run_experiment.py X2
 python scripts/run_experiment.py X10
 ```
 
-For data stored elsewhere:
+RouterBench must be obtained separately as described in [data instructions](docs/data.md). For an existing data directory:
 
 ```bash
 python scripts/run_experiment.py X2 --data-root /path/to/data
 ```
 
-The expected layout is `data/agent-as-a-router/data/coderouterbench/` and `data/routerbench/routerbench_0shot.pkl`. The runner also accepts the existing `ACROUTER_DATA`, `ACROUTER_OUTPUTS`, and `ROUTERBENCH_PKL` environment settings. Individual scripts expose further arguments where applicable.
+The expected layout includes `data/agent-as-a-router/data/coderouterbench/` and `data/routerbench/routerbench_0shot.pkl`. Historical scripts write into their experiment folders; use a separate checkout for reruns if you want to preserve the archived outputs. See the [experiment guide](docs/experiments.md) for inputs and commands supported by each study.
 
-Historical scripts write result files and figures into their experiment folders. Use a separate checkout to keep the recorded results untouched. Fixed seeds, fitting/evaluation splits, and original result files are retained so a rerun can be compared with the archive.
-
-## Experiments
-
-| Question | Experiments | Execution |
-| --- | --- | --- |
-| Which model adds useful portfolio coverage? | X2, X11; paired and repeated-split analyses | Offline benchmark replay |
-| When should a failed attempt continue or escalate? | X3, X10, X7a; X7b feedback/retry | Offline replay; optional fresh collection |
-| Does verification remain useful after its cost? | X8; verifier-price analyses | Archived verdict replay; optional fresh collection |
-| Which finite-menu policy satisfies a quality target? | X9 | Offline fitting and held-out evaluation |
-| Is a routing signal worth buying? | X12a, X12b, X12c | Released decisions and archived call replay |
-| When do stored decisions help? | X13; X4 ideal-write control | Archived verdicts and simulated arrival streams |
-| Where do simple allocation or cost models fail? | X6, X16; X5 latency sensitivity | Offline analysis |
-| How does stepwise routing interact with cache transfer? | R6 | Optional GPU generation and recorded score analysis |
-
-The [experiment guide](docs/experiments.md) gives entry points and input requirements. Collection scripts require your own compatible endpoint and credentials through `ROUTER_API_BASE_URL` and `ROUTER_API_KEY`. Historical model names and prices describe the archived runs; availability depends on your provider. Offline commands do not require a service account.
+Fresh collection requires an explicitly configured service through `ROUTER_API_BASE_URL` and `ROUTER_API_KEY`. Recorded model names, prices, and relay identities describe the historical experiment. Offline replay needs no service account.
 
 ## Repository layout
 
 ```text
-scripts/             analytical reproduction, data download, offline runner
-experiments/         original X2–X6 studies and follow-up analyses
-experiments_x/       X7–X13, X16, shared collection utilities, optional R6
-numerical_results/   reference coordinates for the analytical figures
-docs/                experiment map, provenance, reproduction and validation
+experiments/omnimodal/      router code; no proprietary matrix or artifacts
+experiments/quality_floor/  independent quality-floor certification on code/text
+experiments/learned_price/  CPU learned quality/cost routers and baselines
+experiments/disjoint_retry/ disjoint feedback/scoring retry analysis
+experiments/               X2–X6 and follow-up code/text analyses
+experiments_x/             X7–X13, X16, collection utilities, historical R6
+scripts/                   analytical checks, code/text download and replay runner
+numerical_results/         analytical reference coordinates
+docs/                      paper map, data scope, reproduction and validation
 ```
 
-Per-task inputs are distributed separately from the code. Aggregate results and figure assets remain beside the corresponding experiment. This release contains the experimental implementation, rather than the manuscript editing workspace.
+Efficiency is the ratio of mean quality to mean resource use, not a mean of per-task ratios. Costs in dollars and time are separate resources. A fitted floor and an independently certified floor answer different questions; oracle verification is a replay assumption, not a deployed verifier. The repository preserves negative results and limitations alongside positive ones.
 
-## Reading the results
+## License and citation
 
-Efficiency is the ratio of mean delivered value to mean resource use. Dollar cost, elapsed time, and quality are reported separately. The reference model and evaluated population are part of each comparison.
-
-The analyses are exploratory. Several experiments reuse tasks or constructed streams, so comparison counts are not independent sample counts. An oracle-verifier replay does not establish deployable verification, and a fitted quality constraint does not guarantee the same quality on unseen tasks. The archive retains negative results and model-fit limitations; see the [reproduction notes](docs/reproducibility.md).
-
-## License
-
-The project code is released under the [MIT license](LICENSE). Third-party datasets, model weights, and benchmark tasks retain their upstream terms; see [data attribution](docs/data.md).
+The project code uses the [MIT license](LICENSE). Dataset, benchmark, and model licenses remain with their upstream sources. The code license grants no access to the proprietary matrix. Use [CITATION.cff](CITATION.cff) for the current manuscript authors and title.

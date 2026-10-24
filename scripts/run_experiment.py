@@ -26,13 +26,23 @@ EXPERIMENTS = {
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("experiment", choices=EXPERIMENTS)
-    parser.add_argument("--data-root", type=Path, default=ROOT / "data")
+    parser.add_argument(
+        "--data-root", type=Path,
+        help="data directory; an explicit value overrides the dataset environment settings",
+    )
     args = parser.parse_args()
-    data_root = args.data_root.expanduser().resolve()
+    data_root = (args.data_root if args.data_root is not None else ROOT / "data").expanduser().resolve()
     environment = os.environ.copy()
-    environment.setdefault("ACROUTER_DATA", str(data_root / "agent-as-a-router/data"))
-    environment.setdefault("ACROUTER_OUTPUTS", str(data_root / "agent-as-a-router/outputs"))
-    environment.setdefault("ROUTERBENCH_PKL", str(data_root / "routerbench/routerbench_0shot.pkl"))
+    dataset_paths = {
+        "ACROUTER_DATA": str(data_root / "agent-as-a-router/data"),
+        "ACROUTER_OUTPUTS": str(data_root / "agent-as-a-router/outputs"),
+        "ROUTERBENCH_PKL": str(data_root / "routerbench/routerbench_0shot.pkl"),
+    }
+    for key, value in dataset_paths.items():
+        if args.data_root is not None:
+            environment[key] = value
+        else:
+            environment.setdefault(key, value)
     environment.setdefault("MPLBACKEND", "Agg")
     command = [sys.executable, str(ROOT / EXPERIMENTS[args.experiment])]
     raise SystemExit(subprocess.call(command, cwd=ROOT, env=environment))

@@ -1,10 +1,12 @@
-# Data and provenance
+# Code/text replay data and provenance
 
 ## Distribution status
 
-The code release includes aggregate results and analytical coordinates. The per-task replay bundle is published at [Lance1573/route-anything-data](https://huggingface.co/datasets/Lance1573/route-anything-data).
+The public replay bundle at [Lance1573/route-anything-data](https://huggingface.co/datasets/Lance1573/route-anything-data) covers the earlier **code/text testbeds**: CodeRouterBench and related routing, retry, verification, signal and memory experiments. These support the current paper's Appendix C. RouterBench is obtained separately from its upstream source.
 
-The analytical quick start works without the bundle. The core outcome-matrix experiments can use the public upstream releases below. Experiments that depend on the authors' archived calls need the replay bundle, or new collection using your own service.
+The paper's **omni-modal outcome matrix is not public**. Its raw and derived records, media, split files and trained checkpoints are not included in the public data release and are not downloaded by `scripts/download_data.py`. The code/text bundle does not reproduce the paper's 25-benchmark omni-modal studies.
+
+The code/text release includes analytical coordinates and recorded aggregate results. The analytical quick start needs no dataset. Code/text experiments use the public upstream releases below; experiments that depend on the authors' archived calls also need the legacy replay bundle or new collection using your own service.
 
 ## Public inputs
 
@@ -36,23 +38,27 @@ data/
 
 For example, if the Agent-as-a-Router release is already available locally, set `ACROUTER_DATA` to its `data` folder and `ACROUTER_OUTPUTS` to its released `outputs` folder. Set `ROUTERBENCH_PKL` to the 0-shot matrix. The runner's `--data-root` accepts the parent directory shown above.
 
-## Replay bundle
+## Download the legacy code/text replay bundle
 
-The prepared bundle preserves the code's paths under `data/` and `experiments_x/`. It includes X7b attempts and recorded responses; X8 samples, sandbox results and judge verdicts; X12b forecasts; X12c direct-choice calls; X13 verdicts; and the upstream outcome tables and decision records needed to join them by task ID. The dataset card records each file and source. Optional R6 contains score records, not the historical raw token continuations.
+The legacy bundle preserves the code's paths under `data/` and `experiments_x/`. The downloader selects CodeRouterBench outcome tables, task metadata, released decisions and recorded code responses; X7b attempts; X8 samples, sandbox results and judge verdicts; X12b forecasts; X12c direct-choice calls; X13 verdicts; and the shared code-task cache. The dataset card records each file and source.
 
-Download the dataset repository into the checkout with:
+The legacy file `data/agent-as-a-router/data/matrices/phase1_acrouter_v2/response_matrix.json` contains **code-benchmark responses**. Its name does not refer to the new omni-modal outcome matrix.
+
+Download the code/text inputs into the checkout with:
 
 ```bash
-python scripts/download_data.py --repo-id OWNER/DATASET_NAME
+python scripts/download_data.py
 ```
 
-The published identifier is `Lance1573/route-anything-data`. The downloader selects only `data/` and `experiments_x/`, so the dataset card does not replace this repository's README. Per-task files and caches are excluded from Git.
+The default repository is `Lance1573/route-anything-data`. To choose another compatible **code/text** bundle explicitly, pass `--repo-id OWNER/DATASET_NAME`; `--revision` selects its revision and `--root` selects the destination checkout.
+
+The downloader uses an explicit list of legacy input paths rather than selecting all of `data/` or `experiments_x/`. It does not fetch the omni-modal matrix, optional R6 stepwise records, or dataset documentation over this repository's README. Per-task inputs and caches are excluded from Git. Obtain the RouterBench matrix directly from its upstream release and place it at the path shown above.
 
 ## Task reconstruction and new collection
 
 The shared loader can reconstruct original tasks from local Hugging Face snapshots. It respects `HF_HUB_CACHE` and `HF_HOME_HUB`; its `FIELD_MAP` in `experiments_x/common/sources.py` records the source-specific mapping. Source reconstruction is needed by some historical collection and replay scripts. Use the individual experiment instructions for the required inputs.
 
-New model collection uses `ROUTER_API_BASE_URL` and `ROUTER_API_KEY`. Recorded backend scores remain replayed unless the experiment explicitly reruns those backends. The R6 generation scripts require their separately documented GPU stack and model checkpoints.
+New code/text model collection uses `ROUTER_API_BASE_URL` and `ROUTER_API_KEY`. Recorded backend scores remain replayed unless the experiment explicitly reruns those backends. Optional R6 generation uses a separate GPU stack and public model checkpoints, documented in its experiment folder; this is independent of the private omni-modal matrix.
 
 ## Attribution and terms
 
@@ -62,4 +68,4 @@ The inspected RouterBench snapshot did not contain an explicit dataset license. 
 
 ## Interpretation
 
-The original matrix includes missing runs encoded as zero-cost failures and zero-latency rows. The scripts preserve those values unless a named sensitivity excludes or imputes them. See [reproduction notes](reproducibility.md) for population counts, grading diagnostics, price assumptions, and the distinction between fixed-matrix replay and new inference.
+The original CodeRouterBench matrix includes missing runs encoded as zero-cost failures and zero-latency rows. The scripts preserve those values unless a named sensitivity excludes or imputes them. See [reproduction notes](reproducibility.md) for population counts, grading diagnostics, price assumptions, and the distinction between fixed-matrix replay and new inference.

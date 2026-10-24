@@ -6,5 +6,25 @@ authors:
   - name: InfRec-Cardinal
 repository-code: "https://github.com/InfRec-Cardinal/route-anything"
 license: MIT
-version: 0.1.0
-date-released: 2026-10-22
+version: 0.2.0
+date-released: 2026-10-24
+preferred-citation:
+  type: report
+  title: "Route Anything: an attempt for AGI through a simple omni-modal router"
+  authors:
+    - family-names: Zhou
+      given-names: Pengfei
+    - family-names: Ma
+      given-names: Yixing
+    - family-names: Wang
+      given-names: Hexin
+    - family-names: Tang
+      given-names: Weidong
+    - family-names: Wan
+      given-names: Zhenglin
+    - family-names: Zhao
+      given-names: Wangbo
+    - family-names: You
+      given-names: Yang
+  year: 2026
+  date-published: 2026-10-24
